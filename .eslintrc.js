@@ -1,4 +1,7 @@
 module.exports = {
+  "settings": {
+    version: "17.0.1"
+  },
   'env': {
     'browser': true,
     'es6': true,
