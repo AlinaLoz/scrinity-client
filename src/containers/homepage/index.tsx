@@ -4,7 +4,7 @@ interface IIndexProps {
   testString: string;
 }
 
-const Index: React.FC<IIndexProps> = ({ testString }) => {
+const Index: React.FC<IIndexProps> = ({testString}) => {
   return (
     <>
       <h1>INDEX PAGE</h1>

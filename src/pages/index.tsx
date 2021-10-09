@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPageContext} from 'next';
+import {NextPageContext} from 'next';
 import IndexContainer from '../containers/homepage';
 
 const IndexPage = () => <IndexContainer testString={'qqwertyuio'} />;
