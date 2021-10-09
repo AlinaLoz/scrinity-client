@@ -1,0 +1,41 @@
+{
+  "name": "project-z-client",
+  "author": "alina.lozyuk.1999@gmail.com",
+  "version": "1.0.0",
+  "scripts": {
+    "publish:image": "sh scripts/docker/build-and-publish.sh",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start --port 27182",
+    "lint": "eslint \"src/**/*.tsx\"",
+    "lint:fix": "eslint \"src/**/*.tsx\" --fix",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@types/config": "^0.0.39",
+    "axios": "^0.22.0",
+    "config": "^3.3.1",
+    "fork-ts-checker-webpack-plugin": "^6.3.4",
+    "next": "^11.1.2",
+    "next-images": "^1.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.42.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.27",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.20.6",
+    "husky": "^7.0.0",
+    "typescript": "^4.0.2"
+  }
+}
