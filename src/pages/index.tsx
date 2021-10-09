@@ -1,4 +1,3 @@
-import React from 'react';
 import IndexContainer from '../containers/homepage';
 
 const IndexPage = () => <IndexContainer testString={'qqwertyuio'} />;

@@ -1,14 +1,12 @@
 module.exports = {
-  "settings": {
-    version: "17.0.1"
-  },
   'env': {
     'browser': true,
     'es6': true,
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
   ],
   'globals': {
     'Atomics': 'readonly',

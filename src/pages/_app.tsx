@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppContext, AppInitialProps} from 'next/app';
 
 type TWrappedAppProps = AppInitialProps & AppContext;
