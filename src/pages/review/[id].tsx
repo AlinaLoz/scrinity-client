@@ -7,7 +7,6 @@ import { ICompany } from '@interfaces/companies.interfaces';
 export default Review;
 
 export const getServerSideProps: GetServerSideProps<{ company: ICompany }, { id: string } > = async (context) => {
-	console.log('getStaticProps', context.params?.id);
 	try {
 		const company = await getCompanyAPI(context.params?.id || '');
 		if (!company.isActive) {
@@ -19,7 +18,6 @@ export const getServerSideProps: GetServerSideProps<{ company: ICompany }, { id:
 			props: { company },
 		};
 	} catch (err) {
-		console.log('err', err);
 		return {
 			notFound: true,
 		}
