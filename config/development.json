@@ -1,3 +1,4 @@
 {
-  "ENVIRONMENT": "development"
+  "ENVIRONMENT": "development",
+  "API_URL": "https://dev.lozita.click/api/"
 }
