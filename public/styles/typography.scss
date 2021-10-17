@@ -1,0 +1,47 @@
+@import 'variables.scss';
+
+// FONT INITIALIZE
+@mixin roboto-regular {
+  font: {
+    family: "roboto";
+    weight: 400;
+    style: normal;
+  }
+}
+
+@mixin roboto-medium {
+  font: {
+    family: "roboto";
+    weight: 500;
+    style: normal;
+  }
+}
+
+@mixin roboto-bold {
+  font: {
+    family: "roboto";
+    weight: 700;
+    style: normal;
+  }
+}
+@mixin roboto-slab-bold {
+  font: {
+    family: "roboto-slab";
+    weight: 700;
+    style: normal;
+  }
+}
+@mixin roboto-slab-regular {
+  font: {
+    family: "roboto-slab";
+    weight: 400;
+    style: normal;
+  }
+}
+
+// FONT DECLARATION
+@mixin slogan() {
+  font-size: 52px;
+  line-height: 60px;
+  @include roboto-bold();
+}

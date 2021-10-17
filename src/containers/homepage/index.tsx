@@ -1,16 +1,11 @@
 import React from 'react';
 
-interface IIndexProps {
-  testString: string;
-}
-
-const Index: React.FC<IIndexProps> = ({testString}) => {
+export const Home: React.FC = () => {
+  console.log('HOME');
   return (
     <>
-      <h1>INDEX PAGE</h1>
-      <p>{testString}</p>
+      <h1>Home</h1>
     </>
   );
 };
 
-export default Index;
