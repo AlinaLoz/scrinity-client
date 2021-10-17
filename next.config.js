@@ -6,6 +6,10 @@ const withImages = require('next-images');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = withImages({
+  i18n: {
+    locales: ['en-US', 'ru-RU', 'by-BY'],
+    defaultLocale: 'ru-RU',
+  },
   publicRuntimeConfig: {
     ENVIRONMENT,
     API_URL,

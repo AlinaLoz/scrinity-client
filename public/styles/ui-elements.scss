@@ -1,0 +1,54 @@
+@import "typography.scss";
+
+@mixin btn() {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: $radius-m;
+  padding: 0 12px;
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  span,
+  svg {
+    pointer-events: none;
+  }
+}
+
+@mixin btn-link() {
+  @include btn();
+  @include roboto-medium();
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  &.disabled {
+    box-shadow: none;
+    cursor: initial;
+  }
+}
+
+@mixin btn-white() {
+  background-color: $white;
+  color: $green;
+  &:active {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+@mixin btn-green() {
+  background-color: $green;
+  color: $white;
+  transition: background-color $speed;
+  &:active,
+  &:hover {
+    background-color: #0a8614;
+  }
+  &:active {
+    box-shadow: none;
+  }
+}

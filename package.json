@@ -14,12 +14,16 @@
   "dependencies": {
     "@types/config": "^0.0.39",
     "axios": "^0.22.0",
+    "classnames": "^2.3.1",
     "config": "^3.3.1",
     "fork-ts-checker-webpack-plugin": "^6.3.4",
     "next": "^11.1.2",
     "next-images": "^1.8.1",
+    "query-string": "^7.0.1",
     "react": "^17.0.2",
+    "react-device-detect": "^2.0.1",
     "react-dom": "^17.0.2",
+    "react-intl": "^5.20.13",
     "sass": "^1.42.1"
   },
   "license": "MIT",

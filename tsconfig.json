@@ -27,7 +27,8 @@
       "@hooks/*": ["./src/hooks/*"],
       "@models/*": ["./src/models/*"],
       "@redux/*": ["./src/redux/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@interfaces/*": ["./src/interfaces/*"]
     }
   },
   "include": [
