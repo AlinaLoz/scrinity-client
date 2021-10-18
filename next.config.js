@@ -4,12 +4,10 @@ const {
 } = require('config');
 const withImages = require('next-images');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { i18n } = require('./next-i18next.config');
 
 module.exports = withImages({
-  i18n: {
-    locales: ['en-US', 'ru-RU', 'by-BY'],
-    defaultLocale: 'ru-RU',
-  },
+  i18n,
   publicRuntimeConfig: {
     ENVIRONMENT,
     API_URL,
