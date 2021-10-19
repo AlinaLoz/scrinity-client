@@ -8,7 +8,6 @@ import { LANGUAGE } from '@constants/locales.constants';
 
 export default Feedback;
 export const getServerSideProps: GetServerSideProps<{ company: ICompany }, { id: string }> = async (context) => {
-
   try {
     const company = await getCompanyAPI(context.params?.id || '');
     if (!company.isActive) {
