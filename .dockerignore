@@ -6,3 +6,4 @@ Dockerenv
 Dockerfile
 *.md
 .gitignore
+config/local.json

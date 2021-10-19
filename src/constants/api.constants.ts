@@ -1,2 +1,2 @@
 export const COMPANIES_API = 'companies';
-export const COMPANIES_BY_ID_API = (id: string) => `${COMPANIES_API}/${id}`;
+export const COMPANIES_BY_ID_API = (id: string): string => `${COMPANIES_API}/${id}`;

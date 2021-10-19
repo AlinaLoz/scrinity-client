@@ -1,8 +1,0 @@
-export enum REVIEW_STEP {
-	WELCOME,
-	FORM,
-	PHONE_NUMBER,
-	CODE,
-	SUCCESS,
-	ERROR
-}

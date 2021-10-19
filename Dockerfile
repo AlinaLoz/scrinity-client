@@ -18,6 +18,6 @@ ENV NODE_ENV production
 COPY --from=builder /my-project/.next ./.next
 COPY --from=builder /my-project/node_modules ./node_modules
 COPY --from=builder /my-project/package.json ./package.json
+COPY --from=builder /my-project/config ./config
 
-EXPOSE 27182
 CMD ["yarn", "start"]
