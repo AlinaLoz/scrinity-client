@@ -4,10 +4,16 @@ const {
 } = require('config');
 const withImages = require('next-images');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { i18n } = require('./next-i18next.config');
 
 const nextConfig = withImages({
-  i18n,
+  i18n: {
+    locales: ['en', 'ru', 'by'],
+    defaultLocale: 'ru',
+  },
+  react: {
+    useSuspense: false,
+    wait: true
+  }
   publicRuntimeConfig: {
     ENVIRONMENT,
     API_URL,

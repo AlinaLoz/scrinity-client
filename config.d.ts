@@ -5,5 +5,5 @@ declare module '@utils/config' {
 		PROD = 'prod',
 	}
 	export const ENVIRONMENT: ENVIRONMENT_TYPE;
-	export const 	API_URL: string;
+	export const API_URL: string;
 }
