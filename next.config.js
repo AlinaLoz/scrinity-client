@@ -1,6 +1,7 @@
 const {
   ENVIRONMENT,
   API_URL,
+  STATIC_FILES,
 } = require('config');
 const withImages = require('next-images');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -11,6 +12,7 @@ const nextConfig = withImages({
   publicRuntimeConfig: {
     ENVIRONMENT,
     API_URL,
+    STATIC_FILES,
   },
   trailingSlash: true,
   webpack(cfg, options) {

@@ -1,0 +1,41 @@
+$montserrat-path: "/fonts/montserrat/montserrat-";
+
+// montserrat-regular
+@font-face {
+  font-family: "montserrat";
+  src: url("#{$montserrat-path}regular.ttf");
+  src: url("#{$montserrat-path}regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// montserrat-medium
+@font-face {
+  font-family: "montserrat";
+  src: url("#{$montserrat-path}medium.ttf");
+  src: url("#{$montserrat-path}medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// montserrat-semibold
+@font-face {
+  font-family: "montserrat";
+  src: url("#{$montserrat-path}semibold.ttf");
+  src: url("#{$montserrat-path}semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+// montserrat-bold
+@font-face {
+  font-family: "montserrat";
+  src: url("#{$montserrat-path}bold.ttf");
+  src: url("#{$montserrat-path}bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

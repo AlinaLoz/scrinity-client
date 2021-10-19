@@ -19,7 +19,7 @@
 
 @mixin btn-link() {
   @include btn();
-  @include roboto-medium();
+  @include montserrat-medium();
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
