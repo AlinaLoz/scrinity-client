@@ -10,10 +10,10 @@ async function executeRequest<T>(url: string, data: AxiosRequestConfig): Promise
     ...DEFAULT_OPTIONS,
   };
   const response = await axios.request(request);
-  return response.data;
+  return response.data as T;
 }
 
-export function get<T>(path: string, query?: Record<string, any>, config?: AxiosRequestConfig): Promise<T> {
+export function get<T>(path: string, query?: Record<string, string>, config?: AxiosRequestConfig): Promise<T> {
   const preparePath = query ? `${path}?${stringify(query)}` : path;
   const data = { method: 'get', ...config } as AxiosRequestConfig;
   return executeRequest<T>(preparePath, data);

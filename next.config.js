@@ -6,7 +6,7 @@ const withImages = require('next-images');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { i18n } = require('./next-i18next.config');
 
-module.exports = withImages({
+const nextConfig = withImages({
   i18n,
   publicRuntimeConfig: {
     ENVIRONMENT,
@@ -24,3 +24,5 @@ module.exports = withImages({
     return cfg;
   },
 });
+
+module.exports = nextConfig

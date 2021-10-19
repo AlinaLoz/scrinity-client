@@ -28,6 +28,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
     "no-use-before-define": "off",
