@@ -28,7 +28,8 @@
       "@models/*": ["./src/models/*"],
       "@redux/*": ["./src/redux/*"],
       "@utils/*": ["./src/utils/*"],
-      "@interfaces/*": ["./src/interfaces/*"]
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@helpers/*": ["./src/helpers/*"]
     }
   },
   "include": [

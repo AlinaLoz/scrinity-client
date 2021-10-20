@@ -1,0 +1,50 @@
+@import "public/styles/typography.scss";
+@import "public/styles/ui-elements.scss";
+
+.blue {
+  background-color: $ming;
+  color: $white;
+  @include btn();
+}
+
+.white {
+  @include btn();
+  background-color: $white;
+  color: $ming;
+  border: 1px solid $ming;
+
+  //&:not(.loading) {
+  //  &:disabled {
+  //    background-color: #fff;
+  //    color: $gray3;
+  //    border: 2px solid $gray5;
+  //  }
+  //}
+}
+
+//.size-s {
+//  height: $el-height-s;
+//}
+//.size-m {
+//  height: $el-height-m;
+//  @include roboto-bold();
+//}
+//.size-l {
+//  height: $el-height-l;
+//  @include button-l();
+//}
+
+.fluid {
+  width: 100%;
+}
+//.loader {
+//  & + .text {
+//    visibility: hidden;
+//  }
+//}
+.text {
+  line-height: 12px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  @include montserrat-semibold();
+}

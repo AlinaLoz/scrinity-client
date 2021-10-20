@@ -1,7 +1,9 @@
 {
   "Welcome": {
     "btnGoodReview": "Leave positive feedback",
-    "btnBadReview": "Leave negative feedback"
+    "btnBadReview": "Leave negative feedback",
+    "comment": "If you have any claims or wishes regarding the quality of goods or services, please leave a review. All messages will be forwarded to the management.",
+    "manager": "manager"
   }
 }
 
