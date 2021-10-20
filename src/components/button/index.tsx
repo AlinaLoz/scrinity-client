@@ -1,42 +1,38 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import cn from 'classnames';
 // import Loader from '../loader';
 import styles from './button.module.scss';
 
-type Props = {
+interface IButtonProps {
   isFluid?: boolean,
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void,
-  isLoading?: boolean,
-  isRound?: boolean,
-  disabled?: boolean,
+  onClick?: () => void,
+  // isLoading?: boolean,
+  // isRound?: boolean,
+  // disabled?: boolean,
   className?: string,
   type?: 'blue' | 'white',
   // size?: 's'|'m'|'l',
 }
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<IButtonProps> = ({
   children = null,
   isFluid = false,
-  isRound = false,
-  isLoading = false,
-  disabled = false,
+  // isLoading = false,
+  // disabled = false,
   className = '',
   onClick,
-  type = '',
-  // size = 's',
+  type = 'white',
   ...props
 }) => (
   <button
     {...props}
     onClick={onClick}
-    disabled={disabled || isLoading}
+    // disabled={disabled || isLoading}
     className={cn(
-      // styles[`size-${size}`],
       className,
       styles[type],
-      { [styles.round]: isRound },
       { [styles.fluid]: isFluid },
-      { [styles.loading]: isLoading },
+      // { [styles.loading]: isLoading },
     )}
   >
     {/* {isLoading && <Loader className={styles.loader} color={type === 'btnWhite' ? 'green' : 'white'} size={size} /> } */}
