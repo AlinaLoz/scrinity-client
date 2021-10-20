@@ -1,40 +1,34 @@
 @import 'variables.scss';
 
 // FONT INITIALIZE
-@mixin roboto-regular {
+@mixin montserrat-regular {
   font: {
-    family: "roboto";
+    family: "montserrat";
     weight: 400;
     style: normal;
   }
 }
 
-@mixin roboto-medium {
+@mixin montserrat-medium {
   font: {
-    family: "roboto";
+    family: "montserrat";
     weight: 500;
     style: normal;
   }
 }
 
-@mixin roboto-bold {
+@mixin montserrat-semibold {
   font: {
-    family: "roboto";
-    weight: 700;
+    family: "montserrat";
+    weight: 600;
     style: normal;
   }
 }
-@mixin roboto-slab-bold {
+
+@mixin montserrat-bold {
   font: {
-    family: "roboto-slab";
+    family: "montserrat";
     weight: 700;
-    style: normal;
-  }
-}
-@mixin roboto-slab-regular {
-  font: {
-    family: "roboto-slab";
-    weight: 400;
     style: normal;
   }
 }
@@ -43,5 +37,5 @@
 @mixin slogan() {
   font-size: 52px;
   line-height: 60px;
-  @include roboto-bold();
+  @include montserrat-bold();
 }

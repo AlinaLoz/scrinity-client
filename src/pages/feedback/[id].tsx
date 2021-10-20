@@ -22,6 +22,7 @@ export const getServerSideProps: GetServerSideProps<{ company: ICompany }, { id:
       },
     };
   } catch (err) {
+    console.log('err', err);
     return {
       notFound: true,
     };

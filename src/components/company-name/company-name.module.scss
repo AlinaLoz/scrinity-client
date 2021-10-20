@@ -1,0 +1,12 @@
+@import "public/styles/variables";
+@import "public/styles/typography";
+
+.companyName {
+  color: $silver;
+  @include montserrat-semibold();
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}

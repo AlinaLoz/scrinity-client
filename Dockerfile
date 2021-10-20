@@ -20,5 +20,6 @@ COPY --from=builder /my-project/.next ./.next
 COPY --from=builder /my-project/node_modules ./node_modules
 COPY --from=builder /my-project/package.json ./package.json
 COPY --from=builder /my-project/config ./config
+COPY --from=builder /my-project/public ./public
 
 CMD ["yarn", "start"]
