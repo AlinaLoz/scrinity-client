@@ -6,7 +6,7 @@ import Button from '@components/button';
 import { CompanyName } from '@components/company-name';
 import { UrlHelper } from '@helpers/url.helper';
 import { PROJECT_NAME } from '@constants/global.constants';
-// import { GIRL_WITH_LAPTOP_IMAGE_PATH } from '@constants/ui.constants';
+import { GIRL_WITH_LAPTOP_IMAGE_PATH } from '@constants/ui.constants';
 
 import { GirlWithLaptop } from '@components/icons/girl-with-laptop';
 import styles from './welcome.module.scss';
@@ -30,7 +30,7 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, company }) => {
           {/*  src={GIRL_WITH_LAPTOP_IMAGE_PATH} */}
           {/*  alt="girl" */}
           {/* /> */}
-          <GirlWithLaptop className={styles.girlWithLaptop} />
+          {/* <GirlWithLaptop className={styles.girlWithLaptop} /> */}
           <picture className={styles.companyInfo}>
             <img className={styles.companyImage} src={UrlHelper.getImageSrc('puma.png')} alt={`company ${company.id}`} />
             <div className={styles.companyTitles}>
@@ -39,7 +39,7 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, company }) => {
             </div>
           </picture>
           <div className={styles.comment}>
-            {t('Welcome.comment')}
+            <p>{t('Welcome.comment')}</p>
           </div>
           <div className={styles.buttons}>
             <Button
@@ -58,7 +58,7 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, company }) => {
               {t('Welcome.btnBadReview')}
             </Button>
           </div>
-          <CompanyName />
+          <CompanyName classNames={styles.companyName} />
         </div>
       </div>
     </div>

@@ -1,16 +1,15 @@
 @import "typography.scss";
 
 @mixin btn() {
-  //position: relative;
-  //display: inline-flex;
-  //align-items: center;
-  //justify-content: center;
-  //white-space: nowrap;
   height: 55px;
   border: 0;
   text-transform: lowercase;
   border-radius: $btnRadius;
-  padding: 0 31px;
+  padding: 0 6%;
+
+  @media (max-width: $xs) {
+    height: 50px;
+  }
 }
 
 @mixin btn-link() {
