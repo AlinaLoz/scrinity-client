@@ -9,4 +9,7 @@
   letter-spacing: 1px;
   text-align: center;
   text-transform: uppercase;
+  @media (max-width: $iphone6s) {
+    font-size: 12px;
+  }
 }

@@ -12,7 +12,6 @@
   background-color: $white;
   color: $ming;
   border: 1px solid $ming;
-
   //&:not(.loading) {
   //  &:disabled {
   //    background-color: #fff;
@@ -46,5 +45,13 @@
   line-height: 12px;
   font-size: 12px;
   letter-spacing: 1px;
+  text-transform: uppercase;
   @include montserrat-semibold();
+
+  @media (max-width: $iphone5) {
+    font-size: 10px;
+  }
+  @media (max-width: $iphone6s) {
+    font-size: 12px;
+  }
 }

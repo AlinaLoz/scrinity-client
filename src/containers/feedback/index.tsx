@@ -15,7 +15,7 @@ interface IReviewProps {
 }
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
-  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
+  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.FORM);
 
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
@@ -24,7 +24,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     setReviewStep((prev) => prev - 1);
   }, []);
 
-  const [, setIsGoodReview] = useState<boolean>(false);
+  const [issGoodReview, setIsGoodReview] = useState<boolean>(false);
   const onNextWelcomePress = useCallback((isGood: boolean) => {
     setIsGoodReview(isGood);
     onNext();
@@ -44,7 +44,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     case REVIEW_STEP.WELCOME:
       return <Welcome onNext={onNextWelcomePress} company={company} />;
     case REVIEW_STEP.FORM:
-      return <Form onNext={onNextFormPress} onPrev={onPrev} />;
+      return <Form onNext={onNextFormPress} onPrev={onPrev} isGoodReview={issGoodReview} />;
     case REVIEW_STEP.PHONE_NUMBER:
       return <PhoneNumber onNext={onNextPhoneNumberPress} onPrev={onPrev} />;
     case REVIEW_STEP.CODE:

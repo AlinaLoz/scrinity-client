@@ -1,0 +1,90 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.content {
+  margin-top: 8%;
+  margin-left: 8%;
+  margin-right: 8%;
+  background: linear-gradient(167.52deg, #FFFFFF 9.09%, #FDFDFD 42.38%, #FFFFFF 65.88%);
+  border-radius: 5px;
+}
+
+.header {
+  margin-bottom: 18%;
+}
+
+.form {
+}
+
+.text {
+  text-align: center;
+  color: $codGray;
+  @include montserrat-regular();
+}
+
+.title {
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 5px;
+
+  @media (max-width: $iphone5) {
+  }
+  @media (max-width: $iphone6s) {
+  }
+}
+
+.description {
+  font-size: 12px;
+  line-height: 16px;
+  @media (max-width: $iphone5) {
+  }
+  @media (max-width: $iphone6s) {
+  }
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8%;
+  margin-bottom: 12%;
+  justify-content: space-between;
+}
+
+.feedbackOption {
+  @include montserrat-regular();
+  font-size: 14px;
+  line-height: 16px;
+  flex: 49% 0;
+  margin-bottom: 8px;
+  text-align: center;
+  background-color: $white;
+  color: $codGray;
+  padding: 4% 4%;
+  border-radius: 8px;
+  box-shadow: 0 0 37px 0 #5C849A12;
+
+  &.selected {
+    background-color: $ming;
+    color: $white;
+  }
+}
+
+.textarea {
+  @include montserrat-regular();
+  flex: 100%;
+  height: 96px;
+  border: 0;
+  resize: none;
+  box-shadow: 20px 8px 37px 0 #5C849A12;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: none;
+
+  line-height: 16px;
+  font-size: 12px;
+  padding: 9px 10px;
+
+  &::placeholder {
+    color: $silver;
+  }
+}
