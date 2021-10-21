@@ -31,6 +31,10 @@
   text-transform: uppercase;
   padding-top: 7%;
   padding-left: 6%;
+
+  @media (max-width: $iphone5) {
+    font-size: 30px;
+  }
 }
 
 .popup {
@@ -73,18 +77,48 @@
     font-size: 11px;
     line-height: 16px;
   }
+
+  @media (max-width: $iphone6) {
+    .name {
+      font-size: 16px;
+    }
+
+    .managerTitle {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: $iphone5) {
+    .name {
+      font-size: 14px;
+    }
+
+    .managerTitle {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: $iphone6s) {
+    .name {
+      font-size: 16px;
+    }
+
+    .managerTitle {
+      font-size: 13px;
+    }
+  }
 }
 
 .comment {
   position: relative;
-  padding-left: 16px;
+  padding-left: 4%;
   display: flex;
   margin-top: 4%;
   padding-top: 4%;
   border-top: 1px solid $athensGray;
   color: $codGray;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 18px;
   @include montserrat-regular();
   margin-bottom: 9%;
 
@@ -103,17 +137,36 @@
     background-color: $ming;
   }
 
-  @media (max-width: $xs) {
+  @media (max-width: $iphone6s) {
+    font-size: 13px;
+    line-height: 18px;
+    padding-left: 6%;
+    p::before {
+      left: -6%;;
+    }
+  }
+
+  @media (max-width: $iphone5) {
+    padding-left: 8%;
+    line-height: 16px;
     margin-bottom: 6%;
+    font-size: 12px;
+    p::before {
+      left: -6%;;
+    }
   }
 }
 
 .buttons {
-  margin-bottom: 32px;
+  @media (max-width: $iphone6s) {
+    div {
+      font-size: 14px;
+    }
+  }
 }
 
 .firstBtn {
-  margin-bottom: 8px;
+  margin-bottom: 4%;
 }
 
 .girlWithLaptop {
@@ -123,7 +176,7 @@
   right: 0;
   transform: translate(0, -95%);
 
-  @media (max-width: $xs) {
+  @media (max-width: $iphone5) {
     height: 160px;
   }
 }
@@ -131,4 +184,7 @@
 .companyName {
   position: absolute;
   bottom: 7%;
+  @media (max-width: $iphone6s) {
+    font-size: 12px;
+  }
 }

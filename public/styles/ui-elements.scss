@@ -7,7 +7,7 @@
   border-radius: $btnRadius;
   padding: 0 6%;
 
-  @media (max-width: $xs) {
+  @media (max-width: $iphone5) {
     height: 50px;
   }
 }
