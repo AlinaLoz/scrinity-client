@@ -107,6 +107,8 @@
       font-size: 13px;
     }
   }
+
+
 }
 
 .comment {
@@ -138,7 +140,7 @@
   }
 
   @media (max-width: $iphone6s) {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
     padding-left: 6%;
     p::before {
