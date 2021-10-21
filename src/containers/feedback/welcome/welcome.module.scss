@@ -138,7 +138,7 @@
   }
 
   @media (max-width: $iphone6s) {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 18px;
     padding-left: 6%;
     p::before {
@@ -159,8 +159,11 @@
 
 .buttons {
   @media (max-width: $iphone6s) {
+    button {
+      height: 60px;
+    }
     div {
-      font-size: 14px;
+      font-size: 15px;
     }
   }
 }
