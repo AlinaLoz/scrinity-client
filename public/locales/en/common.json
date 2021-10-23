@@ -4,6 +4,24 @@
     "btnBadReview": "Leave negative feedback",
     "comment": "If you have any claims or wishes regarding the quality of goods or services, please leave a review. All messages will be forwarded to the management.",
     "manager": "manager"
+  },
+  "Form": {
+    "title": "Leave a feedback",
+    "description": "Multiple answers options can be selected",
+    "ISSUE_1": "polite staff 1",
+    "ISSUE_2": "polite staff 2",
+    "ISSUE_3": "polite staff 3",
+    "ISSUE_4": "polite staff 4",
+    "ISSUE_5": "polite staff 5",
+    "ISSUE_6": "polite staff 6",
+    "ISSUE_7": "impolite staff 7",
+    "ISSUE_8": "impolite staff 8",
+    "ISSUE_9": "impolite staff 9",
+    "ISSUE_10": "impolite staff 10",
+    "ISSUE_11": "impolite staff 11",
+    "ISSUE_12": "impolite staff 12",
+    "message": "Leave your comment here",
+    "sendFeedback": "Send feedback"
   }
 }
 

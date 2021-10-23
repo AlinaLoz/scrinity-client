@@ -1,0 +1,209 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.content {
+  padding: 8%;
+  height: 100%;
+  background: linear-gradient(167.52deg, #FFFFFF 9.09%, #FDFDFD 42.38%, #FFFFFF 65.88%);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 10%;
+
+  @media (max-width: $iphone6s) {
+    margin-bottom: 12%;
+  }
+
+  @media (max-width: $iphone6) {
+    margin-bottom: 10%;
+  }
+
+  @media (max-width: $iphone5) {
+    margin-bottom: 10%;
+  }
+}
+
+.text {
+  text-align: center;
+  color: $codGray;
+  @include montserrat-regular();
+}
+
+.title {
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 5px;
+
+  @media (max-width: $iphone6s) {
+    font-size: 16px;
+    margin-bottom: 7px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
+
+.description {
+  font-size: 12px;
+  line-height: 16px;
+
+  @media (max-width: $iphone6s) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 12px;
+  }
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 8% 0;
+  justify-content: space-between;
+}
+
+.feedbackOption {
+  @include montserrat-regular();
+  font-size: 12px;
+  line-height: 16px;
+  flex: 49% 0;
+  text-align: center;
+  background-color: $white;
+  color: $codGray;
+  padding: 4% 4%;
+  border-radius: 8px;
+  box-shadow: 0 0 37px 0 #5C849A12;
+
+  &.selected {
+    background-color: $ming;
+    color: $white;
+  }
+
+  @media (max-width: $iphone6s) {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 13px;
+    margin-bottom: 10px
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+}
+
+.textarea {
+  @include montserrat-regular();
+  width: 100%;
+  height: 100%;
+  border: 0;
+  resize: none;
+  box-shadow: 20px 8px 37px 0 #5C849A12;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: none;
+
+  line-height: 16px;
+  font-size: 12px;
+  padding: 10px;
+
+  &::placeholder {
+    color: $silver;
+  }
+
+  @media (max-width: $iphone6s) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 12px;
+  }
+}
+
+.message {
+  width: 100%;
+  height: 96px;
+  position: relative;
+
+  @media (max-width: $iphone6) {
+    height: 120px;
+  }
+
+  @media (max-width: $iphone5) {
+    height: 60px;
+  }
+}
+
+.messageLength {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.uploaded {
+  margin-bottom: 8%;
+  max-height: 55px;
+
+  @media (max-width: $iphone5) {
+    height: 45px;
+  }
+}
+
+.uploadButton {
+  margin-right: 8px;
+}
+
+.preview {
+  position: relative;
+  display: inline-block;
+  max-width: 22%;
+  flex: 1 0 22%;
+  margin-right: 4%;
+  &:last-child {
+    margin-right: 0;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  transform: translate(50%, -50%);
+}
+
+.form {
+  flex: 1;
+}

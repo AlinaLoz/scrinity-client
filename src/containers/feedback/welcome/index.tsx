@@ -6,9 +6,9 @@ import Button from '@components/button';
 import { CompanyName } from '@components/company-name';
 import { UrlHelper } from '@helpers/url.helper';
 import { PROJECT_NAME } from '@constants/global.constants';
-import { GIRL_WITH_LAPTOP_IMAGE_PATH } from '@constants/ui.constants';
-
-import { GirlWithLaptop } from '@components/icons/girl-with-laptop';
+// import { GIRL_WITH_LAPTOP_IMAGE_PATH } from '@constants/ui.constants';
+//
+// import { GirlWithLaptop } from '@components/icons/girl-with-laptop';
 import styles from './welcome.module.scss';
 
 interface IWelcomeProps {

@@ -1,0 +1,35 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.uploadBox {
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid $ming;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  @media (max-width: $iphone6s) {
+    min-width: 55px;
+  }
+
+  @media (max-width: $iphone6) {
+    min-width: 55px;
+  }
+
+  @media (max-width: $iphone5) {
+    min-width: 50px;
+  }
+}
+
+.image {
+  display: block;
+  width: 25px;
+}

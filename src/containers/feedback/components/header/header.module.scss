@@ -1,0 +1,22 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  svg {
+    display: block;
+  }
+}
+
+.companyName {
+  display: block;
+}
+
+.backIcon {
+  position: absolute;
+  left: 0;
+}

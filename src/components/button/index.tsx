@@ -1,14 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
-// import Loader from '../loader';
+import Loader from '../loader';
 import styles from './button.module.scss';
 
 interface IButtonProps {
   isFluid?: boolean,
   onClick?: () => void,
-  // isLoading?: boolean,
-  // isRound?: boolean,
-  // disabled?: boolean,
+  isLoading?: boolean,
+  disabled?: boolean,
   className?: string,
   type?: 'blue' | 'white',
   // size?: 's'|'m'|'l',
@@ -17,8 +16,8 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = ({
   children = null,
   isFluid = false,
-  // isLoading = false,
-  // disabled = false,
+  isLoading = false,
+  disabled = false,
   className = '',
   onClick,
   type = 'white',
@@ -27,18 +26,19 @@ const Button: React.FC<IButtonProps> = ({
   <button
     {...props}
     onClick={onClick}
-    // disabled={disabled || isLoading}
+    disabled={disabled || isLoading}
     className={cn(
       className,
       styles[type],
       { [styles.fluid]: isFluid },
-      // { [styles.loading]: isLoading },
+      { [styles.loading]: !isLoading },
     )}
   >
-    {/* {isLoading && <Loader className={styles.loader} color={type === 'btnWhite' ? 'green' : 'white'} size={size} /> } */}
-    <div className={styles.text}>
-      {children}
-    </div>
+    {isLoading ? <Loader className={styles.loader} /> : (
+      <div className={styles.text}>
+        {children}
+      </div>
+    )}
   </button>
 );
 

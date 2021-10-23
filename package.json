@@ -1,5 +1,5 @@
 {
-  "name": "project-z-client",
+  "name": "scrinity",
   "author": "alina.lozyuk.1999@gmail.com",
   "version": "1.0.0",
   "scripts": {
@@ -9,10 +9,13 @@
     "start": "next start --port 27182",
     "lint": "eslint --ext .tsx --ext .ts ./src/*/** --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --ext .tsx --ext .ts --fix ./src/*/** --no-error-on-unmatched-pattern",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "tsc --pretty"
   },
   "dependencies": {
+    "@types/aws-sdk": "^2.7.0",
     "@types/config": "^0.0.39",
+    "aws-sdk": "^2.1013.0",
     "axios": "^0.22.0",
     "classnames": "^2.3.1",
     "config": "^3.3.1",
@@ -24,7 +27,9 @@
     "react": "^17.0.2",
     "react-device-detect": "^2.0.1",
     "react-dom": "^17.0.2",
-    "sass": "^1.42.1"
+    "react-image-file-resizer": "^0.4.7",
+    "sass": "^1.42.1",
+    "use-file-upload": "^1.0.11"
   },
   "license": "MIT",
   "devDependencies": {

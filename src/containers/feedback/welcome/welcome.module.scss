@@ -122,7 +122,7 @@
   font-size: 12px;
   line-height: 18px;
   @include montserrat-regular();
-  margin-bottom: 9%;
+  margin-bottom: 7%;
 
   p {
     position: relative;
@@ -159,17 +159,6 @@
   }
 }
 
-.buttons {
-  @media (max-width: $iphone6s) {
-    button {
-      height: 60px;
-    }
-    div {
-      font-size: 15px;
-    }
-  }
-}
-
 .firstBtn {
   margin-bottom: 4%;
 }
@@ -189,7 +178,4 @@
 .companyName {
   position: absolute;
   bottom: 7%;
-  @media (max-width: $iphone6s) {
-    font-size: 12px;
-  }
 }
