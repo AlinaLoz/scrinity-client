@@ -1,4 +1,3 @@
-import '../../scripts/wdyr';
 import React, { useEffect, useState } from 'react';
 import { AppContext, AppInitialProps } from 'next/app';
 import { isMobile, isTablet } from 'react-device-detect';
