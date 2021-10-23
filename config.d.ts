@@ -9,7 +9,7 @@ declare module '@utils/config' {
 	export const STATIC_FILES: string;
 }
 
-declare module "use-file-upload" {
+declare module 'use-file-upload' {
 	type FileUpload = {
 		source: string
 		name: string

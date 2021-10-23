@@ -34,7 +34,7 @@ const Button: React.FC<IButtonProps> = ({
       { [styles.loading]: !isLoading },
     )}
   >
-    {isLoading ? <Loader className={styles.loader} size="s" /> : (
+    {isLoading ? <Loader className={styles.loader} /> : (
       <div className={styles.text}>
         {children}
       </div>
