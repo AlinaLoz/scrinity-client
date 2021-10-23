@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
+import { FileUpload } from 'use-file-upload';
 
 import { FormHeader } from '@containers/feedback/components/header';
-
-import { FEEDBACK_ISSUE, NEGATIVE_FEEDBACK_ISSUES, POSITIVE_FEEDBACK_ISSUES } from '@constants/feedback.constants';
+import {
+  FEEDBACK_ISSUE, MIN_LENGTH_COMMENT, NEGATIVE_FEEDBACK_ISSUES, POSITIVE_FEEDBACK_ISSUES,
+} from '@constants/feedback.constants';
 import Button from '@components/button';
+import { UploadButton } from '@components/upload-button';
+import { CloseIcon } from '@components/icons/close';
+import { useUploadFiles } from '@hooks/use-upload-files';
+
 import styles from './form.module.scss';
 
 interface IFormProps {
-  onNext: () => void;
+  onNext: (files: FileUpload[]) => void;
   onPrev: () => void;
   isGoodReview: boolean;
+  isLoading: boolean;
 }
 
-export const Form: React.FC<IFormProps> = ({ onNext, onPrev, isGoodReview }) => {
+export const Form: React.FC<IFormProps> = ({
+  isLoading, onNext, onPrev, isGoodReview,
+}) => {
   const { t } = useTranslation('common');
+
   const [selectedOptions, setSelectedOptions] = useState<FEEDBACK_ISSUE[]>([]);
   const options = isGoodReview ? POSITIVE_FEEDBACK_ISSUES : NEGATIVE_FEEDBACK_ISSUES;
   const [message, setMessage] = useState('');
+  const [files, selectFiles, deleteFile] = useUploadFiles();
 
   const handleOptionPress = (selectedOption: FEEDBACK_ISSUE) => {
     if (selectedOptions.includes(selectedOption)) {
@@ -45,26 +56,50 @@ export const Form: React.FC<IFormProps> = ({ onNext, onPrev, isGoodReview }) => 
               tabIndex={0}
               className={cn(styles.feedbackOption, { [styles.selected]: selectedOptions.includes(option) })}
               onKeyPress={() => handleOptionPress(option)}
+              onClick={() => handleOptionPress(option)}
             >
               {t(`Form.${option}`)}
             </div>
           ))}
-          <textarea
-            name="message"
-            value={message}
-            className={styles.textarea}
-            placeholder={t('Form.message')}
-            required
-            onChange={(e) => setMessage(e.target.value)}
-          />
+          <div className={styles.message}>
+            <textarea
+              name="message"
+              value={message}
+              className={styles.textarea}
+              placeholder={t('Form.message')}
+              required
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <div className={styles.messageLength}>
+              <span>{message.length}</span><span>/</span><span>{MIN_LENGTH_COMMENT}</span>
+            </div>
+          </div>
         </div>
-        <Button
-          isFluid
-          type="blue"
-          onClick={() => onNext()}
-        >
-          {t('Form.sendFeedback')}
-        </Button>
+        <div className={cn(styles.row, { [styles.uploaded]: files.length })}>
+          {!files.length ? null : (
+            files.slice(0, 4).map((file, index) => (
+              <div key={file.name} className={styles.preview}>
+                <CloseIcon className={styles.close} onClick={() => deleteFile(index)} />
+                <img src={file.source} alt="preview" />
+              </div>
+            ))
+          )}
+        </div>
+        <div className={styles.row}>
+          <UploadButton
+            onLoadPhoto={selectFiles}
+            className={styles.uploadButton}
+          />
+          <Button
+            disabled={message.length < MIN_LENGTH_COMMENT}
+            isLoading={isLoading}
+            isFluid
+            type="blue"
+            onClick={() => onNext(files)}
+          >
+            {t('Form.sendFeedback')}
+          </Button>
+        </div>
       </div>
     </div>
   );

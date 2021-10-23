@@ -1,1 +1,1 @@
-export const PROJECT_NAME = 'project z';
+export const PROJECT_NAME = 'scrinity';

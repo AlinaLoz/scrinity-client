@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
-export interface IBackIcon extends ButtonHTMLAttributes<string> {
+export interface IBackIcon extends ButtonHTMLAttributes<SVGElement> {
   className?: string;
 }
 

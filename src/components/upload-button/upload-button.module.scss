@@ -1,0 +1,24 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.uploadBox {
+  min-height: 55px;
+  min-width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid #40798C;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.image {
+  display: block;
+  width: 25px;
+}

@@ -10,10 +10,7 @@
 }
 
 .header {
-  margin-bottom: 18%;
-}
-
-.form {
+  margin-bottom: 10%;
 }
 
 .text {
@@ -46,7 +43,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 8%;
-  margin-bottom: 12%;
+  margin-bottom: 8%;
   justify-content: space-between;
 }
 
@@ -71,7 +68,7 @@
 
 .textarea {
   @include montserrat-regular();
-  flex: 100%;
+  width: 100%;
   height: 96px;
   border: 0;
   resize: none;
@@ -82,9 +79,60 @@
 
   line-height: 16px;
   font-size: 12px;
-  padding: 9px 10px;
+  padding: 10px;
 
   &::placeholder {
     color: $silver;
   }
+}
+
+.message {
+  width: 100%;
+  height: 96px;
+  position: relative;
+}
+
+.messageLength {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+}
+
+.row {
+  display: flex;
+  //justify-content: space-between;
+}
+
+.uploaded {
+  margin-bottom: 23px;
+  max-height: 55px;
+}
+
+.uploadButton {
+  margin-right: 8px;
+}
+
+.preview {
+  position: relative;
+  display: inline-block;
+  max-width: 22%;
+  flex: 1 0 22%;
+  margin-right: 4%;
+  &:last-child {
+    margin-right: 0;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  transform: translate(50%, -50%);
 }

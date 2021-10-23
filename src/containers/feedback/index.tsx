@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
-
 import { ICompany } from '@interfaces/companies.interfaces';
 
+import { FileUpload } from 'use-file-upload';
+import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
@@ -16,6 +17,7 @@ interface IReviewProps {
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
   const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.FORM);
+  const [isLoading, onSendFeedback] = useSendFeedback();
 
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
@@ -30,8 +32,9 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     onNext();
   }, []);
 
-  const onNextFormPress = useCallback(() => {
-    onNext();
+  const onNextFormPress = useCallback(async (files: FileUpload[]) => {
+    await onSendFeedback(files);
+    // onNext();
   }, []);
   const onNextPhoneNumberPress = useCallback(() => {
     onNext();
@@ -44,7 +47,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     case REVIEW_STEP.WELCOME:
       return <Welcome onNext={onNextWelcomePress} company={company} />;
     case REVIEW_STEP.FORM:
-      return <Form onNext={onNextFormPress} onPrev={onPrev} isGoodReview={issGoodReview} />;
+      return <Form isLoading={isLoading} onNext={onNextFormPress} onPrev={onPrev} isGoodReview={issGoodReview} />;
     case REVIEW_STEP.PHONE_NUMBER:
       return <PhoneNumber onNext={onNextPhoneNumberPress} onPrev={onPrev} />;
     case REVIEW_STEP.CODE:
