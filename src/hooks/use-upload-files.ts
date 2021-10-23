@@ -7,6 +7,7 @@ const validateUploadFiles = async (files: FileList | null): Promise<TFile[]>  =>
   // const result: TFile[] = [];
   return await Promise.all([...files].map((file) => {
     return new Promise<TFile>((resolve) => {
+      alert('alert'+file.name);
       if (!file.type.includes('image')) {
         return;
       }
