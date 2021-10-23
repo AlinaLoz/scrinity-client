@@ -2,15 +2,28 @@
 @import 'public/styles/typography';
 
 .content {
-  margin-top: 8%;
-  margin-left: 8%;
-  margin-right: 8%;
+  padding: 8%;
+  height: 100%;
   background: linear-gradient(167.52deg, #FFFFFF 9.09%, #FDFDFD 42.38%, #FFFFFF 65.88%);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   margin-bottom: 10%;
+
+  @media (max-width: $iphone6s) {
+    margin-bottom: 12%;
+  }
+
+  @media (max-width: $iphone6) {
+    margin-bottom: 10%;
+  }
+
+  @media (max-width: $iphone5) {
+    margin-bottom: 10%;
+  }
 }
 
 .text {
@@ -24,35 +37,51 @@
   line-height: 16px;
   margin-bottom: 5px;
 
-  @media (max-width: $iphone5) {
-  }
   @media (max-width: $iphone6s) {
+    font-size: 16px;
+    margin-bottom: 7px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 }
 
 .description {
   font-size: 12px;
   line-height: 16px;
-  @media (max-width: $iphone5) {
-  }
+
   @media (max-width: $iphone6s) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 12px;
   }
 }
 
 .options {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 8%;
-  margin-bottom: 8%;
+  margin: 8% 0;
   justify-content: space-between;
 }
 
 .feedbackOption {
   @include montserrat-regular();
-  font-size: 14px;
+  font-size: 12px;
   line-height: 16px;
   flex: 49% 0;
-  margin-bottom: 8px;
   text-align: center;
   background-color: $white;
   color: $codGray;
@@ -64,12 +93,27 @@
     background-color: $ming;
     color: $white;
   }
+
+  @media (max-width: $iphone6s) {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 13px;
+    margin-bottom: 10px
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
 }
 
 .textarea {
   @include montserrat-regular();
   width: 100%;
-  height: 96px;
+  height: 100%;
   border: 0;
   resize: none;
   box-shadow: 20px 8px 37px 0 #5C849A12;
@@ -84,12 +128,32 @@
   &::placeholder {
     color: $silver;
   }
+
+  @media (max-width: $iphone6s) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $iphone6) {
+    font-size: 13px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 12px;
+  }
 }
 
 .message {
   width: 100%;
   height: 96px;
   position: relative;
+
+  @media (max-width: $iphone6) {
+    height: 120px;
+  }
+
+  @media (max-width: $iphone5) {
+    height: 60px;
+  }
 }
 
 .messageLength {
@@ -101,12 +165,15 @@
 
 .row {
   display: flex;
-  //justify-content: space-between;
 }
 
 .uploaded {
-  margin-bottom: 23px;
+  margin-bottom: 8%;
   max-height: 55px;
+
+  @media (max-width: $iphone5) {
+    height: 45px;
+  }
 }
 
 .uploadButton {
@@ -135,4 +202,8 @@
   width: 14px;
   height: 14px;
   transform: translate(50%, -50%);
+}
+
+.form {
+  flex: 1;
 }

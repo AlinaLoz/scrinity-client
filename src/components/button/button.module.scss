@@ -19,6 +19,16 @@
   background-color: $white;
   color: $ming;
   border: 1px solid $ming;
+
+  &:hover {
+    border: 1px solid $casal;
+    color: $casal;
+  }
+
+  &:disabled {
+    border: 1px solid $botticelli;
+    color: $botticelli;
+  }
 }
 
 .fluid {
@@ -26,16 +36,16 @@
 }
 
 .text {
-  line-height: 12px;
-  font-size: 12px;
+  line-height: 10px;
+  font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
   @include montserrat-semibold();
 
+  @media (max-width: $iphone6s) {
+    font-size: 11px;
+  }
   @media (max-width: $iphone5) {
     font-size: 10px;
-  }
-  @media (max-width: $iphone6s) {
-    font-size: 12px;
   }
 }

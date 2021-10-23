@@ -44,46 +44,48 @@ export const Form: React.FC<IFormProps> = ({
     <div className={styles.content}>
       <FormHeader onBack={onPrev} className={styles.header} />
       <div className={styles.form}>
-        <div className={styles.text}>
-          <p className={styles.title}>{t('Form.title')}</p>
-          <p className={styles.description}>{t('Form.description')}</p>
-        </div>
-        <div className={styles.options}>
-          {options.map((option) => (
-            <div
-              role="button"
-              key={option}
-              tabIndex={0}
-              className={cn(styles.feedbackOption, { [styles.selected]: selectedOptions.includes(option) })}
-              onKeyPress={() => handleOptionPress(option)}
-              onClick={() => handleOptionPress(option)}
-            >
-              {t(`Form.${option}`)}
-            </div>
-          ))}
-          <div className={styles.message}>
-            <textarea
-              name="message"
-              value={message}
-              className={styles.textarea}
-              placeholder={t('Form.message')}
-              required
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <div className={styles.messageLength}>
-              <span>{message.length}</span><span>/</span><span>{MIN_LENGTH_COMMENT}</span>
+        <div>
+          <div className={styles.text}>
+            <p className={styles.title}>{t('Form.title')}</p>
+            <p className={styles.description}>{t('Form.description')}</p>
+          </div>
+          <div className={styles.options}>
+            {options.map((option) => (
+              <div
+                role="button"
+                key={option}
+                tabIndex={0}
+                className={cn(styles.feedbackOption, { [styles.selected]: selectedOptions.includes(option) })}
+                onKeyPress={() => handleOptionPress(option)}
+                onClick={() => handleOptionPress(option)}
+              >
+                {t(`Form.${option}`)}
+              </div>
+            ))}
+            <div className={styles.message}>
+              <textarea
+                name="message"
+                value={message}
+                className={styles.textarea}
+                placeholder={t('Form.message')}
+                required
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <div className={styles.messageLength}>
+                <span>{message.length}</span><span>/</span><span>{MIN_LENGTH_COMMENT}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={cn(styles.row, { [styles.uploaded]: files.length })}>
-          {!files.length ? null : (
-            files.slice(0, 4).map((file, index) => (
-              <div key={file.name} className={styles.preview}>
-                <CloseIcon className={styles.close} onClick={() => deleteFile(index)} />
-                <img src={file.source} alt="preview" />
-              </div>
-            ))
-          )}
+          <div className={cn(styles.row, { [styles.uploaded]: files.length })}>
+            {!files.length ? null : (
+              files.slice(0, 4).map((file, index) => (
+                <div key={file.name} className={styles.preview}>
+                  <CloseIcon className={styles.close} onClick={() => deleteFile(index)} />
+                  <img src={file.source} alt="preview" />
+                </div>
+              ))
+            )}
+          </div>
         </div>
         <div className={styles.row}>
           <UploadButton
@@ -91,7 +93,7 @@ export const Form: React.FC<IFormProps> = ({
             className={styles.uploadButton}
           />
           <Button
-            disabled={message.length < MIN_LENGTH_COMMENT}
+            disabled={message.length < MIN_LENGTH_COMMENT || !selectedOptions.length}
             isLoading={isLoading}
             isFluid
             type="blue"
