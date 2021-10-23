@@ -16,7 +16,7 @@ interface IReviewProps {
 }
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
-  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.FORM);
+  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
   const [isLoading, onSendFeedback] = useSendFeedback();
 
   const onNext = useCallback(() => {

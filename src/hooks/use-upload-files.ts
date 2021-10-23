@@ -3,9 +3,10 @@ import { useCallback, useState } from 'react';
 
 const validateUploadFiles = (items: FileUpload | FileUpload[]): FileUpload[] => (Array.isArray(items) ? items : [items])
   .reduce<FileUpload[]>((acc, item) => {
-  if (!item.file.type.includes('image')) {
-    return acc;
-  }
+  console.log('items', items);
+  // if (!item.file.type.includes('image')) {
+  //   return acc;
+  // }
   acc.push(item);
   return acc;
 }, []);
@@ -15,7 +16,7 @@ type TUseUploadFilesReturn = [
   () => void,
   (index: number) => void,
 ];
-export const useUploadFiles = (accept = 'image/*', multiple = true): TUseUploadFilesReturn => {
+export const useUploadFiles = (accept = '*', multiple = true): TUseUploadFilesReturn => {
   const [, selectFiles] = useFileUpload();
   const [files, setFiles] = useState<FileUpload[]>([]);
 
