@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { ICompany } from '@interfaces/companies.interfaces';
 
-import { FileUpload } from 'use-file-upload';
+// import { FileUpload } from 'use-file-upload';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
@@ -10,13 +10,14 @@ import { PhoneNumber } from './phone-number';
 import { Code } from './code';
 import { Success } from './success';
 import { ReviewError } from './error';
+import { TFile } from '@hooks/use-upload-files';
 
 interface IReviewProps {
   company: ICompany;
 }
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
-  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
+  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.FORM);
   const [isLoading, onSendFeedback] = useSendFeedback();
 
   const onNext = useCallback(() => {
@@ -32,7 +33,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     onNext();
   }, []);
 
-  const onNextFormPress = useCallback(async (files: FileUpload[]) => {
+  const onNextFormPress = useCallback(async (files: TFile[]) => {
     await onSendFeedback(files);
     // onNext();
   }, []);

@@ -1,12 +1,15 @@
-import { FileUpload } from 'use-file-upload';
+// import { FileUpload } from 'use-file-upload';
+import { TFile } from '@hooks/use-upload-files';
 import Resizer from 'react-image-file-resizer';
 
-export const resizeFile = (file: FileUpload): Promise<string> => new Promise((resolve) => {
-  Resizer.imageFileResizer(
-    file.file,
+export const resizeFile = (item: TFile): Promise<string> => new Promise((resolve) => {
+  
+  console.log('file.source', item);
+  // @ts-ignore
+  Resizer.imageFileResizer(item.file,
     1200,
     1200,
-    file.file.type,
+    item.file?.type,
     50,
     0,
     (uri) => {
