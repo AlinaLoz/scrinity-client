@@ -5,6 +5,7 @@ const validateUploadFiles = async (files: FileList | null): Promise<TFile[]>  =>
     return Promise.resolve([]);
   }
   // const result: TFile[] = [];
+  console.log('dasdasdadsdadas');
   return await Promise.all([...files].map((file) => {
     return new Promise<TFile>((resolve) => {
       alert('alert'+file.name);
