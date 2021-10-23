@@ -1,8 +1,7 @@
 import { S3 } from 'aws-sdk';
-import { resizeFile } from '@helpers/files.helpers';
 import { useCallback, useState } from 'react';
+import { resizeFile } from '@helpers/files.helpers';
 import { TFile } from '@hooks/use-upload-files';
-// import { FileUpload } from 'use-file-upload';
 
 type TUseSendFeedbackReturn = [boolean, (items: TFile[]) => Promise<void> ];
 export const useSendFeedback = (): TUseSendFeedbackReturn => {
@@ -21,9 +20,8 @@ export const useSendFeedback = (): TUseSendFeedbackReturn => {
       console.log('item', item);
       await s3.upload({
         Bucket: 'project-z-feedback',
-        // @ts-ignore
         Body: await resizeFile(item),
-        Key: item.file?.name + Date.now().toString(),
+        Key: `${item.file?.name || ''}${Date.now().toString()}`,
         ContentType: item.file?.type,
         ACL: 'public-read',
         CacheControl: 'max-age=31536000,s-maxage=31536000',

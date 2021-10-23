@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { ICompany } from '@interfaces/companies.interfaces';
 
-// import { FileUpload } from 'use-file-upload';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
+import { TFile } from '@hooks/use-upload-files';
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
@@ -10,7 +10,6 @@ import { PhoneNumber } from './phone-number';
 import { Code } from './code';
 import { Success } from './success';
 import { ReviewError } from './error';
-import { TFile } from '@hooks/use-upload-files';
 
 interface IReviewProps {
   company: ICompany;

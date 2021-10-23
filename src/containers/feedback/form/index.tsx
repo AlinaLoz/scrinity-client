@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
-// import { FileUpload } from 'use-file-upload';
 
 import { FormHeader } from '@containers/feedback/components/header';
 import {

@@ -1,45 +1,21 @@
 import { useCallback, useState } from 'react';
 
-const validateUploadFiles = async (files: FileList | null): Promise<TFile[]>  => {
+const validateUploadFiles = (files: FileList | null): TFile[] => {
   if (!files) {
-    return Promise.resolve([]);
+    return [];
   }
-  // const result: TFile[] = [];
-  console.log('dasdasdadsdadas');
-  return await Promise.all([...files].map((file) => {
-    return new Promise<TFile>((resolve) => {
-      alert('alert'+file.name);
-      if (!file.type.includes('image')) {
-        return;
-      }
-      resolve({
-        source: URL.createObjectURL(file),
-        file: file,
-      });
-      // const fileData = new FileReader();
-      // fileData.onloadend = (event) => {
-      //   console.log('event?.target?.result', event?.target?.result);
-      //   resolve({
-      //     source: URL.createObjectURL(event.target.files[0]),
-      //     name: file.name,
-      //     type: file.type,
-      //   });
-      // };
-      // fileData.readAsArrayBuffer(file);
+  return [...files].reduce<TFile[]>((acc, file) => {
+    if (!file.type.includes('image')) {
+      return acc;
+    }
+    acc.push({
+      source: URL.createObjectURL(file),
+      file,
     });
-  }));
+    return acc;
+  }, []);
 };
 
-
-// const validateUploadFiles = (items: FileUpload | FileUpload[]): FileUpload[] => (Array.isArray(items) ? items : [items])
-//   .reduce<FileUpload[]>((acc, item) => {
-//   if (!item.file.type.includes('image')) {
-//     return acc;
-//   }
-//   acc.push(item);
-//   return acc;
-// }, []);
-//
 type TUseUploadFilesReturn = [
   TFile[],
   (event: { target: HTMLInputElement; }) => void,
@@ -51,15 +27,11 @@ export type TFile = {
   file?: File;
 }
 
-export const useUploadFiles = (accept = '*', multiple = true): TUseUploadFilesReturn => {
-  // const [, selectFiles] = useFileUpload();
+export const useUploadFiles = (): TUseUploadFilesReturn => {
   const [files, setFiles] = useState<TFile[]>([]);
 
-  const selectFilesWrapper = useCallback(async (event: { target: HTMLInputElement; }) => {
-    setFiles(await validateUploadFiles(event.target.files));
-    // selectFiles({ multiple, accept }, (items) => {
-    //   setFiles(validateUploadFiles(items));
-    // });
+  const selectFilesWrapper = useCallback((event: { target: HTMLInputElement; }) => {
+    setFiles(validateUploadFiles(event.target.files));
   }, []);
   const deleteFile = useCallback((index: number) => {
     files.splice(index, 1);
