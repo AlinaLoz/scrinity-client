@@ -1,28 +1,37 @@
-import { FileUpload, useFileUpload } from 'use-file-upload';
 import { useCallback, useState } from 'react';
 
-const validateUploadFiles = (items: FileUpload | FileUpload[]): FileUpload[] => (Array.isArray(items) ? items : [items])
-  .reduce<FileUpload[]>((acc, item) => {
-  if (!item.file.type.includes('image')) {
-    return acc;
+const validateUploadFiles = (files: FileList | null): TFile[] => {
+  if (!files) {
+    return [];
   }
-  acc.push(item);
-  return acc;
-}, []);
+  return [...files].reduce<TFile[]>((acc, file) => {
+    if (!file.type.includes('image')) {
+      return acc;
+    }
+    acc.push({
+      source: URL.createObjectURL(file),
+      file,
+    });
+    return acc;
+  }, []);
+};
 
 type TUseUploadFilesReturn = [
-  FileUpload[],
-  () => void,
+  TFile[],
+  (event: { target: HTMLInputElement; }) => void,
   (index: number) => void,
 ];
-export const useUploadFiles = (accept = 'image/*', multiple = true): TUseUploadFilesReturn => {
-  const [, selectFiles] = useFileUpload();
-  const [files, setFiles] = useState<FileUpload[]>([]);
 
-  const selectFilesWrapper = useCallback(() => {
-    selectFiles({ multiple, accept }, (items) => {
-      setFiles(validateUploadFiles(items));
-    });
+export type TFile = {
+  source?: string;
+  file?: File;
+}
+
+export const useUploadFiles = (): TUseUploadFilesReturn => {
+  const [files, setFiles] = useState<TFile[]>([]);
+
+  const selectFilesWrapper = useCallback((event: { target: HTMLInputElement; }) => {
+    setFiles(validateUploadFiles(event.target.files));
   }, []);
   const deleteFile = useCallback((index: number) => {
     files.splice(index, 1);

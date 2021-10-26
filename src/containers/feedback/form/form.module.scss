@@ -73,11 +73,12 @@
 .options {
   display: flex;
   flex-wrap: wrap;
-  margin: 8% 0;
+  margin: 12% 0 8% 0;
   justify-content: space-between;
 }
 
 .feedbackOption {
+  outline: 0;
   @include montserrat-regular();
   font-size: 12px;
   line-height: 16px;

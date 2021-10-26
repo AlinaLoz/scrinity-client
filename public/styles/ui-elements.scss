@@ -17,3 +17,14 @@
     height: 50px;
   }
 }
+
+@mixin input() {
+  @include montserrat-regular();
+  height: 37px;
+  border: none;
+  border-bottom: 1px solid $athensGray;
+
+  &::placeholder {
+    color: $alto;
+  }
+}

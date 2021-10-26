@@ -1,0 +1,57 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.companyImage {
+  justify-content: center;
+  display: flex;
+}
+
+.description {
+  @include montserrat-regular();
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  margin-top: 15px;
+  color: $codGray;
+  margin-bottom: 35px;
+}
+
+.input {
+
+}
+
+.button {
+  margin-top: 25px;
+}
+
+.warning {
+  @include montserrat-regular();
+  font-size: 9px;
+  line-height: 10px;
+  color: $codGray;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.link {
+  @include montserrat-medium();
+  color: $codGray;
+  font-size: 9px;
+  line-height: 16px;
+  text-decoration: underline;
+}
+
+.companyName {
+  margin-top: 28px;
+}
+
+.error {
+  font-size: 12px;
+  color: $red;
+  margin-top: 12px;
+}

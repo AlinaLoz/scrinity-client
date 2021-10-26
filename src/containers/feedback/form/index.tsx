@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
-import { FileUpload } from 'use-file-upload';
 
 import { FormHeader } from '@containers/feedback/components/header';
 import {
@@ -10,12 +9,12 @@ import {
 import Button from '@components/button';
 import { UploadButton } from '@components/upload-button';
 import { CloseIcon } from '@components/icons/close';
-import { useUploadFiles } from '@hooks/use-upload-files';
+import { TFile, useUploadFiles } from '@hooks/use-upload-files';
 
 import styles from './form.module.scss';
 
 interface IFormProps {
-  onNext: (files: FileUpload[]) => void;
+  onNext: (files: TFile[]) => void;
   onPrev: () => void;
   isGoodReview: boolean;
   isLoading: boolean;
@@ -79,7 +78,7 @@ export const Form: React.FC<IFormProps> = ({
           <div className={cn(styles.row, { [styles.uploaded]: files.length })}>
             {!files.length ? null : (
               files.slice(0, 4).map((file, index) => (
-                <div key={file.name} className={styles.preview}>
+                <div key={file.file?.name} className={styles.preview}>
                   <CloseIcon className={styles.close} onClick={() => deleteFile(index)} />
                   <img src={file.source} alt="preview" />
                 </div>

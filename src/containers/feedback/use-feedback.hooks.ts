@@ -1,13 +1,13 @@
 import { S3 } from 'aws-sdk';
-import { resizeFile } from '@helpers/files.helpers';
 import { useCallback, useState } from 'react';
-import { FileUpload } from 'use-file-upload';
+import { resizeFile } from '@helpers/files.helpers';
+import { TFile } from '@hooks/use-upload-files';
 
-type TUseSendFeedbackReturn = [boolean, (items: FileUpload[]) => Promise<void> ];
+type TUseSendFeedbackReturn = [boolean, (items: TFile[]) => Promise<void> ];
 export const useSendFeedback = (): TUseSendFeedbackReturn => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const sendFeedback = useCallback(async (files: FileUpload[]) => {
+  const sendFeedback = useCallback(async (files: TFile[]) => {
     setIsLoading(true);
     const s3 = new S3({
       accessKeyId: 'AKIAU73SO2MCUBTZQJWR',
@@ -17,11 +17,12 @@ export const useSendFeedback = (): TUseSendFeedbackReturn => {
     });
     await files.reduce(async (promise, item) => {
       await promise;
+      // console.log('item', item);
       await s3.upload({
         Bucket: 'project-z-feedback',
         Body: await resizeFile(item),
-        Key: item.name + Date.now().toString(),
-        ContentType: item.file.type,
+        Key: `${item.file?.name || ''}${Date.now().toString()}`,
+        ContentType: item.file?.type,
         ACL: 'public-read',
         CacheControl: 'max-age=31536000,s-maxage=31536000',
       }).promise();
