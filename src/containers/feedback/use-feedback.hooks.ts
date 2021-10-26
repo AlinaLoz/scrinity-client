@@ -17,7 +17,7 @@ export const useSendFeedback = (): TUseSendFeedbackReturn => {
     });
     await files.reduce(async (promise, item) => {
       await promise;
-      console.log('item', item);
+      // console.log('item', item);
       await s3.upload({
         Bucket: 'project-z-feedback',
         Body: await resizeFile(item),

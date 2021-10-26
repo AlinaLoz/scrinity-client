@@ -1,0 +1,7 @@
+@import "public/styles/typography.scss";
+
+.touchable {
+  &:hover {
+    cursor: pointer;
+  }
+}

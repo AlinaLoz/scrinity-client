@@ -22,6 +22,9 @@
     "ISSUE_12": "impolite staff 12",
     "message": "Leave your comment here",
     "sendFeedback": "Send feedback"
+  },
+  "ERRORS": {
+    "UNKNOWN_ERROR": "Unknown error"
   }
 }
 

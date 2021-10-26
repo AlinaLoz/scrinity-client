@@ -1,0 +1,28 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/variables.scss';
+@import 'public/styles/ui-elements.scss';
+
+.phoneInput {
+  & > div {
+    display: none;
+  }
+  input {
+    @include input();
+    font-size: 18px;
+    line-height: 28px;
+    text-indent: 40px;
+    padding-bottom: 5px;
+  }
+}
+
+.phoneInputWrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+}
