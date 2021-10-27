@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/aws-sdk": "^2.7.0",
     "@types/config": "^0.0.39",
+    "@types/qs": "^6.9.7",
     "@types/react-modal": "^3.13.1",
     "aws-sdk": "^2.1013.0",
     "axios": "^0.22.0",
@@ -24,6 +25,7 @@
     "next": "^11.1.2",
     "next-i18next": "^8.9.0",
     "next-images": "^1.8.1",
+    "qs": "^6.10.1",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
     "react-device-detect": "^2.0.1",

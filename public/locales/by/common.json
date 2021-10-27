@@ -24,6 +24,7 @@
     "sendFeedback": "Адправіць водгук"
   },
   "ERRORS": {
-    "UNKNOWN_ERROR": "Невядомая памылка"
+    "UNKNOWN_ERROR": "Невядомая памылка",
+    "INVALID_PHONE_NUMBER": "Няправільны нумар тэлефона"
   }
 }
