@@ -18,12 +18,16 @@ export const SignInModal: React.FC = () => {
     setStepSignIn(SIGN_IN_STEP.VERIFY);
   }, []);
 
+  const onBackWrapper = useCallback(() => {
+    setStepSignIn(SIGN_IN_STEP.REQUEST);
+  }, []);
+  
   const render = () => {
     switch (stepSignIn) {
       case SIGN_IN_STEP.REQUEST:
         return <RequestCodeStep onNext={onNextToVerifyCode} />;
       default:
-        return <VerifyCodeStep phone={phone} />;
+        return <VerifyCodeStep phone={phone} onBack={onBackWrapper} />;
     }
   };
 

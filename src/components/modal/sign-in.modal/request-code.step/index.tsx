@@ -6,11 +6,10 @@ import { PhoneNumberInput } from '@components/input/phonenumber';
 import Button from '@components/button';
 import { Touchable } from '@components/touchable';
 import { MODAL } from '@constants/modal.constants';
-import { CompanyName } from '@components/company-name';
-import { requestConfirmCode } from '@api/auth.service';
-import { getFirstResponseError } from '@helpers/message.helper';
+import { CompanyName } from '@components/company-name';;
 import { useTranslation } from 'next-i18next';
 import styles from './request-code.module.scss';
+import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
 
 interface IRequestCodeStep {
   onNext: (phone: string) => void;
@@ -20,20 +19,14 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
   const { data }: { data?: TModalData<MODAL.SIGN_IN> } = useContext(ModalContext);
   const { t } = useTranslation('common');
   const [phone, setPhone] = useState('');
-  const [error, setError] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(false);
+  
+  const [isLoading, error, setError, requestConfirmCode] = useRequestNewCode();
 
-  const onNextStepWrapper = async () => {
-    try {
-      setIsLoading(true);
-      await requestConfirmCode(phone);
-      onNext(phone);
-    } catch (err) {
-      setError(getFirstResponseError(err));
-    }
-    setIsLoading(false);
-  };
-
+  const onNextStepWrapper = useCallback(() => {
+    const cb = (): void => onNext(phone);
+    requestConfirmCode(phone, cb);
+  }, []);
+  
   const setPhoneWrapper = useCallback((value: string) => {
     setPhone(value);
     setError('');
@@ -49,21 +42,22 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
         <img src={UrlHelper.getImageSrc('puma.png')} alt={`company ${data.company.id}`} />
       </div>
       <p className={styles.description}>
-        Оставьте свой номер телефона, чтобы в случае необходимости мы могли с Вами связаться
+        {t('SIGN_IN_REQUEST.DESCRIPTION')}
       </p>
       <PhoneNumberInput className={styles.input} onChange={setPhoneWrapper} />
       <Button
+        disabled={!phone || phone?.length < 13}
         className={styles.button}
         onClick={onNextStepWrapper}
         type="blue"
         isLoading={isLoading}
-      >Оставить номер
+      >{t('SIGN_IN_REQUEST.SUBMIT')}
       </Button>
       {error && <p className={styles.error}>{t(`ERRORS.${error}`)}</p>}
       <p className={styles.warning}>
-        Нажимая кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности
+        {t('SIGN_IN_REQUEST.WARNING')}
       </p>
-      <Touchable className={styles.link} onClick={data.onNext}>Оставить отзыв без номера телефона</Touchable>
+      <Touchable className={styles.link} onClick={data.onNext}>{t('SIGN_IN_REQUEST.LINK')}</Touchable>
       <CompanyName classNames={styles.companyName} />
     </div>
   );

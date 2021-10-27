@@ -44,10 +44,15 @@
   font-size: 9px;
   line-height: 16px;
   text-decoration: underline;
+  display: contents;
 }
 
 .companyName {
-  margin-top: 28px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 26px;
+  position: absolute;
 }
 
 .error {

@@ -57,6 +57,7 @@ div.ReactModal__Overlay {
 }
 
 div.ReactModal__Content {
+  outline: none;
   &:focus-visible {
     outline: none;
   }

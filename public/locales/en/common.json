@@ -26,6 +26,19 @@
   "ERRORS": {
     "UNKNOWN_ERROR": "Unknown error",
     "INVALID_PHONE_NUMBER": "Invalid phone number"
+  },
+  "SIGN_IN_REQUEST": {
+    "DESCRIPTION": "Leave your phone number so that if necessary we can contact you",
+    "SUBMIT": "Leave a number",
+    "WARNING": "By clicking the button, you consent to the processing of personal data and agree to the privacy policy",
+    "LINK": "Leave a review without a phone number"
+  },
+  "SIGN_IN_VERIFY": {
+    "DESCRIPTION": "We will send you a one-time verification code to verify your number",
+    "SUBMIT": "Log in",
+    "QUESTION": "Didn't receive the code?",
+    "REQUEST_CONFIRM_CODE": "You can send the code again in 60 seconds",
+    "LINK": "Send again"
   }
 }
 
