@@ -24,6 +24,7 @@
     "sendFeedback": "Отправить отзыв"
   },
   "ERRORS": {
-    "UNKNOWN_ERROR": "Неизвестная ошибка"
+    "UNKNOWN_ERROR": "Неизвестная ошибка",
+    "INVALID_PHONE_NUMBER": "Неправильный номер телефона"
   }
 }

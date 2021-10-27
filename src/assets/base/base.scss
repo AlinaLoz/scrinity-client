@@ -55,3 +55,9 @@ div.ReactModal__Overlay {
   backdrop-filter: blur(5px);
   background-color: transparent !important;
 }
+
+div.ReactModal__Content {
+  &:focus-visible {
+    outline: none;
+  }
+}

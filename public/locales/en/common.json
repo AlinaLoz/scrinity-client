@@ -24,7 +24,8 @@
     "sendFeedback": "Send feedback"
   },
   "ERRORS": {
-    "UNKNOWN_ERROR": "Unknown error"
+    "UNKNOWN_ERROR": "Unknown error",
+    "INVALID_PHONE_NUMBER": "Invalid phone number"
   }
 }
 
