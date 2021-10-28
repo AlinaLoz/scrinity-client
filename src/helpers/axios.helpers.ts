@@ -6,7 +6,7 @@ const { API_URL } = config;
 
 const executeSendRequest = (method: 'post' | 'patch' | 'put') => <T>(
   urlPath: string,
-  body?: Record<string, unknown>,
+  body?: Record<string, any>,
 ) => {
   const url = `${API_URL}${urlPath}`;
   return axios[method]<Record<string, unknown> | undefined, { data: T }>(
@@ -35,6 +35,4 @@ export const post = executeSendRequest('post');
 export const patch = executeSendRequest('patch');
 export const put = executeSendRequest('put');
 export const get = executeGetRequest('get');
-export const del = executeGetRequest('delete');
-
-// axios.interceptors.request.use((config) => config, (error) => Promise.reject(error));
+export const del = executeGetRequest('delete')

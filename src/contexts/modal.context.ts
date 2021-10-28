@@ -7,7 +7,7 @@ import { ICompany } from '@interfaces/companies.interfaces';
 export type TModalData<T extends MODAL> = {
   [MODAL.SIGN_IN]: {
     company: ICompany,
-    onNext: () => void;
+    onSendFeedback: () => void;
   } | null,
   [MODAL.NONE]: null,
 }[T];

@@ -25,7 +25,9 @@
   },
   "ERRORS": {
     "UNKNOWN_ERROR": "Unknown error",
-    "INVALID_PHONE_NUMBER": "Invalid phone number"
+    "INVALID_PHONE_NUMBER": "Invalid phone number",
+    "REQUEST_CONFIRM_CODE_LIMIT": "Number of attempts exceeded",
+    "CODE_NOT_FOUND": "Invalid code"
   },
   "SIGN_IN_REQUEST": {
     "DESCRIPTION": "Leave your phone number so that if necessary we can contact you",

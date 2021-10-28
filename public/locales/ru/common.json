@@ -25,7 +25,9 @@
   },
   "ERRORS": {
     "UNKNOWN_ERROR": "Неизвестная ошибка",
-    "INVALID_PHONE_NUMBER": "Неправильный номер телефона"
+    "INVALID_PHONE_NUMBER": "Неправильный номер телефона",
+    "REQUEST_CONFIRM_CODE_LIMIT": "Превышено количество попыток",
+    "CODE_NOT_FOUND": "Неправильный кода"
   },
   "SIGN_IN_REQUEST": {
     "DESCRIPTION": "Оставьте свой номер телефона, чтобы в случае необходимости мы могли с Вами связаться",

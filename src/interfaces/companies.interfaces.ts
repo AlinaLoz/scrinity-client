@@ -1,3 +1,5 @@
+import { TFile } from '@hooks/use-upload-files';
+
 export interface ICompany {
   id: string;
   name: string;
@@ -6,4 +8,12 @@ export interface ICompany {
   expiredTime: string;
 }
 
-export type IGetCompanyAPIResponse = ICompany
+export interface IGetCompanyAPIResponse extends ICompany {}
+
+export interface ISendFeedbackRequest {
+  message: string,
+  files: TFile[],
+  criteria: string[],
+}
+
+export interface ISendFeedbackResponse {}

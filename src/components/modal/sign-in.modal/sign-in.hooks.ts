@@ -15,6 +15,8 @@ export const useRequestNewCode = (): TUseRequestNewCodeReturn => {
 	const cb = useCallback(async (phone: string, cb: () => void) => {
 		try {
 			setIsLoading(true);
+			// debugger.
+			console.log('phone', phone.length);
 			await requestConfirmCode(phone);
 			cb();
 		} catch (err) {

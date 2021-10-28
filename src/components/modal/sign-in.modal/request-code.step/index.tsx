@@ -25,7 +25,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
   const onNextStepWrapper = useCallback(() => {
     const cb = (): void => onNext(phone);
     requestConfirmCode(phone, cb);
-  }, []);
+  }, [phone]);
   
   const setPhoneWrapper = useCallback((value: string) => {
     setPhone(value);
@@ -57,7 +57,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
       <p className={styles.warning}>
         {t('SIGN_IN_REQUEST.WARNING')}
       </p>
-      <Touchable className={styles.link} onClick={data.onNext}>{t('SIGN_IN_REQUEST.LINK')}</Touchable>
+      <Touchable className={styles.link} onClick={data.onSendFeedback}>{t('SIGN_IN_REQUEST.LINK')}</Touchable>
       <CompanyName classNames={styles.companyName} />
     </div>
   );
