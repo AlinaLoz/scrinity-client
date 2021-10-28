@@ -1,2 +1,7 @@
 @import 'public/styles/typography.scss';
 @import 'public/styles/variables.scss';
+@import 'public/styles/ui-elements.scss';
+
+.input {
+  @include input();
+}

@@ -17,6 +17,7 @@ export const PhoneNumberInput: React.FC<IInputProps> = ({
   <div className={styles.phoneInputWrapper}>
     <PhoneIcon className={styles.icon} />
     <PhoneInput
+      international
       defaultCountry="BY"
       className={cn(className, styles.phoneInput)}
       placeholder={placeholder}

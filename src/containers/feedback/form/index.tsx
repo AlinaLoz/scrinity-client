@@ -9,19 +9,20 @@ import {
 import Button from '@components/button';
 import { UploadButton } from '@components/upload-button';
 import { CloseIcon } from '@components/icons/close';
-import { TFile, useUploadFiles } from '@hooks/use-upload-files';
+import { useUploadFiles } from '@hooks/use-upload-files';
 
+import { ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import styles from './form.module.scss';
 
 interface IFormProps {
-  onNext: (files: TFile[]) => void;
+  onSubmitFormPress: (data: ISendFeedbackRequest) => void;
   onPrev: () => void;
   isGoodReview: boolean;
   isLoading: boolean;
 }
 
 export const Form: React.FC<IFormProps> = ({
-  isLoading, onNext, onPrev, isGoodReview,
+  isLoading, onSubmitFormPress, onPrev, isGoodReview,
 }) => {
   const { t } = useTranslation('common');
 
@@ -96,7 +97,7 @@ export const Form: React.FC<IFormProps> = ({
             isLoading={isLoading}
             isFluid
             type="blue"
-            onClick={() => onNext(files)}
+            onClick={() => onSubmitFormPress({ message, files, criteria: selectedOptions })}
           >
             {t('Form.sendFeedback')}
           </Button>
