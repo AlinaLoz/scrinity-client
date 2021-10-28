@@ -33,14 +33,13 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     onNext();
   }, []);
 
-  const onNextFormPress = useCallback(async (data: ISendFeedbackRequest) => {
+  const onNextFormPress = useCallback((data: ISendFeedbackRequest) => {
     const onSendFeedback = async () => {
       try {
         setData(MODAL.NONE, null);
         await sendFeedback(data);
         setReviewStep(REVIEW_STEP.SUCCESS);
       } catch (err) {
-        console.log('err', err);
         setReviewStep(REVIEW_STEP.ERROR);
       }
     };

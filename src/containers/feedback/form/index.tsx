@@ -11,11 +11,11 @@ import { UploadButton } from '@components/upload-button';
 import { CloseIcon } from '@components/icons/close';
 import { useUploadFiles } from '@hooks/use-upload-files';
 
-import styles from './form.module.scss';
 import { ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import styles from './form.module.scss';
 
 interface IFormProps {
-  onSubmitFormPress: (data: ISendFeedbackRequest) => Promise<void>;
+  onSubmitFormPress: (data: ISendFeedbackRequest) => void;
   onPrev: () => void;
   isGoodReview: boolean;
   isLoading: boolean;

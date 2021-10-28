@@ -33,7 +33,7 @@ export const useSendFeedback = (): TUseSendFeedbackReturn => {
       sendFeedbackAPI(data),
       new Promise((res, rej) => setInterval(rej, 7000)),
     ]);
-    
+
     setIsLoading(false);
   }, []);
 

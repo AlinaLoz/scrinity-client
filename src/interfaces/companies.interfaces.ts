@@ -8,7 +8,8 @@ export interface ICompany {
   expiredTime: string;
 }
 
-export interface IGetCompanyAPIResponse extends ICompany {}
+// @ts-ignore
+export type IGetCompanyAPIResponse = ICompany
 
 export interface ISendFeedbackRequest {
   message: string,
@@ -16,4 +17,6 @@ export interface ISendFeedbackRequest {
   criteria: string[],
 }
 
-export interface ISendFeedbackResponse {}
+export interface ISendFeedbackResponse {
+  status: 'ok'
+}

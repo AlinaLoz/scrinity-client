@@ -1,4 +1,6 @@
-import React, { useContext, useState, useEffect, useCallback } from 'react';
+import React, {
+  useContext, useState, useEffect, useCallback,
+} from 'react';
 import { useTranslation } from 'next-i18next';
 import useCountDown from 'react-countdown-hook';
 import cn from 'classnames';
@@ -23,7 +25,7 @@ interface IVerifyCodeStep {
   onBack: () => void;
 }
 
-const initialTime =   5 * 1000; // initial time in milliseconds, defaults to 60000
+const initialTime = 5 * 1000; // initial time in milliseconds, defaults to 60000
 const interval = 1000; // interval to change remaining time amount, defaults to 1000
 const CONFIRM_CODE_LENGTH = 6;
 
@@ -36,18 +38,18 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingConfirmCode, errorRequestCode, , requestConfirmCode] = useRequestNewCode();
-  
-  const [timeLeft, { start, reset  }] = useCountDown(initialTime, interval);
-  
+
+  const [timeLeft, { start, reset }] = useCountDown(initialTime, interval);
+
   useEffect(() => {
     start();
   }, []);
-  
+
   const setCodeWrapper = useCallback((value: string) => {
     setCode(value);
     setError('');
   }, []);
-  
+
   const onRequestNewCodeWrapper = async () => {
     setError('');
     await requestConfirmCode(phone, () => {
@@ -55,7 +57,7 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
       start();
     });
   };
-  
+
   const onNextStepWrapper = async () => {
     try {
       setIsLoading(true);
@@ -66,13 +68,13 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
     }
     setIsLoading(false);
   };
-  
+
   if (!data) {
     return null;
   }
-  
+
   const isDisableButton = code.length < CONFIRM_CODE_LENGTH;
-  
+
   return (
     <div className={requestCodeStyle.wrapper}>
       <BackIcon onClick={onBack} className={styles.backIcon} />
@@ -84,7 +86,7 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
       </p>
       <Input
         maxLength={6}
-        placeholder={"000000"}
+        placeholder="000000"
         value={code}
         onChangeValue={setCodeWrapper}
       />
@@ -94,7 +96,11 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
         onClick={onNextStepWrapper}
         type="blue"
         isLoading={isLoading || isLoadingConfirmCode}
-      >{t(timeLeft > 0 && code.length < CONFIRM_CODE_LENGTH ? 'SIGN_IN_VERIFY.REQUEST_CONFIRM_CODE' : 'SIGN_IN_VERIFY.SUBMIT', { seconds: timeLeft / 1000 })}
+      >{t(
+          timeLeft > 0 && code.length < CONFIRM_CODE_LENGTH
+            ? 'SIGN_IN_VERIFY.REQUEST_CONFIRM_CODE' : 'SIGN_IN_VERIFY.SUBMIT',
+          { seconds: timeLeft / 1000 },
+        )}
       </Button>
       {error && <p className={requestCodeStyle.error}>{t(`ERRORS.${error || errorRequestCode}`)}</p>}
       {timeLeft === 0 && (

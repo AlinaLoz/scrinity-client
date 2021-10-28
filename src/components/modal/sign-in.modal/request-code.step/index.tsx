@@ -6,10 +6,10 @@ import { PhoneNumberInput } from '@components/input/phonenumber';
 import Button from '@components/button';
 import { Touchable } from '@components/touchable';
 import { MODAL } from '@constants/modal.constants';
-import { CompanyName } from '@components/company-name';;
+import { CompanyName } from '@components/company-name';
 import { useTranslation } from 'next-i18next';
-import styles from './request-code.module.scss';
 import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
+import styles from './request-code.module.scss';
 
 interface IRequestCodeStep {
   onNext: (phone: string) => void;
@@ -19,14 +19,14 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
   const { data }: { data?: TModalData<MODAL.SIGN_IN> } = useContext(ModalContext);
   const { t } = useTranslation('common');
   const [phone, setPhone] = useState('');
-  
+
   const [isLoading, error, setError, requestConfirmCode] = useRequestNewCode();
 
-  const onNextStepWrapper = useCallback(() => {
+  const onNextStepWrapper = useCallback(async () => {
     const cb = (): void => onNext(phone);
-    requestConfirmCode(phone, cb);
+    await requestConfirmCode(phone, cb);
   }, [phone]);
-  
+
   const setPhoneWrapper = useCallback((value: string) => {
     setPhone(value);
     setError('');

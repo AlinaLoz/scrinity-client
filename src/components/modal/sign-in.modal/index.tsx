@@ -21,7 +21,7 @@ export const SignInModal: React.FC = () => {
   const onBackWrapper = useCallback(() => {
     setStepSignIn(SIGN_IN_STEP.REQUEST);
   }, []);
-  
+
   const render = () => {
     switch (stepSignIn) {
       case SIGN_IN_STEP.REQUEST:

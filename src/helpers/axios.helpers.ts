@@ -4,9 +4,12 @@ import config from '@utils/config';
 
 const { API_URL } = config;
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+type TBody = Record<string, any>;
+
 const executeSendRequest = (method: 'post' | 'patch' | 'put') => <T>(
   urlPath: string,
-  body?: Record<string, any>,
+  body?: TBody,
 ) => {
   const url = `${API_URL}${urlPath}`;
   return axios[method]<Record<string, unknown> | undefined, { data: T }>(
@@ -35,4 +38,4 @@ export const post = executeSendRequest('post');
 export const patch = executeSendRequest('patch');
 export const put = executeSendRequest('put');
 export const get = executeGetRequest('get');
-export const del = executeGetRequest('delete')
+export const del = executeGetRequest('delete');
