@@ -41,5 +41,12 @@
     "REQUEST_CONFIRM_CODE": "Даслаць код паўторна можна будзе праз 60 секунд",
     "QUESTION": "Не атрымалі код?",
     "LINK": "Даслаць яшчэ раз"
+  },
+  "EMPTY_SCREENS": {
+    "SUCCESS_TITLE": "Паспяхова!",
+    "SUCCESS_DESCRIPTION": "Ваш водгук пакінуты, дзякуй",
+    "SUBMIT": "Гатова",
+    "ERROR_TITLE": "Ой!",
+    "ERROR_DESCRIPTION": "Нешта пайшло не так"
   }
 }

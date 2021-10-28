@@ -9,14 +9,14 @@ import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
 import { Success } from './success';
-import { ReviewError } from './error';
+import { Error } from './error';
 
 interface IReviewProps {
   company: ICompany;
 }
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
-  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.FORM);
+  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
   const [isLoading, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
 
@@ -59,8 +59,8 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
         />
       );
     case REVIEW_STEP.SUCCESS:
-      return <Success />;
+      return <Success onNext={() => setReviewStep(REVIEW_STEP.WELCOME)} />;
     default:
-      return <ReviewError />;
+      return <Error onNext={() => setReviewStep(REVIEW_STEP.WELCOME)} />;
   }
 };

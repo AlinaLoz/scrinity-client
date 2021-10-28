@@ -1,0 +1,63 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(155.43deg, $powder 7.29%, $wedgewood 96.12%);
+  padding: 10% 40px 22% 40px;
+}
+
+.content {
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.companyName {
+  color: $white;
+}
+
+.img {
+  width: 313px;
+  height: auto;
+  margin-bottom: 10%;
+
+  @media (max-width: $iphone6s) {
+    margin-bottom: 17%;
+  }
+
+  @media (max-width: $iphone6) {
+    width: 290px;
+  }
+
+  @media (max-width: $iphone5) {
+    width: 230px;
+  }
+}
+
+.text {
+  color: $white;
+  line-height: 16px;
+  text-align: center;
+}
+
+.title {
+  @include montserrat-medium();
+  font-size: 14px;
+  margin-bottom: 5%;
+}
+
+.description {
+  @include montserrat-regular();
+  font-size: 13px;
+}
+
+button.submit {
+  width: 100%;
+  border: none;
+  margin-top: 10%;
+}

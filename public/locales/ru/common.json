@@ -41,5 +41,12 @@
     "QUESTION": "Не получили код?",
     "REQUEST_CONFIRM_CODE": "Отправить код повторно можно будет через {{seconds}} секунд",
     "LINK": "Отправить еще раз"
+  },
+  "EMPTY_SCREENS": {
+    "SUCCESS_TITLE": "Успешно!",
+    "SUCCESS_DESCRIPTION": "Ваш отзыв оставлен, спасибо",
+    "ERROR_TITLE": "Ой!",
+    "ERROR_DESCRIPTION": "Что-то пошло не так",
+    "SUBMIT": "Готово"
   }
 }

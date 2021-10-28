@@ -41,6 +41,13 @@
     "QUESTION": "Didn't receive the code?",
     "REQUEST_CONFIRM_CODE": "You can send the code again in 60 seconds",
     "LINK": "Send again"
+  },
+  "EMPTY_SCREENS": {
+    "SUCCESS_TITLE": "Success!",
+    "SUCCESS_DESCRIPTION": "Your feedback has been left, thanks",
+    "SUBMIT": "Done",
+    "ERROR_TITLE": "Oops!",
+    "ERROR_DESCRIPTION": "Something went wrong"
   }
 }
 
