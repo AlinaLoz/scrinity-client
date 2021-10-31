@@ -1,41 +1,50 @@
-import { S3 } from 'aws-sdk';
 import { useCallback, useState } from 'react';
 
 import { resizeFile } from '@helpers/files.helpers';
 import { ISendFeedbackRequest } from '@interfaces/companies.interfaces';
-import { sendFeedbackAPI } from '@api/companies.service';
+import { sendFeedbackAPI, sendFeedbackImagesAPI } from '@api/companies.service';
+import { TFile } from '@hooks/use-upload-files';
+import { getFirstResponseError } from '@helpers/message.helper';
 
-type TUseSendFeedbackReturn = [boolean, (data: ISendFeedbackRequest) => Promise<void> ];
+type TUploadFeedbackImagesReturn = [(files: TFile[]) => Promise<string[]>];
+const uploadFeedbackImages = (): TUploadFeedbackImagesReturn => {
+  const uploadImages = async (files: TFile[]) => {
+    const data = new FormData();
+    for (const file of files) {
+      // @ts-ignore
+      data.append('images', file);
+    }
+    console.log('data', data, files);
+    const { imagesKeys } = await sendFeedbackImagesAPI(data);
+    return imagesKeys;
+  };
+  return [uploadImages];
+};
+
+type TUseSendFeedbackReturn = [boolean, string, (data: ISendFeedbackRequest & { files: TFile[] }) => Promise<boolean> ];
 export const useSendFeedback = (): TUseSendFeedbackReturn => {
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const sendFeedback = useCallback(async (data: ISendFeedbackRequest) => {
+  const [uploadImages] = uploadFeedbackImages();
+
+  const sendFeedback = useCallback(async (data: ISendFeedbackRequest & { files: TFile[] }) => {
     setIsLoading(true);
-    const s3 = new S3({
-      accessKeyId: 'AKIAU73SO2MCUBTZQJWR',
-      secretAccessKey: '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',
-      region: 'eu-west-1',
-      signatureVersion: 'v4',
-    });
-    await data.files.reduce(async (promise, item) => {
-      await promise;
-      // console.log('item', item);
-      await s3.upload({
-        Bucket: 'project-z-feedback',
-        Body: await resizeFile(item),
-        Key: `${item.file?.name || ''}${Date.now().toString()}`,
-        ContentType: item.file?.type,
-        ACL: 'public-read',
-        CacheControl: 'max-age=31536000,s-maxage=31536000',
-      }).promise();
-    }, Promise.resolve());
-    await Promise.allSettled([
-      sendFeedbackAPI(data),
-      new Promise((res, rej) => setInterval(rej, 7000)),
-    ]);
+    try {
+      const filesKeys: string[] = [];
+      if (data.files.length) {
+        filesKeys.push(...await uploadImages(data.files));
+      }
+      await sendFeedbackAPI({ ...data, filesKeys });
+      return true;
+    } catch (err) {
+      setError(getFirstResponseError(err));
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
 
-    setIsLoading(false);
   }, []);
 
-  return [isLoading, sendFeedback];
+  return [isLoading, error, sendFeedback];
 };

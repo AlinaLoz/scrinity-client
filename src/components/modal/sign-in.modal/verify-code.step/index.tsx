@@ -25,9 +25,9 @@ interface IVerifyCodeStep {
   onBack: () => void;
 }
 
-const initialTime = 5 * 1000; // initial time in milliseconds, defaults to 60000
+const initialTime = 85 * 1000; // initial time in milliseconds, defaults to 60000
 const interval = 1000; // interval to change remaining time amount, defaults to 1000
-const CONFIRM_CODE_LENGTH = 6;
+const CONFIRM_CODE_LENGTH = 4;
 
 export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
   phone, onBack,
@@ -85,8 +85,8 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
         {t('SIGN_IN_VERIFY.DESCRIPTION')}
       </p>
       <Input
-        maxLength={6}
-        placeholder="000000"
+        maxLength={4}
+        placeholder="0000"
         value={code}
         onChangeValue={setCodeWrapper}
       />

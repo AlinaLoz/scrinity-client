@@ -4,6 +4,7 @@ import { ICompany, ISendFeedbackRequest } from '@interfaces/companies.interfaces
 import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
+import { TFile } from '@hooks/use-upload-files';
 
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
@@ -17,7 +18,7 @@ interface IReviewProps {
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
   const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
-  const [isLoading, sendFeedback] = useSendFeedback();
+  const [isLoading, error, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
 
   const onNext = useCallback(() => {
@@ -33,14 +34,11 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     onNext();
   }, []);
 
-  const onNextFormPress = useCallback((data: ISendFeedbackRequest) => {
+  const onNextFormPress = useCallback((data: ISendFeedbackRequest & { files: TFile[] }) => {
     const onSendFeedback = async () => {
-      try {
-        setData(MODAL.NONE, null);
-        await sendFeedback(data);
+      setData(MODAL.NONE, null);
+      if (await sendFeedback(data)) {
         setReviewStep(REVIEW_STEP.SUCCESS);
-      } catch (err) {
-        setReviewStep(REVIEW_STEP.ERROR);
       }
     };
     setData(MODAL.SIGN_IN, { company, onSendFeedback });
@@ -52,6 +50,8 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     case REVIEW_STEP.FORM:
       return (
         <Form
+          error={error}
+          company={company}
           isLoading={isLoading}
           onSubmitFormPress={onNextFormPress}
           onPrev={onPrev}

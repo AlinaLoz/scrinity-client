@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { Modal } from '@components/modal';
 import { MODAL } from '@constants/modal.constants';
 import { ModalContext, TModalData } from '@contexts/modal.context';
+
 import '../assets/main.scss';
 
 type TSetDataCb<T extends MODAL> = (type: T, data: TModalData<T>) => void;

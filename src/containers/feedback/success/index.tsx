@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'next-i18next';
 
 import { SUCCESS_PAGE_IMAGE_PATH } from '@constants/ui.constants';
-import { EmptyPage } from '../components/empty-page';
+import { EmptyPage } from '../../../components/empty-page';
 
 interface ISuccessProps {
   onNext: () => void;

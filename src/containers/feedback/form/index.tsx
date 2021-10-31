@@ -1,37 +1,40 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
 
 import { FormHeader } from '@containers/feedback/components/header';
-import {
-  FEEDBACK_ISSUE, MIN_LENGTH_COMMENT, NEGATIVE_FEEDBACK_ISSUES, POSITIVE_FEEDBACK_ISSUES,
-} from '@constants/feedback.constants';
+import { MIN_LENGTH_COMMENT } from '@constants/feedback.constants';
 import Button from '@components/button';
 import { UploadButton } from '@components/upload-button';
 import { CloseIcon } from '@components/icons/close';
-import { useUploadFiles } from '@hooks/use-upload-files';
+import { TFile, useUploadFiles } from '@hooks/use-upload-files';
 
-import { ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import { ICompany, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import styles from './form.module.scss';
 
 interface IFormProps {
-  onSubmitFormPress: (data: ISendFeedbackRequest) => void;
+  onSubmitFormPress: (data: ISendFeedbackRequest & { files: TFile[] }) => void;
   onPrev: () => void;
   isGoodReview: boolean;
   isLoading: boolean;
+  company: ICompany;
+  error: string;
 }
 
 export const Form: React.FC<IFormProps> = ({
-  isLoading, onSubmitFormPress, onPrev, isGoodReview,
+  isLoading, onSubmitFormPress, onPrev, isGoodReview, company,
+  error,
 }) => {
   const { t } = useTranslation('common');
 
-  const [selectedOptions, setSelectedOptions] = useState<FEEDBACK_ISSUE[]>([]);
-  const options = isGoodReview ? POSITIVE_FEEDBACK_ISSUES : NEGATIVE_FEEDBACK_ISSUES;
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const options = useMemo(() => company.criterions
+    .filter(({ isGood }) => isGood === isGoodReview)
+    .map(({ key }) => key), [isGoodReview]);
   const [message, setMessage] = useState('');
   const [files, selectFiles, deleteFile] = useUploadFiles();
 
-  const handleOptionPress = (selectedOption: FEEDBACK_ISSUE) => {
+  const handleOptionPress = (selectedOption: string) => {
     if (selectedOptions.includes(selectedOption)) {
       setSelectedOptions([...selectedOptions.filter((option) => option !== selectedOption)]);
     } else {
@@ -97,10 +100,19 @@ export const Form: React.FC<IFormProps> = ({
             isLoading={isLoading}
             isFluid
             type="blue"
-            onClick={() => onSubmitFormPress({ message, files, criteria: selectedOptions })}
+            onClick={() => onSubmitFormPress({
+              message,
+              criterions: selectedOptions,
+              isGood: isGoodReview,
+              companyId: company.id,
+              files,
+            })}
           >
             {t('Form.sendFeedback')}
           </Button>
+        </div>
+        <div>
+          {error && <p className={styles.error}>{t(`ERRORS.${error}`)}</p>}
         </div>
       </div>
     </div>

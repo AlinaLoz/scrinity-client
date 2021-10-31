@@ -1,22 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 
+import { EmptyPage } from '@components/empty-page';
 import { ERROR_PAGE_IMAGE_PATH } from '@constants/ui.constants';
-import { EmptyPage } from '../../../components/empty-page';
 
-interface IErrorProps {
-  onNext: () => void;
+interface ICustomErrorProps {
+  type: '404' | '500',
 }
 
-export const Error: React.FC<IErrorProps> = ({ onNext }) => {
+export const CustomError: React.FC<ICustomErrorProps> = ({ type }) => {
   const { t } = useTranslation('common');
-
+  const text = type === '404' ? t('EMPTY_SCREENS.NOT_FOUND') : t('EMPTY_SCREENS.ERROR_DESCRIPTION');
   return (
     <EmptyPage
-      onNext={onNext}
       image={ERROR_PAGE_IMAGE_PATH}
       title={t('EMPTY_SCREENS.ERROR_TITLE')}
-      description={t('EMPTY_SCREENS.ERROR_DESCRIPTION')}
+      description={text}
     />
   );
 };
