@@ -10,7 +10,7 @@
 }
 
 .content {
-  margin-top: 15%;
+  margin-top: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,16 +22,16 @@
 }
 
 .img {
-  width: 313px;
+  width: 350px;
   height: auto;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 
   @media (max-width: $iphone6s) {
     margin-bottom: 17%;
   }
 
   @media (max-width: $iphone6) {
-    width: 290px;
+    width: 325px;
   }
 
   @media (max-width: $iphone5) {
@@ -47,13 +47,13 @@
 
 .title {
   @include montserrat-medium();
-  font-size: 14px;
-  margin-bottom: 5%;
+  font-size: 20px;
+  margin-bottom: 10%;
 }
 
 .description {
   @include montserrat-regular();
-  font-size: 13px;
+  font-size: 14px;
 }
 
 button.submit {

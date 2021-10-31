@@ -9,10 +9,13 @@
   padding: 0 6%;
 
   @media (max-width: $iphone6s) {
-    button {
-      height: 60px;
-    }
+    height: 60px;
   }
+
+  @media (max-width: $iphone6) {
+    height: 50px;
+  }
+
   @media (max-width: $iphone5) {
     height: 50px;
   }

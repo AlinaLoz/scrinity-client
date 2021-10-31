@@ -17,9 +17,10 @@ export const PhoneNumberInput: React.FC<IInputProps> = ({
   <div className={styles.phoneInputWrapper}>
     <PhoneIcon className={styles.icon} />
     <PhoneInput
+      countryCallingCodeEditable={false}
       international
       defaultCountry="BY"
-      className={cn(className, styles.phoneInput)}
+      className={cn(styles.phoneInput, className)}
       placeholder={placeholder}
       limitMaxLength
       maxLength={17}

@@ -1,20 +1,35 @@
 import { TFile } from '@hooks/use-upload-files';
 
+interface ICriterion {
+  isGood: boolean;
+  key: string;
+}
+
 export interface ICompany {
   id: string;
   name: string;
   managerTitle: string;
-  isActive: boolean
+  isActive: boolean;
   expiredTime: string;
+  criterions: ICriterion[];
 }
 
-// @ts-ignore
-export type IGetCompanyAPIResponse = ICompany
+export type IGetCompanyAPIResponse = ICompany;
 
 export interface ISendFeedbackRequest {
-  message: string,
-  files: TFile[],
-  criteria: string[],
+  message: string;
+  companyId: string;
+  filesKeys?: string[];
+  criterions: string[];
+  isGood: boolean;
+}
+
+export interface ISendFeedbackImagesRequest {
+  files: FormData;
+}
+
+export interface ISendFeedbackImagesResponse {
+  imagesKeys: string[];
 }
 
 export interface ISendFeedbackResponse {

@@ -8,14 +8,14 @@ import Button from '@components/button';
 import styles from './empty-page.module.scss';
 
 interface IEmptyPageProps {
-  onNext: () => void;
+  onNext?: () => void;
   image: string;
   title: string;
   description: string;
 }
 
 export const EmptyPage: React.FC<IEmptyPageProps> = ({
-  onNext, image, title, description,
+  onNext = null, image, title, description,
 }) => {
   const { t } = useTranslation('common');
 
@@ -30,7 +30,7 @@ export const EmptyPage: React.FC<IEmptyPageProps> = ({
         />
         <p className={cn(styles.text, styles.title)}>{title}</p>
         <p className={cn(styles.text, styles.description)}>{description}</p>
-        <Button onClick={onNext} className={styles.submit} isFluid type="white">{t('EMPTY_SCREENS.SUBMIT')}</Button>
+        {onNext && <Button onClick={onNext} className={styles.submit} isFluid type="white">{t('EMPTY_SCREENS.SUBMIT')}</Button>}
       </div>
     </div>
   );

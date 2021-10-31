@@ -1,5 +1,5 @@
-import { TFile } from '@hooks/use-upload-files';
 import Resizer from 'react-image-file-resizer';
+import { TFile } from '@hooks/use-upload-files';
 
 export const resizeFile = (item: TFile): Promise<string> => new Promise((resolve) => {
   // @ts-ignore

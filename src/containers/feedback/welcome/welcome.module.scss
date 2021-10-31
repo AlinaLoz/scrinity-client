@@ -59,6 +59,10 @@
   max-width: 62px;
   height: auto;
   margin-right: 8px;
+
+  @media (max-width: $iphone6) {
+    max-width: 55px;
+  }
 }
 
 .companyTitles {
@@ -147,6 +151,12 @@
       left: -6%;;
     }
   }
+
+  @media (max-width: $iphone6) {
+    line-height: 15px;
+    font-size: 12px;
+  }
+
 
   @media (max-width: $iphone5) {
     padding-left: 8%;
