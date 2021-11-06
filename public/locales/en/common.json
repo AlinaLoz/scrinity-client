@@ -27,7 +27,8 @@
     "UNKNOWN_ERROR": "Unknown error",
     "INVALID_PHONE_NUMBER": "Invalid phone number",
     "REQUEST_CONFIRM_CODE_LIMIT": "Number of attempts exceeded",
-    "CODE_NOT_FOUND": "Invalid code"
+    "IMAGE_TOO_LARGE": "Image is too large",
+    "INVALID_IMAGES_FORMAT": "Invalid image format"
   },
   "SIGN_IN_REQUEST": {
     "DESCRIPTION": "Leave your phone number so that if necessary we can contact you",

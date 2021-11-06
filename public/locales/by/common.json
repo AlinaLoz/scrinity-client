@@ -27,7 +27,9 @@
     "UNKNOWN_ERROR": "Невядомая памылка",
     "INVALID_PHONE_NUMBER": "Няправільны нумар тэлефона",
     "REQUEST_CONFIRM_CODE_LIMIT": "Перавышана колькасць спроб",
-    "CODE_NOT_FOUND": "Няправільны кода"
+    "CODE_NOT_FOUND": "Няправільны кода",
+    "IMAGE_TOO_LARGE": "Изображение слишком большое",
+    "INVALID_IMAGES_FORMAT": "Некарэктны фармат малюнка"
   },
   "SIGN_IN_REQUEST": {
     "DESCRIPTION": "Пакіньце свой нумар тэлефона, каб у выпадку неабходнасці мы маглі з Вамі звязацца",
