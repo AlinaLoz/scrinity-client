@@ -13,5 +13,5 @@ export const resizeFile = (item: TFile): Promise<string> => new Promise((resolve
       // @ts-ignore
       resolve(uri);
     },
-    'blob');
+    'file');
 });
