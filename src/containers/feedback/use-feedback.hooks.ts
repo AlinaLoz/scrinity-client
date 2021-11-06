@@ -6,15 +6,15 @@ import { ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import { sendFeedbackAPI, sendFeedbackImagesAPI } from '@api/companies.service';
 import { TFile } from '@hooks/use-upload-files';
 import { getFirstResponseError } from '@helpers/message.helper';
+import { resizeFile } from '@helpers/files.helpers';
 
 type TUploadFeedbackImagesReturn = [(files: TFile[]) => Promise<string[]>];
 const uploadFeedbackImages = (): TUploadFeedbackImagesReturn => {
   const uploadImages = async (files: TFile[]) => {
     const data = new FormData();
-    files.forEach((file) => {
-      // @ts-ignore
-      data.append('images', file.file);
-    });
+    await Promise.all(files.map(async (file) => {
+      data.append('images', await resizeFile(file));
+    }));
     const { imagesKeys } = await sendFeedbackImagesAPI(data);
     return imagesKeys;
   };
