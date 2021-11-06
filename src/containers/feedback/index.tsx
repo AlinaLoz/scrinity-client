@@ -11,6 +11,7 @@ import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
 import { Success } from './success';
 import { Error } from './error';
+import { UserContext } from '@contexts/user.context';
 
 interface IReviewProps {
   company: ICompany;
@@ -18,9 +19,10 @@ interface IReviewProps {
 
 export const Feedback: React.FC<IReviewProps> = ({ company }) => {
   const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
-  const [isLoading, error, sendFeedback] = useSendFeedback();
+  const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
-
+  const { userId } = useContext(UserContext);
+  
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
   }, []);
@@ -41,8 +43,13 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
         setReviewStep(REVIEW_STEP.SUCCESS);
       }
     };
-    setData(MODAL.SIGN_IN, { company, onSendFeedback });
-  }, []);
+    console.log('userId', userId);
+    if (!userId) {
+      setData(MODAL.SIGN_IN, { company, onSendFeedback });
+    } else {
+      onSendFeedback();
+    }
+  }, [userId]);
 
   switch (reviewStep) {
     case REVIEW_STEP.WELCOME:
@@ -51,6 +58,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
       return (
         <Form
           error={error}
+          setError={setError}
           company={company}
           isLoading={isLoading}
           onSubmitFormPress={onNextFormPress}

@@ -44,7 +44,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
       <p className={styles.description}>
         {t('SIGN_IN_REQUEST.DESCRIPTION')}
       </p>
-      <PhoneNumberInput className={styles.input} onChange={setPhoneWrapper} />
+      <PhoneNumberInput value={phone} className={styles.input} onChange={setPhoneWrapper} />
       <Button
         disabled={!phone || phone?.length < 13}
         className={styles.button}

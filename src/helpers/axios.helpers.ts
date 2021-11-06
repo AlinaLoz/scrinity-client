@@ -1,36 +1,43 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 import config from '@utils/config';
+import { AUTHORIZATION_TOKEN } from '@constants/auth.constants';
 
 const { API_URL } = config;
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-type TBody = Record<string, any>;
+type TBody = any;
 
 const executeSendRequest = (method: 'post' | 'patch' | 'put') => <T>(
   urlPath: string,
   body?: TBody,
+  headers?: any,
 ) => {
   const url = `${API_URL}${urlPath}`;
-  return axios[method]<Record<string, unknown> | undefined, { data: T }>(
+  return axios[method](
     url,
-    body ? { ...body } : undefined,
-    { withCredentials: true },
+    body,
+    {
+      ...headers,
+      withCredentials: true,
+    },
   ).then((item) => item.data);
 };
 
 const executeGetRequest = (method: 'get' | 'delete') => <T>(
   urlPath: string,
   query?: Record<string, unknown> | null,
-  headers?: Record<string, string>,
+  headers?: any,
 ) => {
   let url = `${API_URL}${urlPath}`;
   if (query) {
     url += `?${qs.stringify(query, { encode: true, arrayFormat: 'brackets' })}`;
   }
-
   return axios[method]<Record<string, unknown>, { data: T }>(
-    url, { withCredentials: true, headers },
+    url, {
+      withCredentials: true,
+      headers,
+    },
   ).then((item) => item.data);
 };
 

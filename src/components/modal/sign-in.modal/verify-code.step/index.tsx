@@ -13,12 +13,13 @@ import { Touchable } from '@components/touchable';
 import { CompanyName } from '@components/company-name';
 import { Input } from '@components/input/simple';
 import { BackIcon } from '@components/icons/back';
-import { verifyConfirmCode } from '@api/auth.service';
+import { verifyConfirmCodeAPI } from '@api/auth.service';
 import { getFirstResponseError } from '@helpers/message.helper';
 import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
 
 import requestCodeStyle from '../request-code.step/request-code.module.scss';
 import styles from './verify-code.module.scss';
+import { AUTHORIZATION_TOKEN } from '@constants/auth.constants';
 
 interface IVerifyCodeStep {
   phone: string;
@@ -61,7 +62,8 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
   const onNextStepWrapper = async () => {
     try {
       setIsLoading(true);
-      await verifyConfirmCode({ code, phoneNumber: phone });
+      const resp = await verifyConfirmCodeAPI({ code, phoneNumber: phone });
+      localStorage.setItem(AUTHORIZATION_TOKEN, resp.token);
       await data?.onSendFeedback();
     } catch (err) {
       setError(getFirstResponseError(err));
