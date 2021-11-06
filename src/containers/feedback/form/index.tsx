@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, {
+  Dispatch, SetStateAction, useEffect, useMemo, useState,
+} from 'react';
 import { useTranslation } from 'next-i18next';
 import cn from 'classnames';
 
@@ -19,11 +21,12 @@ interface IFormProps {
   isLoading: boolean;
   company: ICompany;
   error: string;
+  setError: Dispatch<SetStateAction<string>>,
 }
 
 export const Form: React.FC<IFormProps> = ({
   isLoading, onSubmitFormPress, onPrev, isGoodReview, company,
-  error,
+  error, setError,
 }) => {
   const { t } = useTranslation('common');
 
@@ -42,6 +45,10 @@ export const Form: React.FC<IFormProps> = ({
       setSelectedOptions([...selectedOptions]);
     }
   };
+
+  useEffect(() => {
+    setError('');
+  }, [message, selectedOptions]);
 
   return (
     <div className={styles.content}>

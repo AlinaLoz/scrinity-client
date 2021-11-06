@@ -35,3 +35,14 @@
     top: 2px;
   }
 }
+
+.placeholder::after {
+  @include montserrat-regular();
+  position: absolute;
+  left: 87px;
+  top: 2px;
+  content: attr(data-placeholder);
+  font-size: 18px;
+  line-height: 28px;
+  color: $athensGray;
+}

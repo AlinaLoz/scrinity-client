@@ -1,4 +1,4 @@
-import { requestConfirmCode } from '@api/auth.service';
+import { requestConfirmCodeAPI } from '@api/auth.service';
 import { getFirstResponseError } from '@helpers/message.helper';
 import {
   Dispatch, SetStateAction, useCallback, useState,
@@ -17,7 +17,7 @@ export const useRequestNewCode = (): TUseRequestNewCodeReturn => {
   const cb = useCallback(async (phone: string, func: () => void) => {
     try {
       setIsLoading(true);
-      await requestConfirmCode(phone);
+      await requestConfirmCodeAPI(phone);
       func();
     } catch (err) {
       setError(getFirstResponseError(err));

@@ -9,7 +9,7 @@ export const resizeFile = (item: TFile): Promise<string> => new Promise((resolve
     item.file?.type,
     50,
     0,
-    (uri) => {
+    (uri: Blob) => {
       // @ts-ignore
       resolve(uri);
     },

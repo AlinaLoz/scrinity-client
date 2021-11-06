@@ -14,6 +14,6 @@ export function sendFeedbackAPI(data: ISendFeedbackRequest): Promise<ISendFeedba
   return post(SEND_FEEDBACK_API, data);
 }
 
-export function sendFeedbackImagesAPI(data: FormData): Promise<ISendFeedbackImagesResponse> {
+export function sendFeedbackImagesAPI(data: ISendFeedbackImagesRequest): Promise<ISendFeedbackImagesResponse> {
   return post(SEND_FEEDBACK_IMAGES_API, data);
 }
