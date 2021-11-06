@@ -24,9 +24,7 @@ export interface ISendFeedbackRequest {
   isGood: boolean;
 }
 
-export interface ISendFeedbackImagesRequest {
-  files: FormData;
-}
+export type ISendFeedbackImagesRequest = FormData
 
 export interface ISendFeedbackImagesResponse {
   imagesKeys: string[];

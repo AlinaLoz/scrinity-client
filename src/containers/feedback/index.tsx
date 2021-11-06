@@ -6,12 +6,12 @@ import { MODAL } from '@constants/modal.constants';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
 import { TFile } from '@hooks/use-upload-files';
 
+import { UserContext } from '@contexts/user.context';
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
 import { Success } from './success';
 import { Error } from './error';
-import { UserContext } from '@contexts/user.context';
 
 interface IReviewProps {
   company: ICompany;
@@ -22,7 +22,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
   const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
   const { userId } = useContext(UserContext);
-  
+
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
   }, []);
@@ -43,12 +43,13 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
         setReviewStep(REVIEW_STEP.SUCCESS);
       }
     };
-    console.log('userId', userId);
-    if (!userId) {
-      setData(MODAL.SIGN_IN, { company, onSendFeedback });
-    } else {
-      onSendFeedback();
-    }
+    (async () => {
+      if (!userId) {
+        setData(MODAL.SIGN_IN, { company, onSendFeedback });
+      } else {
+        await onSendFeedback();
+      }
+    })();
   }, [userId]);
 
   switch (reviewStep) {

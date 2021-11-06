@@ -17,9 +17,9 @@ import { verifyConfirmCodeAPI } from '@api/auth.service';
 import { getFirstResponseError } from '@helpers/message.helper';
 import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
 
+import { AUTHORIZATION_TOKEN } from '@constants/auth.constants';
 import requestCodeStyle from '../request-code.step/request-code.module.scss';
 import styles from './verify-code.module.scss';
-import { AUTHORIZATION_TOKEN } from '@constants/auth.constants';
 
 interface IVerifyCodeStep {
   phone: string;

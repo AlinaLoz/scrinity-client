@@ -1,7 +1,6 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import qs from 'qs';
 import config from '@utils/config';
-import { AUTHORIZATION_TOKEN } from '@constants/auth.constants';
 
 const { API_URL } = config;
 
@@ -21,7 +20,7 @@ const executeSendRequest = (method: 'post' | 'patch' | 'put') => <T>(
       ...headers,
       withCredentials: true,
     },
-  ).then((item) => item.data);
+  ).then((item) => item.data as T);
 };
 
 const executeGetRequest = (method: 'get' | 'delete') => <T>(

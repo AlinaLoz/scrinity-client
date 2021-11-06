@@ -1,4 +1,6 @@
-import { Dispatch, SetStateAction, useCallback, useState } from 'react';
+import {
+  Dispatch, SetStateAction, useCallback, useState,
+} from 'react';
 
 import { ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import { sendFeedbackAPI, sendFeedbackImagesAPI } from '@api/companies.service';
@@ -9,9 +11,9 @@ type TUploadFeedbackImagesReturn = [(files: TFile[]) => Promise<string[]>];
 const uploadFeedbackImages = (): TUploadFeedbackImagesReturn => {
   const uploadImages = async (files: TFile[]) => {
     const data = new FormData();
-    files.forEach(async (file, idx) => {
+    files.forEach((file) => {
       // @ts-ignore
-        data.append('images', file.file);
+      data.append('images', file.file);
     });
     const { imagesKeys } = await sendFeedbackImagesAPI(data);
     return imagesKeys;
@@ -19,7 +21,12 @@ const uploadFeedbackImages = (): TUploadFeedbackImagesReturn => {
   return [uploadImages];
 };
 
-type TUseSendFeedbackReturn = [boolean, string, Dispatch<SetStateAction<string>>, (data: ISendFeedbackRequest & { files: TFile[] }) => Promise<boolean> ];
+type TUseSendFeedbackReturn = [
+  boolean,
+  string,
+  Dispatch<SetStateAction<string>>,
+  (data: ISendFeedbackRequest & { files: TFile[] }) => Promise<boolean>,
+];
 export const useSendFeedback = (): TUseSendFeedbackReturn => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');

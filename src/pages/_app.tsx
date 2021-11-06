@@ -20,7 +20,7 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
   const [modalType, setModalType] = useState(MODAL.NONE);
   const [data, setData] = useState<TModalData<MODAL>>(null);
   const [userId] = useMe();
-  
+
   const setDataWrapper = useCallback<TSetDataCb<MODAL>>((type, value) => {
     setModalType(type);
     setData(value);
@@ -45,7 +45,7 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
         data, setModalType, modalType, setData: setDataWrapper,
       }}
       >
-        <UserContext.Provider value={{ userId }} >
+        <UserContext.Provider value={{ userId }}>
           <Modal />
           <Component {...pageProps} />
         </UserContext.Provider>
