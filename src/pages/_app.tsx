@@ -10,6 +10,7 @@ import { ModalContext, TModalData } from '@contexts/modal.context';
 import '../assets/main.scss';
 import { UserContext } from '@contexts/user.context';
 import { useMe } from '@hooks/use-me.hooks';
+import { OnlyMobileNotify } from '@components/only-mobile-notify';
 
 type TSetDataCb<T extends MODAL> = (type: T, data: TModalData<T>) => void;
 type TWrappedAppProps = AppInitialProps & AppContext;
@@ -31,9 +32,7 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
   }, []);
 
   if (!isMobileOnClient) {
-    return (
-      <div>Страница открывается только на мобильных устройствах</div>
-    );
+    return <OnlyMobileNotify />;
   }
 
   return (

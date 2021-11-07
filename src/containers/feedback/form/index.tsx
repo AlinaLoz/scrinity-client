@@ -74,6 +74,7 @@ export const Form: React.FC<IFormProps> = ({
             ))}
             <div className={styles.message}>
               <textarea
+                autoComplete="off"
                 name="message"
                 value={message}
                 className={styles.textarea}

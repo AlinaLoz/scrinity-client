@@ -50,6 +50,10 @@
     "ERROR_TITLE": "Oops!",
     "ERROR_DESCRIPTION": "Something went wrong",
     "NOT_FOUND": "Looks like we can't find the page you're looking for."
+  },
+  "ONLY_MOBILE_NOTIFY": {
+    "OUCH": " Ouch!",
+    "TEXT": "The page opens only on mobile devices"
   }
 }
 

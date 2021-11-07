@@ -1,0 +1,23 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.wrapper {
+  text-align: center;
+  @include montserrat-semibold();
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(155.43deg, $powder 7.29%, $wedgewood 96.12%);
+}
+
+.first {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.second {
+  font-size: 16px;
+}
