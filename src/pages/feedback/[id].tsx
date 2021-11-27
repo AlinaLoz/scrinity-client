@@ -2,22 +2,22 @@ import { GetServerSideProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Feedback } from '@containers/feedback';
-import { getCompanyAPI } from '@api/companies.service';
-import { ICompany } from '@interfaces/companies.interfaces';
+import { getInstitutionAPI } from '@api/companies.service';
+import { IInstitution } from '@interfaces/companies.interfaces';
 import { LANGUAGE } from '@constants/locales.constants';
 
 export default Feedback;
-export const getServerSideProps: GetServerSideProps<{ company: ICompany }, { id: string }> = async (context) => {
+export const getServerSideProps: GetServerSideProps<{ institution: IInstitution }, { id: string }> = async (context) => {
   try {
-    const company = await getCompanyAPI(context.params?.id || '');
-    if (!company.isActive) {
+    const institution = await getInstitutionAPI(context.params?.id || '');
+    if (!institution.isActive) {
       return {
         notFound: true,
       };
     }
     return {
       props: {
-        company,
+        institution,
         ...(await serverSideTranslations(context.locale || LANGUAGE.RU)),
       },
     };

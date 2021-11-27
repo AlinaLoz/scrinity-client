@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { ICompany } from '@interfaces/companies.interfaces';
+import { ICompany, IInstitution } from '@interfaces/companies.interfaces';
 import Button from '@components/button';
 import { CompanyName } from '@components/company-name';
 import { UrlHelper } from '@helpers/url.helper';
@@ -13,13 +13,12 @@ import styles from './welcome.module.scss';
 
 interface IWelcomeProps {
   onNext: (data: boolean) => void;
-  company: ICompany,
+  institution: IInstitution,
 }
 
-export const Welcome: React.FC<IWelcomeProps> = ({ onNext, company }) => {
+export const Welcome: React.FC<IWelcomeProps> = ({ onNext, institution }) => {
   const { t } = useTranslation('common');
 
-  // todo возвращать с бэка company.filename с форматом
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -32,10 +31,10 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, company }) => {
           {/* /> */}
           {/* <GirlWithLaptop className={styles.girlWithLaptop} /> */}
           <picture className={styles.companyInfo}>
-            <img className={styles.companyImage} src={UrlHelper.getImageSrc('puma.png')} alt={`company ${company.id}`} />
+            <img className={styles.companyImage} src={UrlHelper.getImageSrc(institution?.company.image.filename)} alt={institution?.name} />
             <div className={styles.companyTitles}>
-              <p className={styles.name}>{company.name}</p>
-              <p className={styles.managerTitle}>{t('Welcome.manager')}</p>
+              <p className={styles.name}>{institution?.name}</p>
+              <p className={styles.managerTitle}>{institution?.manager.roleTitle}</p>
             </div>
           </picture>
           <div className={styles.comment}>

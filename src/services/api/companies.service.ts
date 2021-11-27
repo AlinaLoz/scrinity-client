@@ -1,13 +1,13 @@
-import { COMPANIES_BY_ID_API, SEND_FEEDBACK_API, SEND_FEEDBACK_IMAGES_API } from '@constants/api.constants';
+import { INSTITUTION_BY_ID_API, SEND_FEEDBACK_API, SEND_FEEDBACK_IMAGES_API } from '@constants/api.constants';
 import {
-  IGetCompanyAPIResponse, ISendFeedbackImagesRequest,
+  IGetInstitutionAPIResponse, ISendFeedbackImagesRequest,
   ISendFeedbackImagesResponse, ISendFeedbackRequest,
   ISendFeedbackResponse,
 } from '@interfaces/companies.interfaces';
 import { get, post } from '@helpers/axios.helpers';
 
-export function getCompanyAPI(id: string): Promise<IGetCompanyAPIResponse> {
-  return get(COMPANIES_BY_ID_API(id));
+export function getInstitutionAPI(id: string): Promise<IGetInstitutionAPIResponse> {
+  return get(INSTITUTION_BY_ID_API(id));
 }
 
 export function sendFeedbackAPI(data: ISendFeedbackRequest): Promise<ISendFeedbackResponse> {
