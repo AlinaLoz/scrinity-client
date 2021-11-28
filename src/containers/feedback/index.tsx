@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from 'react';
 
-import { ICompany, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import { ICompany, IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
@@ -14,10 +14,10 @@ import { Success } from './success';
 import { Error } from './error';
 
 interface IReviewProps {
-  company: ICompany;
+  institution: IInstitution;
 }
 
-export const Feedback: React.FC<IReviewProps> = ({ company }) => {
+export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
   const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
   const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
@@ -45,7 +45,7 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
     };
     (async () => {
       if (!userId) {
-        setData(MODAL.SIGN_IN, { company, onSendFeedback });
+        setData(MODAL.SIGN_IN, { institution, onSendFeedback });
       } else {
         await onSendFeedback();
       }
@@ -54,13 +54,13 @@ export const Feedback: React.FC<IReviewProps> = ({ company }) => {
 
   switch (reviewStep) {
     case REVIEW_STEP.WELCOME:
-      return <Welcome onNext={onNextWelcomePress} company={company} />;
+      return <Welcome onNext={onNextWelcomePress} institution={institution} />;
     case REVIEW_STEP.FORM:
       return (
         <Form
           error={error}
           setError={setError}
-          company={company}
+          institution={institution}
           isLoading={isLoading}
           onSubmitFormPress={onNextFormPress}
           onPrev={onPrev}

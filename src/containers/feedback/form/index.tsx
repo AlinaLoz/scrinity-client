@@ -11,7 +11,7 @@ import { UploadButton } from '@components/upload-button';
 import { CloseIcon } from '@components/icons/close';
 import { TFile, useUploadFiles } from '@hooks/use-upload-files';
 
-import { ICompany, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import { IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import styles from './form.module.scss';
 
 interface IFormProps {
@@ -19,19 +19,19 @@ interface IFormProps {
   onPrev: () => void;
   isGoodReview: boolean;
   isLoading: boolean;
-  company: ICompany;
+  institution: IInstitution,
   error: string;
   setError: Dispatch<SetStateAction<string>>,
 }
 
 export const Form: React.FC<IFormProps> = ({
-  isLoading, onSubmitFormPress, onPrev, isGoodReview, company,
+  isLoading, onSubmitFormPress, onPrev, isGoodReview, institution,
   error, setError,
 }) => {
   const { t } = useTranslation('common');
 
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const options = useMemo(() => company.criterions
+  const options = useMemo(() => institution.criterions
     .filter(({ isGood }) => isGood === isGoodReview)
     .map(({ key }) => key), [isGoodReview]);
   const [message, setMessage] = useState('');
@@ -112,7 +112,7 @@ export const Form: React.FC<IFormProps> = ({
               message,
               criterions: selectedOptions,
               isGood: isGoodReview,
-              companyId: company.id,
+              institutionId: institution.id,
               files,
             })}
           >

@@ -2,11 +2,11 @@
 import { createContext } from 'react';
 
 import { MODAL } from '@constants/modal.constants';
-import { ICompany } from '@interfaces/companies.interfaces';
+import { IInstitution } from '@interfaces/companies.interfaces';
 
 export type TModalData<T extends MODAL> = {
   [MODAL.SIGN_IN]: {
-    company: ICompany,
+    institution: IInstitution;
     onSendFeedback: () => Promise<void>;
   } | null,
   [MODAL.NONE]: null,

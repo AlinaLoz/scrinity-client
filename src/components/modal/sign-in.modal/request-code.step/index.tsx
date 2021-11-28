@@ -39,7 +39,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.companyImage}>
-        <img src={UrlHelper.getImageSrc('puma.png')} alt={`company ${data.company.id}`} />
+        <img src={UrlHelper.getImageSrc(data.institution.company.image.filename)} alt={data.institution.id} />
       </div>
       <p className={styles.description}>
         {t('SIGN_IN_REQUEST.DESCRIPTION')}

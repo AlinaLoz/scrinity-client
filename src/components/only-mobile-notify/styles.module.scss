@@ -2,15 +2,25 @@
 @import 'public/styles/typography';
 
 .wrapper {
+  height: 100vh;
+  background: linear-gradient(155.43deg, $powder 7.29%, $wedgewood 96.12%);
   text-align: center;
+}
+
+.companyName {
+  padding-top: 30px;
+  color: $white;
+}
+
+.text {
+  margin-top: 10%;
   @include montserrat-semibold();
   color: $white;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
-  background: linear-gradient(155.43deg, $powder 7.29%, $wedgewood 96.12%);
 }
 
 .first {
