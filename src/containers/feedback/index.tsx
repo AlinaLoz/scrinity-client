@@ -1,12 +1,12 @@
 import React, { useCallback, useContext, useState } from 'react';
 
-import { ICompany, IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import { IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
 import { TFile } from '@hooks/use-upload-files';
 
-import { UserContext } from '@contexts/user.context';
+import { useMe } from '@hooks/use-me.hooks';
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
@@ -21,7 +21,7 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
   const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
   const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
-  const { userId } = useContext(UserContext);
+  const [userId] = useMe();
 
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
@@ -45,7 +45,7 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
     };
     (async () => {
       if (!userId) {
-        setData(MODAL.SIGN_IN, { institution, onSendFeedback });
+        setData(MODAL.SIGN_IN, { institution, onSendFeedback, type: 'feedback' });
       } else {
         await onSendFeedback();
       }

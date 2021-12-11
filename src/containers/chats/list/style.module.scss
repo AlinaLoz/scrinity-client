@@ -1,0 +1,62 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.scrollableDiv {
+  min-height: 100vh;
+  height: auto;
+  text-align: center;
+  max-height: 100vh;
+}
+
+.title {
+  margin: 15px;
+}
+
+.infiniteScroll {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.search {
+  background: white;
+  width: 100%;
+  position: fixed;
+}
+
+.messages {
+  min-height: 100vh;
+  height: auto;
+  text-align: left;
+}
+
+.chat {
+  display: flex;
+  justify-content: space-between;
+  background: $white;
+  min-height: 72px;
+  padding: 10px 15px 10px 15px;
+  @include montserrat-medium();
+}
+
+.message {
+  font-size: 15px;
+  line-height: 18px;
+  color: $codGray;
+  margin-bottom: 0;
+  height: 16px;
+}
+
+.criterion {
+  display: flex;
+  flex-wrap: wrap;
+  span {
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+}
+
+.time {
+  text-align: right;
+  font-size: 11px;
+}

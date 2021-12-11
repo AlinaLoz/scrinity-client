@@ -6,11 +6,10 @@ import Head from 'next/head';
 import { Modal } from '@components/modal';
 import { MODAL } from '@constants/modal.constants';
 import { ModalContext, TModalData } from '@contexts/modal.context';
-
-import '../assets/main.scss';
-import { UserContext } from '@contexts/user.context';
-import { useMe } from '@hooks/use-me.hooks';
 import { OnlyMobileNotify } from '@components/only-mobile-notify';
+
+import 'react-chat-widget/lib/styles.css';
+import '../assets/main.scss';
 
 type TSetDataCb<T extends MODAL> = (type: T, data: TModalData<T>) => void;
 type TWrappedAppProps = AppInitialProps & AppContext;
@@ -20,7 +19,6 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
   const [isMobileOnClient, setIsMobileOnClient] = useState(true);
   const [modalType, setModalType] = useState(MODAL.NONE);
   const [data, setData] = useState<TModalData<MODAL>>(null);
-  const [userId] = useMe();
 
   const setDataWrapper = useCallback<TSetDataCb<MODAL>>((type, value) => {
     setModalType(type);
@@ -44,10 +42,8 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
         data, setModalType, modalType, setData: setDataWrapper,
       }}
       >
-        <UserContext.Provider value={{ userId }}>
-          <Modal />
-          <Component {...pageProps} />
-        </UserContext.Provider>
+        <Modal />
+        <Component {...pageProps} />
       </ModalContext.Provider>
     </>
   );
