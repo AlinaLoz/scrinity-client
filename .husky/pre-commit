@@ -3,3 +3,4 @@
 
 yarn lint
 yarn type-check
+npx lint-staged

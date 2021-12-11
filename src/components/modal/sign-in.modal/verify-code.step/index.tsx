@@ -1,11 +1,11 @@
 import React, {
-  useContext, useState, useEffect, useCallback,
+  useCallback, useContext, useEffect, useState,
 } from 'react';
 import { useTranslation } from 'next-i18next';
 import useCountDown from 'react-countdown-hook';
 import cn from 'classnames';
 
-import { ModalContext, TModalData } from '@contexts/modal.context';
+import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import { UrlHelper } from '@helpers/url.helper';
 import Button from '@components/button';
@@ -33,7 +33,7 @@ const CONFIRM_CODE_LENGTH = 4;
 export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
   phone, onBack,
 }) => {
-  const { data }: { data?: TModalData<MODAL.SIGN_IN> } = useContext(ModalContext);
+  const { data, setModalType } = useContext(ModalContext);
   const { t } = useTranslation('common');
   const [code, setCode] = useState('');
   const [error, setError] = useState<string>('');
@@ -64,7 +64,11 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
       setIsLoading(true);
       const resp = await verifyConfirmCodeAPI({ code, phoneNumber: phone });
       localStorage.setItem(AUTHORIZATION_TOKEN, resp.token);
-      await data?.onSendFeedback();
+      if (data?.onSendFeedback) {
+        await data?.onSendFeedback();
+      } else {
+        setModalType(MODAL.NONE);
+      }
     } catch (err) {
       setError(getFirstResponseError(err));
     }

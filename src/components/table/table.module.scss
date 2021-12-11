@@ -1,0 +1,59 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.table {
+  @include montserrat-medium();
+  text-align: left;
+  border-collapse: collapse;
+  background: $white;
+  width: 100%;
+  border-radius: 4px;
+  color: $paleSky;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+
+  thead {
+    vertical-align: middle;
+    height: 48px;
+  }
+
+  &.table > :not(:first-child) {
+    border-top: 0;
+  }
+
+  tbody {
+    vertical-align: middle;
+    border-top: 0;
+    tr {
+      height: 64px;
+      max-height: 64px;
+      td:nth-child(2) {
+        color: $codGray;
+      }
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+.rawSeparator {
+  @media (max-width: $sm) {
+    min-height: 20px;
+  }
+}
+
+.raw {
+  border-bottom: 1px solid $athensGray;
+}
+
+.nextBtn {
+  transform: rotate(180deg);
+}
+
+.arrow {
+  position: relative;
+  top: -1px;
+  color: $paleSky;
+}

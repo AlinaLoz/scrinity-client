@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react';
 import { getMeAPI } from '@api/user.service';
-import { signOutAPI } from '@api/auth.service';
+import useSWR from 'swr';
+import { ME_API } from '@constants/api.constants';
 
-export const useMe = () => {
-  const [userId, setUserId] = useState<number | null>(null);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await getMeAPI();
-        setUserId(data.user?.id || null);
-      } catch (err) {
-        await signOutAPI();
-      }
-    })();
-  }, []);
-
-  return [userId];
+export const useMe = (): [number, boolean] => {
+  const { data, error } = useSWR(
+    [ME_API], () => getMeAPI(),
+  );
+  const isLoading = !error && !data;
+  return [data?.user?.id || 0, isLoading];
 };

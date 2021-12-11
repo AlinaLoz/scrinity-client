@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { ICompany, IInstitution } from '@interfaces/companies.interfaces';
+import { IInstitution } from '@interfaces/companies.interfaces';
 import Button from '@components/button';
 import { CompanyName } from '@components/company-name';
 import { UrlHelper } from '@helpers/url.helper';

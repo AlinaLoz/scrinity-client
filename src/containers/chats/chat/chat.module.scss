@@ -1,0 +1,26 @@
+@import 'public/styles/variables';
+@import 'public/styles/typography';
+
+.wrapper {
+  background: $white;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  border-radius: 0;
+}
+
+.sender {
+  @include montserrat-medium();
+  color: $codGray;
+  font-size: 11px;
+  line-height: 13px;
+  margin-right: 16px;
+}
+
+.time {
+  @include montserrat-regular();
+  color: $botticelli;
+  font-size: 10px;
+  line-height: 12px;
+}

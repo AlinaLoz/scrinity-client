@@ -1,0 +1,18 @@
+@import 'public/styles/variables';
+
+.pageLoader {
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  & > div {
+    max-width: 150px;
+  }
+}

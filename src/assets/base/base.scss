@@ -2,9 +2,7 @@ html {
   height: 100%;
 }
 body {
-  height: 100%;
   font-family: "montserrat", sans-serif;
-  overflow: hidden;
 }
 
 input::-webkit-outer-spin-button,
@@ -61,4 +59,8 @@ div.ReactModal__Content {
   &:focus-visible {
     outline: none;
   }
+}
+
+p {
+  margin-bottom: 0;
 }
