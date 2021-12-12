@@ -3,7 +3,7 @@
 @import 'public/styles/variables';
 
 .scrollableDiv {
-  min-height: 100vh;
+  //min-height: 100vh;
   height: auto;
   text-align: center;
   max-height: 100vh;
@@ -25,7 +25,7 @@
 }
 
 .messages {
-  min-height: 100vh;
+  //min-height: 100vh;
   height: auto;
   text-align: left;
 }
@@ -45,6 +45,9 @@
   color: $codGray;
   margin-bottom: 0;
   height: 16px;
+  max-width: calc(100vw - 100px);
+  width: calc(100vw - 100px);
+  @include hidden-ellipsis();
 }
 
 .criterion {

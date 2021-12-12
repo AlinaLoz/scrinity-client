@@ -57,8 +57,8 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
       <p className={styles.warning}>
         {t('SIGN_IN_REQUEST.WARNING')}
       </p>
-      {data.onSendFeedback && (
-        <Touchable className={styles.link} onClick={data.onSendFeedback}>{t('SIGN_IN_REQUEST.LINK')}</Touchable>
+      {data.cb && (
+        <Touchable className={styles.link} onClick={data.cb}>{t('SIGN_IN_REQUEST.LINK')}</Touchable>
       )}
       <CompanyName classNames={styles.companyName} />
     </div>

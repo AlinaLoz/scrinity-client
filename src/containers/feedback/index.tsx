@@ -45,7 +45,7 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
     };
     (async () => {
       if (!userId) {
-        setData(MODAL.SIGN_IN, { institution, onSendFeedback, type: 'feedback' });
+        setData(MODAL.SIGN_IN, { institution, cb: onSendFeedback });
       } else {
         await onSendFeedback();
       }

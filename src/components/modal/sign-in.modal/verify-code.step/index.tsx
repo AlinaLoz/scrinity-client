@@ -18,6 +18,8 @@ import { getFirstResponseError } from '@helpers/message.helper';
 import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
 
 import { AUTHORIZATION_TOKEN } from '@constants/auth.constants';
+import { ME_API } from '@constants/api.constants';
+import { mutate } from 'swr';
 import requestCodeStyle from '../request-code.step/request-code.module.scss';
 import styles from './verify-code.module.scss';
 
@@ -64,11 +66,11 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
       setIsLoading(true);
       const resp = await verifyConfirmCodeAPI({ code, phoneNumber: phone });
       localStorage.setItem(AUTHORIZATION_TOKEN, resp.token);
-      if (data?.onSendFeedback) {
-        await data?.onSendFeedback();
-      } else {
-        setModalType(MODAL.NONE);
+      await mutate([ME_API]);
+      if (data?.cb) {
+        await data?.cb();
       }
+      setModalType(MODAL.NONE);
     } catch (err) {
       setError(getFirstResponseError(err));
     }
