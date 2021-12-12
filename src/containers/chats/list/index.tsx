@@ -21,10 +21,10 @@ export const ChatsList: React.FC<IListMessagesProps> = ({
 }) => {
   useMe();
   const [, institution] = useInstitution();
-  const [,, items] = useChats();
+  const [isLoading,, items] = useChats();
   const [onOpenChat] = useOpenChat();
 
-  if (!items.length) {
+  if (isLoading) {
     return <PageLoader />;
   }
 

@@ -13,6 +13,7 @@ import { TFile, useUploadFiles } from '@hooks/use-upload-files';
 
 import { IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
 import styles from './form.module.scss';
+import { CRITERIONS } from '../../../assets/criterions';
 
 interface IFormProps {
   onSubmitFormPress: (data: ISendFeedbackRequest & { files: TFile[] }) => void;
@@ -69,7 +70,7 @@ export const Form: React.FC<IFormProps> = ({
                 onKeyPress={() => handleOptionPress(option)}
                 onClick={() => handleOptionPress(option)}
               >
-                {t(`Form.${option}`)}
+                {CRITERIONS[option]}
               </div>
             ))}
             <div className={styles.message}>

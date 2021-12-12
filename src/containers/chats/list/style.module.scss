@@ -10,7 +10,9 @@
 }
 
 .title {
+  @include montserrat-medium();
   margin: 15px;
+  border-bottom: 1px solid $athensGray;
 }
 
 .infiniteScroll {
@@ -31,6 +33,7 @@
 }
 
 .chat {
+  border-bottom: 1px solid $athensGray;
   display: flex;
   justify-content: space-between;
   background: $white;

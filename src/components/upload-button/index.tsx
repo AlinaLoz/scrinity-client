@@ -15,7 +15,7 @@ export const UploadButton: React.FC<IUploadButton> = ({
   <div className={cn(styles.uploadBox, className)}>
     <label htmlFor="upload-photo">
       <LoadPhotoIcon className={styles.image} />
-      <input onChange={onLoadPhoto} type="file" multiple name="photo" id="upload-photo" />
+      <input accept="image/*" onChange={onLoadPhoto} type="file" multiple name="photo" id="upload-photo" />
     </label>
   </div>
 );
