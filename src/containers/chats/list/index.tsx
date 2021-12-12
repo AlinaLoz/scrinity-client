@@ -21,33 +21,35 @@ export const ChatsList: React.FC<IListMessagesProps> = ({
 }) => {
   useMe();
   const [, institution] = useInstitution();
-  const [isLoading,, items] = useChats();
+  const [,, items] = useChats();
   const [onOpenChat] = useOpenChat();
+
+  if (!items.length) {
+    return <PageLoader />;
+  }
 
   return (
     <div id="scrollableDiv" className={cn(className, styles.scrollableDiv)}>
       <p className={styles.title}>{institution?.name}</p>
-      {isLoading ? <PageLoader /> : (
-        <div className={styles.messages}>
-          {items.map((item) => (
-            <Touchable
-              className={cn(styles.chat)}
-              key={item.id}
-              onClick={() => onOpenChat(item.id)}
-            >
-              <div className={styles.text}>
-                <p className={styles.message}>{item.message}</p>
-                <p className={styles.criterion}>
-                  {item.criterion.map((criterion) => (
-                    <Badge key={criterion} pill bg={item.isGood ? 'success' : 'danger'}>{CRITERIONS[criterion]}</Badge>
-                  ))}
-                </p>
-              </div>
-              <p className={styles.time}>{timeAgo.format(new Date(item.createdAt))}</p>
-            </Touchable>
-          ))}
-        </div>
-      )}
+      <div className={styles.messages}>
+        {items.map((item) => (
+          <Touchable
+            className={cn(styles.chat)}
+            key={item.id}
+            onClick={() => onOpenChat(item.id)}
+          >
+            <div className={styles.text}>
+              <p className={styles.message}>{item.message}</p>
+              <p className={styles.criterion}>
+                {item.criterion.map((criterion) => (
+                  <Badge key={criterion} pill bg={item.isGood ? 'success' : 'danger'}>{CRITERIONS[criterion]}</Badge>
+                ))}
+              </p>
+            </div>
+            <p className={styles.time}>{timeAgo.format(new Date(item.createdAt))}</p>
+          </Touchable>
+        ))}
+      </div>
     </div>
   );
 };

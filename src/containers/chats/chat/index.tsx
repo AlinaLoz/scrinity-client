@@ -18,8 +18,8 @@ export const Chat: React.FC = () => {
   useUpdateChatMessages();
   const [, institution] = useInstitution();
 
-  if (!userId) {
-    return null;
+  if (!messages.length) {
+    return <PageLoader />;
   }
 
   return isLoading ? <PageLoader /> : (
