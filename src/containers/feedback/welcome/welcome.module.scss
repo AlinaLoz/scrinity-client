@@ -4,12 +4,13 @@
 .wrapper {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   &:after {
     content: '';
     position: absolute;
     width: 100%;
     min-height: 100%;
+    max-height: 100%;
     background: linear-gradient(40.95deg, $ming 0%, $rockBlue 65.96%);
     transform: matrix(1, 0, 0, -1, 0, 0);
   }
@@ -20,7 +21,6 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 2;
-  min-height: 100%;
   width: 100%;
 }
 
