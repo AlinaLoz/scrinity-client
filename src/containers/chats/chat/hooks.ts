@@ -34,7 +34,7 @@ export const useUpdateChatMessages = (): void => {
   const [, messages, messagesById] = useChat();
 
   useEffect(() => {
-    if (!messages.length || !userId) {
+    if (!messages.length || !userId || !institution) {
       return;
     }
     (async () => {
@@ -86,7 +86,10 @@ export const useSubmitChat = (newMessage: string): [(event: React.MouseEvent) =>
       router.push(CHATS_ROUTE(institutionId));
       return;
     }
-    if (chatId && (event.target as HTMLButtonElement).classList.contains('rcw-send')) {
+    if (chatId
+      && ((event.target as HTMLButtonElement).classList.contains('rcw-send')
+        || (event.target as HTMLButtonElement).classList.contains('rcw-send-icon')
+      )) {
       if (!newMessage?.trim().length) {
         event.preventDefault();
         return;
