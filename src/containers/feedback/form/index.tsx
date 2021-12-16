@@ -57,7 +57,7 @@ export const Form: React.FC<IFormProps> = ({
       <div className={styles.form}>
         <div>
           <div className={styles.text}>
-            <p className={styles.title}>{t('Form.title')}</p>
+            <p className={styles.title}>{t(isGoodReview ? 'Form.goodTitle' : 'Form.badTitle')}</p>
             <p className={styles.description}>{t('Form.description')}</p>
           </div>
           <div className={styles.options}>

@@ -33,6 +33,7 @@
 }
 
 .title {
+  @include montserrat-medium();
   font-size: 14px;
   line-height: 16px;
   margin-bottom: 5px;
@@ -78,6 +79,10 @@
 }
 
 .feedbackOption {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   outline: 0;
   @include montserrat-regular();
   font-size: 12px;
