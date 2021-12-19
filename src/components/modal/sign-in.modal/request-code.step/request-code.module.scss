@@ -1,5 +1,6 @@
 @import 'public/styles/typography.scss';
 @import 'public/styles/variables.scss';
+@import 'public/styles/ui-elements';
 
 .wrapper {
   display: flex;
@@ -66,11 +67,15 @@
   margin-bottom: 12px;
 }
 
+.alink {
+  @include link();
+  &:hover {
+    @include link();
+  }
+}
+
 .link {
-  @include montserrat-medium();
-  color: $codGray;
-  font-size: 9px;
-  line-height: 16px;
+  @include link();
   text-decoration: underline;
   display: contents;
 }

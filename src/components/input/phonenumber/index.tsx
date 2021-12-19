@@ -1,9 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
+
 import { PhoneIcon } from '@components/icons/phone';
+import { BY_NUMBER_CODE_PLUS, BY_NUMBER_MASK, NUMBER_REGEXP } from '@constants/auth.constants';
 import styles from './phonenumber.module.scss';
+import { formatMaskInput } from './helpers';
 
 interface IInputProps {
   placeholder?: string;
@@ -15,18 +16,24 @@ interface IInputProps {
 export const PhoneNumberInput: React.FC<IInputProps> = ({
   className = '', onChange, placeholder = '29 000 000 00',
   value,
-}) => (
-  <div className={cn(styles.phoneInputWrapper, { [styles.placeholder]: !value?.length })} data-placeholder={placeholder}>
-    <PhoneIcon className={styles.icon} />
-    <PhoneInput
-      countryCallingCodeEditable={false}
-      international
-      defaultCountry="BY"
-      className={cn(styles.phoneInput, className, { [styles.empty]: true })}
-      placeholder={placeholder}
-      limitMaxLength
-      maxLength={17}
-      onChange={onChange}
-    />
-  </div>
-);
+}) => {
+  const handleChange = (candidateValue: string) => {
+    const newValue = formatMaskInput(value, candidateValue, BY_NUMBER_MASK, NUMBER_REGEXP);
+    console.log('newValue', newValue);
+    onChange(newValue);
+  };
+
+  return (
+    <div className={cn(styles.phoneInputWrapper, { [styles.placeholder]: value === BY_NUMBER_CODE_PLUS })} data-placeholder={placeholder}>
+      <PhoneIcon className={styles.icon} />
+      <input
+        inputMode="tel"
+        placeholder={placeholder}
+        type="text"
+        value={value}
+        className={cn(styles.phoneInput, className, { [styles.empty]: true })}
+        onChange={(e) => handleChange(e.target.value)}
+      />
+    </div>
+  );
+};
