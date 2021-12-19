@@ -54,3 +54,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@mixin link() {
+  @include montserrat-medium();
+  color: $codGray;
+  font-size: 9px;
+  line-height: 16px;
+}

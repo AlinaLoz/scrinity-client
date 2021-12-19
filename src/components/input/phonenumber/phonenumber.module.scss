@@ -3,19 +3,15 @@
 @import 'public/styles/ui-elements.scss';
 
 .phoneInput {
-  & > div {
-    display: none;
-  }
-  input {
-    @include input();
-    text-indent: 40px;
-    padding-bottom: 5px;
+  @include input();
+  text-indent: 40px;
+  padding-bottom: 5px;
+  width: 100%;
 
-    @media (max-width: $iphone5) {
-      height: 25px;
-      line-height: 25px;
-      font-size: 15px;
-    }
+  @media (max-width: $iphone5) {
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
   }
 }
 

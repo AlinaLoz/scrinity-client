@@ -90,7 +90,7 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
         <img src={UrlHelper.getImageSrc('puma.png')} alt={`company ${data.institution.id}`} />
       </div>
       <p className={requestCodeStyle.description}>
-        {t('SIGN_IN_VERIFY.DESCRIPTION')}
+        {t('SIGN_IN_VERIFY.DESCRIPTION', { phone })}
       </p>
       <Input
         maxLength={4}
