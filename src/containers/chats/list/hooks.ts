@@ -9,7 +9,7 @@ import { use404 } from '@hooks/use-institution.hooks';
 import { useMe } from '@hooks/use-me.hooks';
 import { CHAT_ROUTE } from '@constants/routes.constants';
 import { prepareMessageByDay, TMessagesByDay } from '@helpers/message.helpers';
-import { useDataFromQuery } from '@hooks/qury.hooks';
+import { useDataFromQuery } from '@hooks/query.hooks';
 
 export const useChat = (): [boolean, IChatById[], TMessagesByDay] => {
   const parsedQuery = useDataFromQuery();

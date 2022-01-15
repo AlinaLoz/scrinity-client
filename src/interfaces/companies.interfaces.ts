@@ -30,6 +30,7 @@ export interface ISendFeedbackRequest {
   filesKeys?: string[];
   criterions: string[];
   isGood: boolean;
+  email?: string;
 }
 
 export type ISendFeedbackImagesRequest = FormData

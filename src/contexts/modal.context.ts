@@ -7,7 +7,7 @@ import { IInstitution } from '@interfaces/companies.interfaces';
 export type TModalData<T extends MODAL> = {
   [MODAL.SIGN_IN]: {
     institution: IInstitution;
-    cb?: () => Promise<void>;
+    cb?: (email?: string) => Promise<void>;
   } | null,
   [MODAL.NONE]: null,
 }[T];

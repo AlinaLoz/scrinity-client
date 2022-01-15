@@ -12,3 +12,5 @@ export const SEND_CHATS_IMAGES_API = `${CHATS_API}/images`;
 export const CHATS_MESSAGE_API = '/chats/message';
 
 export const ME_API = '/user';
+
+export const CONFIG_API = '/config';
