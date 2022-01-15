@@ -19,7 +19,6 @@ export const PhoneNumberInput: React.FC<IInputProps> = ({
 }) => {
   const handleChange = (candidateValue: string) => {
     const newValue = formatMaskInput(value, candidateValue, BY_NUMBER_MASK, NUMBER_REGEXP);
-    console.log('newValue', newValue);
     onChange(newValue);
   };
 

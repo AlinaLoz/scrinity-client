@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { INSTITUTION_API } from '@constants/api.constants';
 import { getInstitutionAPI } from '@api/companies.service';
 import { IInstitution } from '@interfaces/companies.interfaces';
-import { useDataFromQuery } from './qury.hooks';
+import { useDataFromQuery } from './query.hooks';
 
 export const use404 = (error: { response?: { status?: number }}) => {
   const router = useRouter();

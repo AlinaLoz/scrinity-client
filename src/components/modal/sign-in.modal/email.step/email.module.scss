@@ -1,0 +1,95 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/variables.scss';
+@import 'public/styles/ui-elements';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.companyImage {
+  justify-content: center;
+  display: flex;
+
+  img {
+    width: 55px;
+
+    @media (max-width: $iphone6) {
+      width: 50px;
+    }
+
+    @media (max-width: $iphone5) {
+      width: 45px;
+    }
+  }
+}
+
+.description {
+  @include montserrat-regular();
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  margin-top: 15px;
+  color: $codGray;
+  margin-bottom: 35px;
+
+  @media (max-width: $iphone6) {
+    font-size: 11px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: $iphone5) {
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.input {
+}
+
+.button {
+  margin-top: 15px;
+
+  @media (max-width: $iphone5) {
+    height: 40px;
+    margin-top: 20px;
+  }
+}
+
+.warning {
+  @include montserrat-regular();
+  font-size: 9px;
+  line-height: 10px;
+  color: $codGray;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.alink {
+  @include link();
+  &:hover {
+    @include link();
+  }
+}
+
+.link {
+  @include link();
+  text-decoration: underline;
+  display: contents;
+}
+
+.companyName {
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 26px;
+  position: absolute;
+}
+
+.error {
+  font-size: 12px;
+  color: $red;
+  margin-top: 12px;
+}

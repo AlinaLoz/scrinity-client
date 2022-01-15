@@ -10,7 +10,7 @@ import { useInstitution } from '@hooks/use-institution.hooks';
 import { getFirstResponseError } from '@helpers/message.helper';
 import { sendMessageAPI } from '@api/chats.service';
 import { CHATS_ROUTE } from '@constants/routes.constants';
-import { useDataFromQuery } from '@hooks/qury.hooks';
+import { useDataFromQuery } from '@hooks/query.hooks';
 import { getWidget, sendMessage } from './helpers';
 
 export const useChangeOpenedChat = (messages: IChatById[]): void => {

@@ -7,6 +7,8 @@ import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
 import { TFile } from '@hooks/use-upload-files';
 
 import { useMe } from '@hooks/use-me.hooks';
+import { useConfig } from '@hooks/use-config.hooks';
+import { LINK_CHANNEL } from '@interfaces/config.interfaces';
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
@@ -22,6 +24,7 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
   const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
   const [userId] = useMe();
+  const [, config] = useConfig();
 
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
@@ -37,20 +40,20 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
   }, []);
 
   const onNextFormPress = useCallback((data: ISendFeedbackRequest & { files: TFile[] }) => {
-    const onSendFeedback = async () => {
+    const onSendFeedback = async (email?: string) => {
       setData(MODAL.NONE, null);
-      if (await sendFeedback(data)) {
+      if (await sendFeedback({ ...data, email })) {
         setReviewStep(REVIEW_STEP.SUCCESS);
       }
     };
     (async () => {
-      if (!userId) {
+      if (!userId || config?.CHAT_LINK_CHANNEL === LINK_CHANNEL.EMAIL) {
         setData(MODAL.SIGN_IN, { institution, cb: onSendFeedback });
       } else {
         await onSendFeedback();
       }
     })();
-  }, [userId]);
+  }, [userId, config]);
 
   switch (reviewStep) {
     case REVIEW_STEP.WELCOME:
