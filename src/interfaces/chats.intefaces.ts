@@ -1,6 +1,7 @@
 export interface IGetChatInfoByLinkResponse {
   institutionId: number;
   chatId: number;
+  token: string;
 }
 
 export interface ISender {

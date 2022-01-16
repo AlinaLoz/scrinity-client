@@ -61,7 +61,7 @@ export const EmailStep: React.FC = () => {
         onChangeValue={onChangeInput}
       />
       <Button
-        disabled={isInvalidEmail}
+        disabled={!email.length || isInvalidEmail}
         className={styles.button}
         onClick={onNextStepWrapper}
         type="blue"
