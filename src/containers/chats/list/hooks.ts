@@ -10,12 +10,14 @@ import { useMe } from '@hooks/use-me.hooks';
 import { CHAT_ROUTE } from '@constants/routes.constants';
 import { prepareMessageByDay, TMessagesByDay } from '@helpers/message.helpers';
 import { useDataFromQuery } from '@hooks/query.hooks';
+import { useConfig } from '@hooks/use-config.hooks';
+import { LINK_CHANNEL } from '@interfaces/config.interfaces';
 
 export const useChat = (): [boolean, IChatById[], TMessagesByDay] => {
   const parsedQuery = useDataFromQuery();
-
+  const [, config] = useConfig();
   const swrToken = [CHATS_API, parsedQuery?.chatId];
-  useMe({ swrToken, openModal: true });
+  useMe({ swrToken, openModal: config?.CHAT_LINK_CHANNEL === LINK_CHANNEL.SMS });
 
   const { data, error } = useSWR(
     swrToken,
