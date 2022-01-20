@@ -1,5 +1,6 @@
 @import './base/fonts';
 @import './base/normalize';
 @import "~bootstrap/scss/bootstrap";
-@import './vendors/chat-message';
 @import './base/base';
+@import "~scrinity-chat/lib/styles.css";
+@import "./vendors/chat";
