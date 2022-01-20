@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import cn from 'classnames';
-
-import ChatWidget from '@components/chat-widget';
+import React from 'react';
+import dynamic from 'next/dynamic';
 import { PageLoader } from '@components/page-loader';
 import { useInstitution } from '@hooks/use-institution.hooks';
 import { useMe } from '@hooks/use-me.hooks';
+import { sendFeedbackImagesAPI } from '@api/companies.service';
+import { sendMessageAPI } from '@api/chats.service';
+import { useDataFromQuery } from '@hooks/query.hooks';
 import { useChat } from '../list/hooks';
-import { useChangeOpenedChat, useSubmitChat, useUpdateChatMessages } from './hooks';
-import styles from './chat.module.scss';
+
+// @ts-ignore
+const ChatWidget = dynamic(() => import('scrinity-chat')
+  .then((mod) => mod.CustomWidget), {
+  loading: () => <PageLoader />,
+  ssr: false,
+});
 
 export const Chat: React.FC = () => {
   const [userId] = useMe();
-  const [isLoading, messages] = useChat();
-  const [newUserMessage, setNewUserMessage] = useState('');
-  const [onSubmitChat] = useSubmitChat(newUserMessage);
-  useChangeOpenedChat(messages);
-  useUpdateChatMessages();
+  const parsedQuery = useDataFromQuery();
+  const [isLoading, messages, messagesById] = useChat();
   const [, institution] = useInstitution();
 
   if ((userId && !messages.length)
@@ -25,24 +28,15 @@ export const Chat: React.FC = () => {
   }
 
   return (
-    <div
-      role="button"
-      /* eslint-disable @typescript-eslint/no-empty-function */
-      onKeyPress={() => {}}
-      onClick={(event) => onSubmitChat(event)}
-      tabIndex={-1}
-      className={cn(styles.wrapper)}
-    >
-      <ChatWidget
-        /* eslint-disable @typescript-eslint/no-empty-function */
-        handleNewUserMessage={() => {}}
-        handleTextInputChange={(event) => setNewUserMessage(event.target.value)}
-        showTimeStamp={false}
-        showCloseButton
-        senderPlaceHolder="Напишите сообщение"
-        title={institution?.manager?.roleTitle || 'администратор'}
-        launcher={() => <div />}
-      />
-    </div>
+    <ChatWidget
+      userId={userId}
+      chatId={parsedQuery.chatId || undefined}
+      sendMessageAPI={sendMessageAPI}
+      uploadImagesAPI={sendFeedbackImagesAPI}
+      title={institution?.manager?.roleTitle || 'администратор'}
+      messagesById={messagesById}
+      institution={{ id: institution?.id }}
+      messages={messages}
+    />
   );
 };
