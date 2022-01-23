@@ -43,7 +43,7 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, institution }) => {
           <div className={styles.buttons}>
             <Button
               isFluid
-              type="blue"
+              type="white"
               className={styles.firstBtn}
               onClick={() => onNext(true)}
             >
