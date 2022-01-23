@@ -3,6 +3,7 @@ name: build and deploy
 on:
   push:
     branches: [ develop ]
+  pull_request:
 
 jobs:
   build:
@@ -20,9 +21,10 @@ jobs:
       - run:
           npm i
           npm run build --if-present
+
   deploy:
     runs-on: self-hosted
-
+    if: ${{ github.event.action }} == 'push'
     strategy:
       matrix:
         node-version: [16.x]
