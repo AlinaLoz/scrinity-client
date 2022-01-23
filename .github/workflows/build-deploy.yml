@@ -38,6 +38,3 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: npm run build
-    - run: pm2 stop 0
-    - run: pm2 start 0
-    - run: pm2 save
