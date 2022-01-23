@@ -11,6 +11,9 @@ export function getInstitutionAPI(id: number | string): Promise<IGetInstitutionA
 }
 
 export function sendFeedbackAPI(data: ISendFeedbackRequest): Promise<ISendFeedbackResponse> {
+  if (!data.email?.length) {
+    delete data.email;
+  }
   return post(CHATS_API, data);
 }
 
