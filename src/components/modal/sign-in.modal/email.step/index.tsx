@@ -80,9 +80,7 @@ export const EmailStep: React.FC = () => {
           {t(`${formType}_SIGN_IN_REQUEST.POLICY`)}
         </a>
       </p>
-      {data.cb && (
-        <Touchable className={styles.link} onClick={data.cb}>{t(`${formType}_SIGN_IN_REQUEST.LINK`)}</Touchable>
-      )}
+      <Touchable className={styles.link} onClick={onNextStepWrapper}>{t(`${formType}_SIGN_IN_REQUEST.LINK`)}</Touchable>
       <CompanyName classNames={styles.companyName} />
     </div>
   );
