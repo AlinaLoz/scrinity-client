@@ -5,7 +5,6 @@
   "scripts": {
     "publish:image": "sh scripts/docker/build-and-publish.sh",
     "dev": "next",
-
     "build": "next build",
     "start": "next start --port 27182",
     "lint": "eslint --ext .tsx --ext .ts ./src/*/** --no-error-on-unmatched-pattern",
