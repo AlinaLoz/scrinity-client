@@ -26,7 +26,6 @@ jobs:
   deploy:
     runs-on: self-hosted
     needs: [build]
-    if: ${{ github.event.action }} == 'pull_request'
     strategy:
       matrix:
         node-version: [16.x]
