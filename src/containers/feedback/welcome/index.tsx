@@ -6,9 +6,7 @@ import Button from '@components/button';
 import { CompanyName } from '@components/company-name';
 import { UrlHelper } from '@helpers/url.helper';
 import { PROJECT_NAME } from '@constants/global.constants';
-// import { GIRL_WITH_LAPTOP_IMAGE_PATH } from '@constants/ui.constants';
-//
-// import { GirlWithLaptop } from '@components/icons/girl-with-laptop';
+import { GIRL_WITH_LAPTOP_IMAGE_PATH } from '@constants/ui.constants';
 import styles from './welcome.module.scss';
 
 interface IWelcomeProps {
@@ -24,12 +22,11 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, institution }) => {
       <div className={styles.content}>
         <h1 className={styles.projectName}>{PROJECT_NAME}</h1>
         <div className={styles.popup}>
-          {/* <img */}
-          {/*  className={styles.girlWithLaptop} */}
-          {/*  src={GIRL_WITH_LAPTOP_IMAGE_PATH} */}
-          {/*  alt="girl" */}
-          {/* /> */}
-          {/* <GirlWithLaptop className={styles.girlWithLaptop} /> */}
+          <img
+            className={styles.girlWithLaptop}
+            src={GIRL_WITH_LAPTOP_IMAGE_PATH}
+            alt="girl"
+          />
           <picture className={styles.companyInfo}>
             <img className={styles.companyImage} src={UrlHelper.getImageSrc(institution?.company.image.filename)} alt={institution?.name} />
             <div className={styles.companyTitles}>

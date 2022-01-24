@@ -176,12 +176,22 @@
   width: auto;
   height: 235px;
   position: absolute;
-  right: 0;
-  transform: translate(0, -95%);
+  right: 30px;
+  transform: translate(0, -100%);
+
+
+  @media (max-width: $iphone6) {
+    height: 200px;
+  }
+
+  @media (min-height: 750px) {
+    height: 260px;
+  }
 
   @media (max-width: $iphone5) {
-    height: 160px;
+    height: 180px;
   }
+
 }
 
 .companyName {
