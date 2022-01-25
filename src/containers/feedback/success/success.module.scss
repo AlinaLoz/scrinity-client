@@ -22,20 +22,10 @@
 }
 
 .img {
-  width: 313px;
+  width: 100vw;
   height: auto;
-  margin-bottom: 10%;
-
   @media (max-width: $iphone6s) {
     margin-bottom: 17%;
-  }
-
-  @media (max-width: $iphone6) {
-    width: 290px;
-  }
-
-  @media (max-width: $iphone5) {
-    width: 230px;
   }
 }
 
@@ -60,5 +50,4 @@ button.submit {
   width: 100%;
   border: none;
   margin-top: auto;
-  //margin-top: 10%;
 }

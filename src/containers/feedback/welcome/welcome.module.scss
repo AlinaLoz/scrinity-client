@@ -177,7 +177,7 @@
   height: 235px;
   position: absolute;
   right: 30px;
-  transform: translate(0, -100%);
+  transform: translate(0, -105%);
 
 
   @media (max-width: $iphone6) {
@@ -191,7 +191,6 @@
   @media (max-width: $iphone5) {
     height: 180px;
   }
-
 }
 
 .companyName {
