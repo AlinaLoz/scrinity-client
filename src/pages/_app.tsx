@@ -8,7 +8,6 @@ import { MODAL } from '@constants/modal.constants';
 import { ModalContext, TModalData } from '@contexts/modal.context';
 import { OnlyMobileNotify } from '@components/only-mobile-notify';
 
-import 'react-chat-widget/lib/styles.css';
 import '../assets/main.scss';
 
 type TSetDataCb<T extends MODAL> = (type: T, data: TModalData<T>) => void;
