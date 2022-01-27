@@ -506,13 +506,6 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
 
-"@types/react-chat-widget@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@types/react-chat-widget/-/react-chat-widget-3.0.2.tgz#b8ae555b18ad21098946ac60fe34c19598262269"
-  integrity sha512-9bB+jDKQpO251NsgpV+dxKkMacHZG4p2i3mODanJ3NvHGjfnTOUoTuFwA9g2RZUvQofu/AZiSpsY2cCx3+G2Tg==
-  dependencies:
-    react-chat-widget "*"
-
 "@types/react-dom@^17.0.11":
   version "17.0.11"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.11.tgz#e1eadc3c5e86bdb5f7684e00274ae228e7bcc466"
@@ -1556,7 +1549,7 @@ data-uri-to-buffer@3, data-uri-to-buffer@3.0.1:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-3.0.1.tgz#594b8973938c5bc2c33046535785341abc4f3636"
   integrity sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
 
-date-fns@^2.11.1, date-fns@^2.27.0:
+date-fns@^2.27.0:
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.27.0.tgz#e1ff3c3ddbbab8a2eaadbb6106be2929a5a2d92b"
   integrity sha512-sj+J0Mo2p2X1e306MHq282WS4/A8Pz/95GIFcsPNMPMZVI3EUrAdSv90al1k+p74WGLCruMXk23bfEDZa71X9Q==
@@ -4159,35 +4152,6 @@ react-bootstrap@^2.0.2:
     uncontrollable "^7.2.1"
     warning "^4.0.3"
 
-react-chat-widget@*:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/react-chat-widget/-/react-chat-widget-3.1.4.tgz#e1017e5ec20f667b3f9c6835052c58adcb9c42f0"
-  integrity sha512-4mLcXCetlgW76JjdVL2IeA72z8unwMfHn1mwcxcgUP2kk8bf72EZFmaLIvQvqoNB8rrYIDX9BHiU4vRa+LGmFg==
-  dependencies:
-    classnames "^2.2.6"
-    date-fns "^2.11.1"
-    emoji-mart "^3.0.1"
-    markdown-it "^8.4.1"
-    markdown-it-link-attributes "^2.1.0"
-    markdown-it-sanitizer "^0.4.3"
-    markdown-it-sup "^1.0.0"
-    react-redux "^7.2.4"
-    redux "^4.1.0"
-
-react-chat-widget@3.0.5-beta1:
-  version "3.0.5-beta1"
-  resolved "https://registry.yarnpkg.com/react-chat-widget/-/react-chat-widget-3.0.5-beta1.tgz#da3f65e85b915dbd70bd9d179deae63ba59ac919"
-  integrity sha512-cIjNpNZVwEkgxmDR8ftHkduBNppAMHnIlKkuizuluGOVtLF0ExNIHPBRJnEOmVECvgEMvY1kkwlO25TUn8YITw==
-  dependencies:
-    classnames "^2.2.6"
-    date-fns "^2.11.1"
-    markdown-it "^8.4.1"
-    markdown-it-link-attributes "^2.1.0"
-    markdown-it-sanitizer "^0.4.3"
-    markdown-it-sup "^1.0.0"
-    react-redux "^7.2.0"
-    redux "^4.0.5"
-
 react-countdown-hook@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-countdown-hook/-/react-countdown-hook-1.1.1.tgz#2536209b0d9243f75275844ae575d696f2ffbc5d"
@@ -4259,7 +4223,7 @@ react-modal@^3.14.3:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
-react-redux@^7.2.0, react-redux@^7.2.4:
+react-redux@^7.2.4:
   version "7.2.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.6.tgz#49633a24fe552b5f9caf58feb8a138936ddfe9aa"
   integrity sha512-10RPdsz0UUrRL1NZE0ejTkucnclYSgXp5q+tB5SWx2qeG2ZJQJyymgAhwKy73yiL/13btfB6fPr+rgbMAaZIAQ==
@@ -4359,7 +4323,7 @@ readline-transform@1.0.0:
   resolved "https://registry.yarnpkg.com/readline-transform/-/readline-transform-1.0.0.tgz#3157f97428acaec0f05a5c1ff2c3120f4e6d904b"
   integrity sha512-7KA6+N9IGat52d83dvxnApAWN+MtVb1MiVuMR/cf1O4kYsJG+g/Aav0AHcHKsb6StinayfPLne0+fMX2sOzAKg==
 
-redux@^4.0.0, redux@^4.0.5, redux@^4.1.0:
+redux@^4.0.0, redux@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.1.2.tgz#140f35426d99bb4729af760afcf79eaaac407104"
   integrity sha512-SH8PglcebESbd/shgf6mii6EIoRM0zrQyjcuQ+ojmfxjTtE0z9Y8pa62iA/OJ58qjP6j27uyW4kUF4jl/jd6sw==
@@ -4544,10 +4508,10 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
-scrinity-chat@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/scrinity-chat/-/scrinity-chat-1.0.4.tgz#2ffe3df4a30874332d61ab968b6e3fa3d38d073d"
-  integrity sha512-FKc79hKI3IlTNzkxHZAcBQa0GadLUioOvOkIfFTrp3YRYbUO1cV8TXgKOAAijFwO1gXQBsUoOtZeJLqNh/FoNQ==
+scrinity-chat@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/scrinity-chat/-/scrinity-chat-1.0.5.tgz#7625cb96436c7cd4f35fa29d052476884dfc8574"
+  integrity sha512-xdf/AJCAeUgKGNmwClsQ2wkCNq0D6dF3izj3t3gZAEMUwUSWjXAd6RCJFSFdADU35flYEi0quC1ZH5Giz/voMA==
   dependencies:
     classnames "^2.2.6"
     date-fns "^2.27.0"
@@ -4557,6 +4521,7 @@ scrinity-chat@^1.0.4:
     markdown-it-link-attributes "^2.1.0"
     markdown-it-sanitizer "^0.4.3"
     markdown-it-sup "^1.0.0"
+    react-image-file-resizer "^0.4.7"
     react-redux "^7.2.4"
     react-toastify "^8.1.0"
     redux "^4.1.0"
