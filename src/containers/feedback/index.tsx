@@ -20,7 +20,7 @@ interface IReviewProps {
 }
 
 export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
-  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.ERROR);
+  const [reviewStep, setReviewStep] = useState<number>(REVIEW_STEP.WELCOME);
   const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
   const [userId] = useMe();
