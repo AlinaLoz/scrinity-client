@@ -9,12 +9,14 @@ import { ModalContext, TModalData } from '@contexts/modal.context';
 import { OnlyMobileNotify } from '@components/only-mobile-notify';
 
 import '../assets/main.scss';
+import { useRouter } from 'next/router';
 
 type TSetDataCb<T extends MODAL> = (type: T, data: TModalData<T>) => void;
 type TWrappedAppProps = AppInitialProps & AppContext;
 
 // todo вынести работа с констектом модалки в отд варппер
 const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
+  const { pathname } = useRouter();
   const [isMobileOnClient, setIsMobileOnClient] = useState(true);
   const [modalType, setModalType] = useState(MODAL.NONE);
   const [data, setData] = useState<TModalData<MODAL>>(null);
@@ -28,7 +30,7 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
     setIsMobileOnClient(isMobile && !isTablet);
   }, []);
 
-  if (!isMobileOnClient) {
+  if (!isMobileOnClient && pathname !== '/') {
     return <OnlyMobileNotify />;
   }
 
