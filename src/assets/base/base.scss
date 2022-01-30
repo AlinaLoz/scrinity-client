@@ -1,3 +1,17 @@
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+/* CSS Variables */
+:root {
+  --line-height: 1.7rem;
+  --transition: 0.2s ease-in;
+}
+
 html {
   height: 100%;
 }
