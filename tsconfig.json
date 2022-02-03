@@ -19,19 +19,44 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@containers/*": ["./src/containers/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@selectors/*": ["./src/selectors/*"],
-      "@api/*": ["./src/services/api/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@models/*": ["./src/models/*"],
-      "@redux/*": ["./src/redux/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@helpers/*": ["./src/helpers/*"],
-      "@contexts/*": ["./src/contexts/*"],
-    }
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@containers/*": [
+        "./src/containers/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@selectors/*": [
+        "./src/selectors/*"
+      ],
+      "@api/*": [
+        "./src/services/api/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@redux/*": [
+        "./src/redux/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
+      "@helpers/*": [
+        "./src/helpers/*"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ]
+    },
+    "incremental": true
   },
   "include": [
     "src/*",

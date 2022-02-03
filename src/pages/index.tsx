@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { LANGUAGE } from '@constants/locales.constants';
-import { LandingPage } from '@containers/landing';
+import LandingPage from '@containers/landing';
 
 export default () => <LandingPage />;
 

@@ -1,6 +1,11 @@
 @import 'public/styles/variables';
 @import 'public/styles/typography';
 
+$fontSizeMainTitle: 40px;
+$fontSizeDescriptionTitle: 18px;
+$fontSizeBlockTitle: 30px;
+$fontSizeLogo: 28px;
+
 .headerBlock {
   padding: 0 241px 0 239px;
   width: 100% ;
@@ -8,11 +13,20 @@
 }
 
 .nav {
-  padding: 20px 112px 20px 115px;
+  left: 0;
+  padding: 20px 353px 20px 354px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.scrolled {
+  background: linear-gradient(109.95deg, rgba(218, 240, 248, 1) -24.02%, rgba(231, 252, 251, 1) 11.24%, #F5FFF8 102.68%);
+  transition: background-color 0.5s ease;
 }
 
 .logoAndUl {
@@ -26,9 +40,9 @@
 .logo {
   @include montserrat-bold();
   color: $mineShaft;
-  line-height: 44px;
   text-decoration: none;
-  font-size: 36px;
+  font-size: $fontSizeLogo;
+  line-height: $fontSizeLogo;
 
   &:hover {
     color: white;
@@ -53,7 +67,7 @@
     white-space: nowrap;
     @include montserrat-semibold();
     color: $codGray;
-    font-size: 13px;
+    font-size: 12px;
     text-decoration: none;
 
     &:hover {
@@ -86,37 +100,35 @@
 }
 
 .btn {
-  height: 60px;
+  height: 50px;
   border-radius: 6px;
-  width: 240px;
+  width: 200px;
   text-align: left;
   padding-left: 28px;
   position: relative;
-  min-width: 240px;
 
   div {
     @include montserrat-bold();
-    font-size: 12px;
   }
 
   svg {
     position: absolute;
-    right: 26px !important;
-    top: 22px !important;
+    right: 20px !important;
+    top: 18px !important;
     left: auto;
   }
 }
 
 .mainInfo {
-  width: 755px;
+  width: 950px;
   display: flex;
-  padding-top: 120px;
+  padding-top: 180px;
   padding-left: 112px;
   box-sizing: content-box;
   padding-bottom: 220px;
   .title {
-    font-size: 64px;
-    line-height: 74px;
+    font-size: $fontSizeMainTitle;
+    line-height: calc(var($fontSizeMainTitle) + 10px);
     @include montserrat-semibold();
     span:nth-child(1) {
       color: $ming;
@@ -127,23 +139,35 @@
     margin-bottom: 58px;
   }
   .description {
+    max-width: 600px;
     color: $mineShift;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: $fontSizeDescriptionTitle;
+    line-height: $fontSizeDescriptionTitle;
+
     @include montserrat-regular();
     margin-bottom: 58px;
   }
 
+  .btn {
+    display: none;
+  }
+
   .mac {
+    width: 600px;
     position: absolute;
     right: 0;
     top: 100px;
     z-index: 1;
   }
 
+  .macMobile {
+    display: none;
+  }
+
   .iphone {
-    right: 420px;
-    top: 345px;
+    width: 180px;
+    right: 330px;
+    top: 300px;
     position: absolute;
     z-index: 2;
   }
@@ -151,11 +175,60 @@
 
 .blockTitle {
   @include montserrat-semibold();
-  font-size: 52px;
-  line-height: 48px;
+  font-size: $fontSizeBlockTitle;
+  line-height: $fontSizeBlockTitle;
   color: $tiber;
   text-align: center;
   letter-spacing: 0.2px;
+}
+
+.about {
+  background: white;
+  padding: 70px 285px;
+}
+
+.swiper {
+  width: 1100px;
+  margin: 90px auto 0 auto;
+
+  & > div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slide {
+    width: 329px;
+    max-width: 329px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      margin-bottom: 25px;
+      height: 100px;
+      width: auto;
+    }
+
+    .name {
+      color: $codGray;
+      font-size: 20px;
+      line-height: 26px;
+      text-align: center;
+      letter-spacing: 0.2px;
+      @include montserrat-medium();
+      margin-bottom: 31px;
+      min-height: 52px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .description {
+      color: $mineShift;
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
 }
 
 .benefits {
@@ -211,10 +284,6 @@
 
 .team {
   padding: 89px 368px 100px 368px;
-  .blockTitle {
-    font-size: 48px;
-    line-height: 66px;
-  }
 
   .members {
     display: flex;
@@ -282,8 +351,6 @@
   background: linear-gradient(180deg, rgba(248, 251, 255, 0.74) 0%, #F8FBFF 100%);
 
   .blockTitle {
-    font-size: 48px;
-    line-height: 62px;
     margin-bottom: 13px;
   }
 
@@ -396,8 +463,6 @@
   justify-content: center;
 
   .blockTitle {
-    font-size: 48px;
-    line-height: 62px;
     text-align: left;
     margin-bottom: 30px;
   }
@@ -470,6 +535,10 @@
     margin-right: 150px;
   }
 
+  .nav {
+    width: 100%;
+  }
+
   .benefits {
     padding: 0 320px 60px 320px;
 
@@ -489,20 +558,17 @@
     padding: 0;
   }
 
+  .nav {
+    padding: 20px 112px 20px 115px;
+    width: 100%;
+  }
+
   .logoAndUl {
     margin-right: 243px;
   }
 
   .mainInfo {
-    padding-top: 100px;
-    .mac {
-      width: 600px;
-    }
-    .iphone {
-      right: 320px;
-      top: 270px;
-      width: 230px;
-    }
+    padding-top: 160px;
   }
 
   .benefits {
@@ -511,13 +577,11 @@
 
   .team {
     padding: 71px 250px 115px 250px;
-    .blockTitle {
-      font-size: 48px;
-      line-height: 66px;
-    }
   }
 
-
+  .about {
+    padding: 95px 0;
+  }
   .footer {
     padding: 25px 114px;
   }
@@ -526,6 +590,7 @@
 @media screen and (max-width: $hd) {
   .nav {
     padding: 20px 50px;
+    width: 100%;
   }
 
   .logoAndUl {
@@ -535,10 +600,6 @@
   .mainInfo {
     padding-left: 50px;
     width: 700px;
-    .title {
-      font-size: 50px;
-      line-height: 50px;
-    }
 
     .description {
       font-size: 20px;
@@ -548,7 +609,6 @@
   .benefits {
     .blockTitle {
       padding: 80px 0 50px 0;
-      font-size: 50px;
     }
     padding: 0 170px 60px 170px;
 
@@ -560,10 +620,6 @@
 
   .team {
     padding: 71px 150px 115px 150px;
-    .blockTitle {
-      font-size: 50px;
-      line-height: 50px;
-    }
 
     .member {
       img {
@@ -582,28 +638,24 @@
       }
     }
   }
+
+  .about {
+
+  }
 }
 
 @media screen and (max-width: $lg) {
   .mainInfo {
-    width: 500px;
+    width: 600px;
     padding-bottom: 100px;
-    .title {
-      font-size: 32px;
-      line-height: 40px;
-    }
-
-    .description {
-      font-size: 18px;
-    }
-
     .mac {
-      width: 500px;
+      width: 400px;
+      top: 120px;
     }
     .iphone {
-      right: 243px;
+      width: 120px;
+      right: 220px;
       top: 270px;
-      width: 170px;
     }
   }
 
@@ -663,6 +715,10 @@
     padding: 15px 30px;
   }
 
+  .scrolled {
+    background: $casal;
+  }
+
   .logo {
     line-height: 29px;
     font-size: 24px;
@@ -672,6 +728,10 @@
       color: white;
       border: none;
     }
+  }
+
+  .logoAndUl {
+    margin-right: 0;
   }
 
   .hamburger {
@@ -699,9 +759,106 @@
   .btn {
     display: none;
   }
+
+  .mainInfo {
+    position: relative;
+    flex-direction: column;
+    padding: 60px 0 ;
+    width: auto;
+
+    .title {
+      padding: 30px 60px 0 60px;
+      text-align: center;
+      margin-bottom: 30px;
+      span:nth-child(n) {
+        color: white;
+        font-size: 28px;
+        line-height: 43px;
+      }
+    }
+
+    .description {
+      padding: 0 60px;
+      width: auto;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      line-height: 25px;
+      margin-bottom: 40px;
+    }
+
+    .iphone {
+      display: none;
+    }
+
+    .mac {
+      display: none;
+    }
+
+    .btn {
+      height: 60px;
+      display: block;
+      margin: 0 15px 30px 15px;
+      width: auto;
+      text-align: center;
+
+      span {
+        position: relative;
+        left: -40px;
+      }
+      svg {
+        top: 22px !important;
+        left: 70%;
+        //left: auto;
+      }
+    }
+  }
+
+
+  .swiperMobile {
+    width: 100vw;
+    margin: 50px auto 0 auto;
+
+    & > div:nth-child(1) {
+      display: flex;
+      justify-content: center;
+    }
+
+    :global {
+      .swiper-slide {
+        max-width: 100vw;
+        width: 100vw;
+        margin-bottom: 60px;
+        padding: 0 30px;
+
+        img {
+          width: 64px;
+          height: 64px;
+          margin-bottom: 30px;
+        }
+
+        & > p:nth-child(1) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+  }
+
 }
 
+@media screen and(max-width: $sm) {
+  .mainInfo {
+    padding: 60px 0 200px 0 ;
 
+    .macMobile {
+      display: block;
+      position: absolute;
+      bottom: -70px;
+      top: auto;
+      width: 100%;
+    }
+  }
+}
 
 
 
