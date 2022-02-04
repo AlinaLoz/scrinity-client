@@ -233,9 +233,10 @@ $fontSizeLogo: 28px;
 
 .benefits {
   background: $zircon;
-  padding: 0 435px 60px 435px;
+  padding: 100px 435px 60px 435px;
+
   .blockTitle {
-    padding: 100px 0 75px 0;
+    padding-bottom: 75px;
   }
 
   .features {
@@ -291,8 +292,8 @@ $fontSizeLogo: 28px;
     justify-content: space-between;
 
     img {
-      width: 300px;
-      height: 375px;
+      width: 260px;
+      height: 328px;
       background: #B8CFD7;
       border-radius: 20px;
       display: inline-block;
@@ -302,17 +303,17 @@ $fontSizeLogo: 28px;
     .name {
       color: $codGray;
       @include montserrat-semibold();
-      font-size: 36px;
-      line-height: 34px;
-      margin-bottom: 28px;
+      font-size: 24px;
+      line-height: 24px;
+      margin-bottom: 20px;
     }
 
     ul {
       padding-left: 0;
       color: $mineShift;
       @include montserrat-regular();
-      font-size: 20px;
-      line-height: 24px;
+      font-size: 18px;
+      line-height: 18px;
     }
 
     li {
@@ -540,7 +541,7 @@ $fontSizeLogo: 28px;
   }
 
   .benefits {
-    padding: 0 320px 60px 320px;
+    padding: 100px 320px 40px 320px;
 
     .feature {
       width: 495px;
@@ -549,7 +550,7 @@ $fontSizeLogo: 28px;
   }
 
   .team {
-    padding: 71px 300px 115px 300px;
+    padding: 71px 300px;
   }
 }
 
@@ -572,8 +573,8 @@ $fontSizeLogo: 28px;
   }
 
   .benefits {
-      padding: 0 200px 60px 200px;
-    }
+      padding: 100px 200px 40px 200px;
+  }
 
   .team {
     padding: 71px 250px 115px 250px;
@@ -610,7 +611,7 @@ $fontSizeLogo: 28px;
     .blockTitle {
       padding: 80px 0 50px 0;
     }
-    padding: 0 170px 60px 170px;
+    padding: 0 170px 20px 170px;
 
     .feature {
       width: 450px;
@@ -660,7 +661,7 @@ $fontSizeLogo: 28px;
   }
 
   .benefits {
-    padding: 0 70px 60px 70px;
+    padding: 0px 70px 20px 70px;
 
     .feature {
       width: 420px;
@@ -844,6 +845,85 @@ $fontSizeLogo: 28px;
     }
   }
 
+  .benefits {
+    background: $ming;
+    padding: 0 15px;
+
+
+    .features {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature {
+      width: 450px;
+      padding: 30px 15px;
+      letter-spacing: -0.361111px;
+    }
+
+    .blockTitle {
+      color: white;
+      width: 60%;
+      margin: auto;
+    }
+  }
+
+  .team {
+    padding: 60px 15px;
+  }
+
+  .tariffsList {
+    padding: 0 16px;
+    flex-wrap: wrap;
+
+    .tariff {
+      border-radius: 8px;
+      border-top: 3px solid $eastBay;
+      width: 80%;
+      margin: 0 auto 40px auto !important;
+      padding: 28px 20px;
+    }
+  }
+
+  .feedbacks {
+    padding: 35px 15px 56px 15px;
+
+    .video {
+      width: 100%;
+      height: auto;
+      margin-top: 0;
+      margin-bottom: 44px;
+      border-radius: 6px;
+    }
+
+    .text {
+      width: 100%;
+      font-size: 14px;
+      line-height: 25px;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer {
+    padding: 15px 0;
+    .documents {
+      display: none;
+    }
+    .networks {
+      display: none;
+    }
+
+    .titles {
+      margin: auto;
+
+      .title {
+        margin-bottom: 0;
+      }
+      .allReserved {
+        display: none;
+      }
+    }
+  }
 }
 
 @media screen and(max-width: $sm) {
@@ -856,6 +936,73 @@ $fontSizeLogo: 28px;
       bottom: -70px;
       top: auto;
       width: 100%;
+    }
+  }
+
+  .benefits {
+    .feature {
+      width: 100%;
+    }
+  }
+
+  .team {
+    padding-bottom: 0;
+    .members {
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 60px;
+
+      .member {
+        width: 100%;
+        margin-bottom: 40px;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          margin-bottom: 20px;
+        }
+
+        .name {
+          margin-left: 17px;
+        }
+        ul {
+          margin-left: 17px;
+        }
+        li {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+
+  .tariffs {
+    padding: 40px 0 0 0;
+
+    .blockTitle {
+      margin: auto;
+      line-height: 35px;
+      margin-bottom: 18px;
+      max-width: 80%;
+    }
+
+    h5.description {
+      margin: auto;
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 30px;
+      max-width: 80%;
+    }
+
+    .tariffsList {
+      .tariff {
+        width: 100%;
+
+        button {
+          width: 100%;
+          border: 2px solid $ming;
+        }
+      }
     }
   }
 }

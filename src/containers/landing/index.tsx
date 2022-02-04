@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import LazyLoad from 'react-lazyload';
 import useScrollPosition from '@react-hook/window-scroll';
+import { isMobile } from 'react-device-detect';
 
 import { ArrowIcon } from '@components/icons/arrow';
 import { FEATURES, TARIFFS, TEAM } from '@containers/landing/data';
@@ -67,9 +68,9 @@ const LandingPage: React.FC = () => {
               <img src="/images/mac.png" alt="mac" className={styles.mac} />
             </LazyLoad>
           </div>
-          {/* <LazyLoad> */}
-          <img src="/images/mac-mobile.png" alt="mac" className={cn(styles.mac, styles.macMobile)} />
-          {/* </LazyLoad> */}
+          <LazyLoad>
+            <img src="/images/mac-mobile.png" alt="mac" className={cn(styles.mac, styles.macMobile)} />
+          </LazyLoad>
         </div>
       </div>
       <div className={styles.about} id="about">
@@ -95,7 +96,7 @@ const LandingPage: React.FC = () => {
         <div className={styles.members}>
           {TEAM.map(({ IMAGE, NAME, DESCRIPTIONS }) => (
             <div className={styles.member} key={IMAGE}>
-              <img src={IMAGE} alt={NAME} />
+              <LazyLoad><img src={IMAGE} alt={NAME} /></LazyLoad>
               <p className={styles.name}>{NAME}</p>
               <ul>
                 {DESCRIPTIONS.map((item) => <li key={item}>{item}</li>)}
@@ -106,7 +107,7 @@ const LandingPage: React.FC = () => {
       </div>
       <div className={styles.tariffs} id="tariffs">
         <h3 className={styles.blockTitle}>Найдите свой тариф</h3>
-        <h5 className={styles.description}>Срок пробного бесплатного периода 7 дней</h5>
+        <h5 className={styles.description}>Срок пробного <b>бесплатного</b> периода 7 дней</h5>
         <div className={styles.tariffsList}>
           {TARIFFS.map(({
             DESCRIPTION, FEATURES: tariffFeatures, NAME, PRICE,
@@ -124,22 +125,40 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
       <div className={styles.feedbacks}>
-        <div className={styles.content}>
-          <h5 className={styles.blockTitle}>Отзывы</h5>
-          <p className={styles.text}>SCRINITY - новый крутой сервис по работе
-            с обратной связью ваших гостей. Простое решение, которое позволит
-            бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
-            вернуть и удержать, повысить лояльность и увеличить рост выручки.
-          </p>
-        </div>
-        <video width="592px" height="373px" className={styles.video} controls>
-          <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
-          <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
-          Your browser does not support HTML video.
-        </video>
+        {!isMobile ? (
+          <>
+            <div className={styles.content}>
+              <h5 className={styles.blockTitle}>Отзывы</h5>
+              <p className={styles.text}>SCRINITY - новый крутой сервис по работе
+                с обратной связью ваших гостей. Простое решение, которое позволит
+                бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
+                вернуть и удержать, повысить лояльность и увеличить рост выручки.
+              </p>
+            </div>
+            <video width="592px" height="373px" className={styles.video} controls>
+              <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
+              <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+              Your browser does not support HTML video.
+            </video>
+          </>
+        ) : (
+          <>
+            <h5 className={styles.blockTitle}>Отзывы</h5>
+            <video width="592px" height="373px" className={styles.video} controls>
+              <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
+              <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+              Your browser does not support HTML video.
+            </video>
+            <p className={styles.text}>SCRINITY - новый крутой сервис по работе
+              с обратной связью ваших гостей. Простое решение, которое позволит
+              бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
+              вернуть и удержать, повысить лояльность и увеличить рост выручки.
+            </p>
+          </>
+        )}
       </div>
       <footer className={styles.footer}>
-        <div>
+        <div className={styles.titles}>
           <p className={styles.title}>SCRINITY</p>
           <p className={styles.allReserved}>© 2021 All rights reserved</p>
         </div>
