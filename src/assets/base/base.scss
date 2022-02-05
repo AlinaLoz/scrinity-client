@@ -67,6 +67,7 @@ a:focus:not([tabindex="-1"]):not(:active) {
 div.ReactModal__Overlay {
   z-index: 1000;
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   background-color: transparent !important;
 }
 
