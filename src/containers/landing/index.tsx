@@ -9,7 +9,7 @@ import { ArrowIcon } from '@components/icons/arrow';
 import { FEATURES, TARIFFS, TEAM } from '@containers/landing/data';
 import { UrlHelper } from '@helpers/url.helper';
 import Button from '@components/button';
-import { FbIcon } from '@components/icons/fb';
+import { InstagramIcon } from '@components/icons/fb';
 import { Touchable } from '@components/touchable';
 import { LandingSlider } from '@containers/landing/slider';
 import dynamic from 'next/dynamic';
@@ -17,11 +17,15 @@ import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import styles from './landing.module.scss';
 
-const ConnectButton = ({ type = 'blue' }: { type?: 'blue' | 'white' }) => {
+const ConnectButton = ({ type = 'blue', className = '' }: { type?: 'blue' | 'white', className?: string }) => {
   const { setModalType } = useContext(ModalContext);
 
   return (
-    <Button onClick={() => setModalType(MODAL.FEEDBACK)} className={styles.btn} type={type}>
+    <Button
+      onClick={() => setModalType(MODAL.FEEDBACK)}
+      className={cn(styles.btn, className)}
+      type={type}
+    >
       <span>Подключить</span>
       <ArrowIcon color={type === 'white' ? '#40798C' : 'white'} />
     </Button>
@@ -39,7 +43,7 @@ const Nav: React.FC<{ isActiveHamburger: boolean, onClose: () => void }> = ({ is
         <a href="#tariffs" className={cn({ [styles.active]: asPath.includes('tariffs') })}>Стоимость</a>
       </li>
       <li className="nav-item">
-        <a href="#team" className={cn({ [styles.active]: asPath.includes('team') })}>Контакты</a>
+        <a href="#contacts" className={cn({ [styles.active]: asPath.includes('contacts') })}>Контакты</a>
       </li>
     </ul>
   );
@@ -76,8 +80,9 @@ const LandingPage: React.FC = () => {
           <div>
             <h1 className={styles.title}><span>SCRINITY</span><span> - платформа для удержания и возврата клиентов</span></h1>
             <div className={styles.description}>Повышайте лояльность клиента с помощью сервиса обратной связи SCRINITY</div>
+            <ConnectButton type="blue" className={styles.desktopConnect} />
           </div>
-          <ConnectButton type="white" />
+          <ConnectButton type="white" className={styles.mobileConnect} />
           <div>
             <LazyLoad>
               <img src="/images/iphone.png" alt="iphone" className={styles.iphone} />
@@ -93,7 +98,7 @@ const LandingPage: React.FC = () => {
       </div>
       <a className={styles.anchor} id="about" />
       <div className={styles.about}>
-        <h3 className={styles.blockTitle}>О Scrinity:</h3>
+        <h3 className={styles.blockTitle}>Преимущества платформы Scrinity:</h3>
         <div className={styles.slider}>
           <LandingSlider />
         </div>
@@ -116,17 +121,16 @@ const LandingPage: React.FC = () => {
           <img src="/images/iphone-mobile.png" alt="mac" className={styles.iphoneMobile} />
         </LazyLoad>
       </div>
-      <a className={cn(styles.anchor, styles.teamAnchor)} id="team" />
       <div className={styles.team}>
         <h3 className={styles.blockTitle}>Наша команда</h3>
         <div className={styles.members}>
-          {TEAM.map(({ IMAGE, NAME, DESCRIPTIONS }) => (
+          {TEAM.map(({ IMAGE, NAME }) => (
             <div className={styles.member} key={IMAGE}>
               <LazyLoad><img src={IMAGE} alt={NAME} /></LazyLoad>
               <p className={styles.name}>{NAME}</p>
-              <ul>
-                {DESCRIPTIONS.map((item) => <li key={item}>{item}</li>)}
-              </ul>
+              {/* <ul> */}
+              {/*  {DESCRIPTIONS.map((item) => <li key={item}>{item}</li>)} */}
+              {/* </ul> */}
             </div>
           ))}
         </div>
@@ -184,6 +188,7 @@ const LandingPage: React.FC = () => {
           </>
         )}
       </div>
+      <a className={cn(styles.anchor, styles.teamAnchor)} id="contacts" />
       <footer className={styles.footer}>
         <div className={styles.titles}>
           <p className={styles.title}>SCRINITY</p>
@@ -212,10 +217,10 @@ const LandingPage: React.FC = () => {
             className={styles.socLink}
             target="_blank"
             rel="noreferrer nofollow noopener"
-            href="https://www.facebook.com/scrinity.by"
+            href="https://www.instagram.com/scrinity.official"
             aria-label="icon"
           >
-            <FbIcon />
+            <InstagramIcon />
           </a>
         </div>
       </footer>

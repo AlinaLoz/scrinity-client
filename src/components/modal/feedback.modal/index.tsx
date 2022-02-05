@@ -17,6 +17,17 @@ import { EmailIcon } from '@components/icons/email';
 import { FeedbackPhoneIcon } from '@components/icons/feedback-phone';
 import styles from './feedback.module.scss';
 
+const Policy = () => (
+  <a
+    target="_blank"
+    rel="noreferrer nofollow noopener"
+    href="https://project-z-images.s3.eu-west-1.amazonaws.com/policy.pdf"
+    className={styles.alink}
+  >
+    политикой конфиденциальности
+  </a>
+);
+
 export const FeedbackModal: React.FC = () => {
   const { setData } = useContext(ModalContext);
   const [isLoading, setIsLoading] = useState(false);
@@ -95,9 +106,8 @@ export const FeedbackModal: React.FC = () => {
       >Отправить
       </Button>
       {error && <div className={styles.error}>{error}</div>}
-      <p className={styles.policy}>Нажимая кнопку, вы даете согласие на
-        обработку персональных данных и соглашаетесь с политикой
-        конфиденциальности
+      <p className={styles.policy}>Нажимая кнопку, Вы даете согласие на
+        обработку персональных данных и соглашаетесь с <Policy />
       </p>
     </Modal>
   );

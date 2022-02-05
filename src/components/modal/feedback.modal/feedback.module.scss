@@ -1,5 +1,6 @@
 @import 'public/styles/typography.scss';
 @import 'public/styles/variables.scss';
+@import 'public/styles/ui-elements.scss';
 
 .modal {
   position: relative;
@@ -46,6 +47,13 @@
     font-size: 15px;
     color: $red;
     text-align: center ;
+  }
+
+  .alink {
+    @include link();
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: normal;
   }
 
   .input {

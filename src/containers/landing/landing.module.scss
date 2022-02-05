@@ -36,10 +36,17 @@ $fontSizeLogo: 28px;
   position: fixed;
   width: 100%;
   z-index: 1000;
+
+  .btn {
+    display: none;
+  }
 }
 
 .scrolled {
   background: linear-gradient(109.95deg, rgba(218, 240, 248, 1) -24.02%, rgba(231, 252, 251, 1) 11.24%, #F5FFF8 102.68%);
+  .btn {
+    display: block;
+  }
 }
 
 .logoAndUl {
@@ -134,9 +141,9 @@ $fontSizeLogo: 28px;
 }
 
 .mainInfo {
-  width: 950px;
+  width: 750px;
   display: flex;
-  padding-top: 180px;
+  padding-top: 200px;
   padding-left: 112px;
   box-sizing: content-box;
   padding-bottom: 220px;
@@ -159,10 +166,14 @@ $fontSizeLogo: 28px;
     line-height: $fontSizeDescriptionTitle;
 
     @include montserrat-regular();
-    margin-bottom: 58px;
+    margin-bottom: 50px;
   }
 
-  .btn {
+  .desktopConnect {
+    display: block;
+  }
+
+  .mobileConnect {
     display: none;
   }
 
@@ -252,7 +263,7 @@ $fontSizeLogo: 28px;
 
 .benefits {
   background: $zircon;
-  padding: 100px 435px 60px 435px;
+  padding: 100px 350px 60px 350px;
 
   .blockTitle {
     padding-bottom: 75px;
@@ -261,7 +272,7 @@ $fontSizeLogo: 28px;
   .features {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .feature {
@@ -278,6 +289,10 @@ $fontSizeLogo: 28px;
     text-align: center;
     margin-bottom: 60px;
     padding: 30px 75px;
+
+    &:nth-child(odd) {
+      margin-right: 60px;
+    }
   }
 
   .featureImg {
@@ -325,10 +340,10 @@ $fontSizeLogo: 28px;
 
     .name {
       color: $codGray;
-      @include montserrat-semibold();
-      font-size: 24px;
-      line-height: 24px;
-      margin-bottom: 20px;
+      @include montserrat-medium();
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
     }
 
     ul {
@@ -506,37 +521,40 @@ $fontSizeLogo: 28px;
 }
 
 .footer {
-  padding: 25px 355px;
+  padding: 20px 355px;
   background: $ming;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
   .title {
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 20px;
+    line-height: 20px;
     color: white;
     @include montserrat-semibold();
     margin-bottom: 8px;
   }
 
   .allReserved {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 12px;
+    line-height: 12px;
+    white-space: nowrap;
     @include montserrat-regular();
     letter-spacing: -0.252778px;
     color: white;
   }
 
   .documents {
+    display: flex;
+    flex-direction: column;
+
     a {
-      font-size: 14px;
-      line-height: 22px;
-      letter-spacing: -0.252778px;
+      @include montserrat-regular();
+      font-size: 13px;
+      line-height: 16px;
       color: white;
       text-decoration: none;
-      margin-right: 50px;
-      @include montserrat-regular();
+      margin-bottom: 8px;
     }
   }
 }
@@ -565,7 +583,7 @@ $fontSizeLogo: 28px;
   }
 
   .benefits {
-    padding: 100px 320px 40px 320px;
+    padding: 100px 180px 40px 180px;
 
     .feature {
       width: 495px;
@@ -593,12 +611,12 @@ $fontSizeLogo: 28px;
   }
 
   .mainInfo {
-    padding-top: 160px;
+    padding-top: 230px;
     width: 800px;
   }
 
   .benefits {
-      padding: 100px 200px 40px 200px;
+      padding: 100px 100px 40px 100px;
   }
 
   .team {
@@ -609,7 +627,7 @@ $fontSizeLogo: 28px;
     padding: 95px 0;
   }
   .footer {
-    padding: 25px 114px;
+    padding: 20px 114px;
   }
 }
 
@@ -624,8 +642,13 @@ $fontSizeLogo: 28px;
   }
 
   .mainInfo {
+    padding-top: 180px;
     padding-left: 50px;
     width: 700px;
+
+    .title {
+      margin-bottom: 30px;
+    }
 
     .description {
       font-size: 20px;
@@ -636,7 +659,7 @@ $fontSizeLogo: 28px;
     .blockTitle {
       padding: 80px 0 50px 0;
     }
-    padding: 0 170px 20px 170px;
+    padding: 0 50px 20px 50px;
 
     .feature {
       width: 450px;
@@ -690,6 +713,7 @@ $fontSizeLogo: 28px;
 
     .feature {
       width: 420px;
+      margin-right: 20px !important;
     }
   }
 
@@ -739,6 +763,10 @@ $fontSizeLogo: 28px;
 
   .nav {
     padding: 15px 30px;
+
+    .btn {
+      display: none;
+    }
   }
 
   .scrolled {
@@ -854,6 +882,10 @@ $fontSizeLogo: 28px;
         left: 70%;
       }
     }
+
+    .desktopConnect {
+      display: none;
+    }
   }
 
   .swiperMobile {
@@ -889,7 +921,6 @@ $fontSizeLogo: 28px;
     background: $ming;
     padding: 0 15px;
 
-
     .features {
       align-items: center;
       justify-content: center;
@@ -899,6 +930,7 @@ $fontSizeLogo: 28px;
       width: 450px;
       padding: 30px 15px;
       letter-spacing: -0.361111px;
+      margin-right: 0 !important;
     }
 
     .blockTitle {
@@ -945,30 +977,13 @@ $fontSizeLogo: 28px;
   }
 
   .footer {
-    padding: 15px 0;
-    .documents {
-      display: none;
-    }
-    .networks {
-      display: none;
-    }
-
-    .titles {
-      margin: auto;
-
-      .title {
-        margin-bottom: 0;
-      }
-      .allReserved {
-        display: none;
-      }
-    }
+    padding: 15px 20px;
   }
 }
 
 @media screen and(max-width: $sm) {
   .mainInfo {
-    padding: 60px 0 200px 0 ;
+    padding: 60px 0 230px 0 ;
 
     .macMobile {
       display: block;

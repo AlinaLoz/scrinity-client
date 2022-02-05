@@ -24,7 +24,7 @@ export const FEATURES = [
 export const TEAM = [
   {
     IMAGE: '/images/Andrey.jpg',
-    NAME: 'Андрей',
+    NAME: 'Третьяк Андрей',
     DESCRIPTIONS: [
       'Классный парень1',
       'Классный парень2',
@@ -32,7 +32,7 @@ export const TEAM = [
   },
   {
     IMAGE: '/images/Alexey.jpeg',
-    NAME: 'Алексей',
+    NAME: 'Рокало Алексей',
     DESCRIPTIONS: [
       'Классный парень1',
       'Классный парень2',
@@ -40,7 +40,7 @@ export const TEAM = [
   },
   {
     IMAGE: '/images/Alina.jpg',
-    NAME: 'Алина',
+    NAME: 'Лозюк Алина',
     DESCRIPTIONS: [
       'Классная девчонка1',
       'Классная девчонка2',
