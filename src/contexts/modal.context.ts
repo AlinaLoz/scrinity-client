@@ -10,6 +10,7 @@ export type TModalData<T extends MODAL> = {
     cb?: (email?: string) => Promise<void>;
   } | null,
   [MODAL.NONE]: null,
+  [MODAL.FEEDBACK]: null,
 }[T];
 
 export type TContext<T extends MODAL> = {

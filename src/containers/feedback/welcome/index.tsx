@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
-
+import LazyLoad from 'react-lazyload';
 import { IInstitution } from '@interfaces/companies.interfaces';
 import Button from '@components/button';
 import { CompanyName } from '@components/company-name';
@@ -22,11 +22,13 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, institution }) => {
       <div className={styles.content}>
         <h1 className={styles.projectName}>{PROJECT_NAME}</h1>
         <div className={styles.popup}>
-          <img
-            className={styles.girlWithLaptop}
-            src={GIRL_WITH_LAPTOP_IMAGE_PATH}
-            alt="girl"
-          />
+          <LazyLoad>
+            <img
+              className={styles.girlWithLaptop}
+              src={GIRL_WITH_LAPTOP_IMAGE_PATH}
+              alt="girl"
+            />
+          </LazyLoad>
           <picture className={styles.companyInfo}>
             <img className={styles.companyImage} src={UrlHelper.getImageSrc(institution?.company.image.filename)} alt={institution?.name} />
             <div className={styles.companyTitles}>

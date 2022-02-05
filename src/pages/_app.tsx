@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { AppContext, AppInitialProps } from 'next/app';
+import { init } from '@emailjs/browser';
+import config from '@utils/config';
+
 import { isMobile, isTablet } from 'react-device-detect';
 import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
@@ -13,6 +16,13 @@ import { useRouter } from 'next/router';
 
 type TSetDataCb<T extends MODAL> = (type: T, data: TModalData<T>) => void;
 type TWrappedAppProps = AppInitialProps & AppContext;
+
+(() => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  init(config.EMAIL_JS.USER_ID);
+})();
 
 // todo вынести работа с констектом модалки в отд варппер
 const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {

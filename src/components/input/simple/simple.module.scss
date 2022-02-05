@@ -5,3 +5,23 @@
 .input {
   @include input();
 }
+
+.withIcon {
+  position: relative;
+  svg {
+    position: absolute;
+    margin: 10px 15px;
+  }
+
+  input {
+    width: 100%;
+    border-radius: 8px;
+    text-indent: 70px;
+    margin-bottom: 20px;
+    height: 50px;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}

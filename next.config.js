@@ -2,6 +2,7 @@ const {
   ENVIRONMENT,
   API_URL,
   STATIC_FILES,
+  EMAIL_JS,
 } = require('config');
 const withImages = require('next-images');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -13,6 +14,7 @@ const nextConfig = withImages({
     ENVIRONMENT,
     API_URL,
     STATIC_FILES,
+    EMAIL_JS,
   },
   trailingSlash: true,
   webpack(cfg, options) {

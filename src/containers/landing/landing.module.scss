@@ -12,6 +12,20 @@ $fontSizeLogo: 28px;
   background: linear-gradient(109.95deg, rgba(218, 240, 248, 0.04) -24.02%, rgba(231, 252, 251, 0.46) 11.24%, #F5FFF8 102.68%);
 }
 
+.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+
+  &#about {
+    top: -200px;
+  }
+  &#team {
+    top: -200px;
+  }
+}
+
 .nav {
   left: 0;
   padding: 20px 353px 20px 354px;
@@ -26,7 +40,6 @@ $fontSizeLogo: 28px;
 
 .scrolled {
   background: linear-gradient(109.95deg, rgba(218, 240, 248, 1) -24.02%, rgba(231, 252, 251, 1) 11.24%, #F5FFF8 102.68%);
-  transition: background-color 0.5s ease;
 }
 
 .logoAndUl {
@@ -86,6 +99,7 @@ $fontSizeLogo: 28px;
   height: 22px;
   flex-direction: column;
   justify-content: space-around;
+  outline: none !important;
 }
 
 .bar {
@@ -185,6 +199,11 @@ $fontSizeLogo: 28px;
 .about {
   background: white;
   padding: 70px 285px;
+
+  .graphics {
+    display: none;
+    z-index: 2;
+  }
 }
 
 .swiper {
@@ -280,6 +299,10 @@ $fontSizeLogo: 28px;
     font-size: 16px;
     line-height: 26px;
     @include montserrat-regular();
+  }
+
+  .iphoneMobile {
+    display: none;
   }
 }
 
@@ -718,6 +741,7 @@ $fontSizeLogo: 28px;
 
   .scrolled {
     background: $casal;
+    --transition: 0;
   }
 
   .logo {
@@ -810,7 +834,6 @@ $fontSizeLogo: 28px;
       svg {
         top: 22px !important;
         left: 70%;
-        //left: auto;
       }
     }
   }
@@ -927,6 +950,23 @@ $fontSizeLogo: 28px;
 }
 
 @media screen and(max-width: $sm) {
+  .linksMobile {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 59px;
+    left: 0;
+
+    padding: 0 30px 15px 30px;
+    background: $casal;
+    li a {
+      color: white !important;
+    }
+    .active {
+      color: white !important;
+    }
+  }
+
   .mainInfo {
     padding: 60px 0 200px 0 ;
 
@@ -940,12 +980,30 @@ $fontSizeLogo: 28px;
   }
 
   .benefits {
+    position: relative;
+    padding-bottom: 160px;
+    .blockTitle {
+      padding: 120px 0 30px 0;
+    }
+
     .feature {
       width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .iphoneMobile {
+      display: block;
+      position: absolute;
+      width: 60%;
+      left: 20%;
     }
   }
 
   .team {
+    padding-top: 330px;
     padding-bottom: 0;
     .members {
       flex-wrap: wrap;
@@ -1002,12 +1060,51 @@ $fontSizeLogo: 28px;
           width: 100%;
           border: 2px solid $ming;
         }
+
+        .description {
+          max-width: 80%;
+          min-width: 80%;
+        }
       }
     }
   }
+
+  .about {
+    padding-bottom: 140px;
+    position: relative;
+    .graphics {
+      display: block;
+      position: absolute;
+      width: 100%;
+      bottom: -120px;
+    }
+  }
+
+  .teamAnchor {
+    top: 200px;
+  }
+  .tariffsAnchor {
+    top: -100px;
+  }
 }
 
+@media screen and(max-width: $iphone6s) {
+  .team {
+    padding-top: 350px;
+  }
+}
 
+@media screen and(max-width: $iphone6) {
+  .team {
+    padding-top: 330px;
+  }
+}
+
+@media screen and(max-width: $iphone5) {
+  .team {
+    padding-top: 250px;
+  }
+}
 
 
 

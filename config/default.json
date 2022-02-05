@@ -1,5 +1,11 @@
 {
   "ENVIRONMENT": "",
   "API_URL": "https://scrinity.by/api/v1",
-  "STATIC_FILES": "https://project-z-images.s3.eu-west-1.amazonaws.com"
+  "STATIC_FILES": "https://project-z-images.s3.eu-west-1.amazonaws.com",
+  "EMAIL_JS": {
+    "USER_ID": "user_8FGMoe2JV418SdjCgsoG4",
+    "SERVICE_ID": "service_nmvt7gd",
+    "TEMPLATE": "template_eudtnji"
+  }
 }
+

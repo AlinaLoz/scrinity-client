@@ -5,25 +5,25 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm i
-      - run: npm run build
+#  build:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        node-version: [ 16.x ]
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#          cache: 'npm'
+#      - run: npm i
+#      - run: npm run build
 
   deploy:
     timeout-minutes: 30
     runs-on: self-hosted
-    needs: [build]
+#    needs: [build]
     strategy:
       matrix:
         node-version: [16.x]
@@ -34,7 +34,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i
-    - run: npm run build
-    - run: ./node_modules/pm2/bin/pm2 restart all
+#    - run: npm i
+#    - run: npm run build
+#    - run: ./node_modules/pm2/bin/pm2 restart all
 

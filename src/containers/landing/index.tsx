@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import LazyLoad from 'react-lazyload';
+import LazyLoad, { forceVisible } from 'react-lazyload';
 import useScrollPosition from '@react-hook/window-scroll';
 import { isMobile } from 'react-device-detect';
 
@@ -13,36 +13,53 @@ import { FbIcon } from '@components/icons/fb';
 import { Touchable } from '@components/touchable';
 import { LandingSlider } from '@containers/landing/slider';
 import dynamic from 'next/dynamic';
+import { ModalContext } from '@contexts/modal.context';
+import { MODAL } from '@constants/modal.constants';
 import styles from './landing.module.scss';
 
-const ConnectButton = ({ type = 'blue' }: { type?: 'blue' | 'white' }) => (
-  <Button className={styles.btn} type={type}>
-    <span>Подключить</span>
-    <ArrowIcon color={type === 'white' ? '#40798C' : 'white'} />
-  </Button>
-);
+const ConnectButton = ({ type = 'blue' }: { type?: 'blue' | 'white' }) => {
+  const { setModalType } = useContext(ModalContext);
+
+  return (
+    <Button onClick={() => setModalType(MODAL.FEEDBACK)} className={styles.btn} type={type}>
+      <span>Подключить</span>
+      <ArrowIcon color={type === 'white' ? '#40798C' : 'white'} />
+    </Button>
+  );
+};
+
+const Nav: React.FC<{ isActiveHamburger: boolean, onClose: () => void }> = ({ isActiveHamburger, onClose }) => {
+  const { asPath } = useRouter();
+  return (
+    <ul onClick={onClose} className={cn(styles.links, { [styles.linksMobile]: isActiveHamburger })}>
+      <li className="nav-item">
+        <a href="#about" className={cn({ [styles.active]: asPath.includes('about') })}>О SCRINITY</a>
+      </li>
+      <li className="nav-item">
+        <a href="#tariffs" className={cn({ [styles.active]: asPath.includes('tariffs') })}>Стоимость</a>
+      </li>
+      <li className="nav-item">
+        <a href="#team" className={cn({ [styles.active]: asPath.includes('team') })}>Контакты</a>
+      </li>
+    </ul>
+  );
+};
 
 const LandingPage: React.FC = () => {
-  const { asPath } = useRouter();
   const [isActiveHamburger, setIsActiveHamburger] = useState(false);
   const scrollY = useScrollPosition(60);
-
+  useEffect(() => {
+    forceVisible();
+  }, []);
   return (
     <div className={styles.landing}>
       <div className={styles.headerBlock}>
-        <nav className={cn(styles.nav, { [styles.scrolled]: scrollY })}>
+        <nav className={cn(styles.nav, { [styles.scrolled]: scrollY || isActiveHamburger })}>
           <div className={styles.logoAndUl}>
             <a href="#" className={styles.logo}>
               SCRINITY
             </a>
-            <ul className={styles.links}>
-              <li className="nav-item">
-                <a href="#about" className={cn({ [styles.active]: asPath.includes('about') })}>О SCRINITY</a>
-              </li>
-              <li className="nav-item">
-                <a href="#tariffs" className={cn({ [styles.active]: asPath.includes('tariffs') })}>Стоимость</a>
-              </li>
-            </ul>
+            <Nav isActiveHamburger={isActiveHamburger} onClose={() => setIsActiveHamburger(false)} />
           </div>
           <Touchable
             onClick={() => setIsActiveHamburger(!isActiveHamburger)}
@@ -73,11 +90,15 @@ const LandingPage: React.FC = () => {
           </LazyLoad>
         </div>
       </div>
-      <div className={styles.about} id="about">
+      <a className={styles.anchor} id="about" />
+      <div className={styles.about}>
         <h3 className={styles.blockTitle}>О Scrinity:</h3>
         <div className={styles.slider}>
           <LandingSlider />
         </div>
+        <LazyLoad>
+          <img src="/images/graphics-mobile.png" alt="mac" className={styles.graphics} />
+        </LazyLoad>
       </div>
       <div className={styles.benefits}>
         <h3 className={styles.blockTitle}>Вместе со Scrinity Вы:</h3>
@@ -90,7 +111,11 @@ const LandingPage: React.FC = () => {
             </div>
           ))}
         </div>
+        <LazyLoad>
+          <img src="/images/iphone-mobile.png" alt="mac" className={styles.iphoneMobile} />
+        </LazyLoad>
       </div>
+      <a className={cn(styles.anchor, styles.teamAnchor)} id="team" />
       <div className={styles.team}>
         <h3 className={styles.blockTitle}>Наша команда</h3>
         <div className={styles.members}>
@@ -105,7 +130,8 @@ const LandingPage: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className={styles.tariffs} id="tariffs">
+      <a className={cn(styles.anchor, styles.tariffsAnchor)} id="tariffs" />
+      <div className={styles.tariffs}>
         <h3 className={styles.blockTitle}>Найдите свой тариф</h3>
         <h5 className={styles.description}>Срок пробного <b>бесплатного</b> периода 7 дней</h5>
         <div className={styles.tariffsList}>
