@@ -1,13 +1,12 @@
 name: build and deploy
 
-
 on:
   push:
-    branches: [ develop ]
+#     branches: [ develop ]
 
 jobs:
   deploy:
-    timeout-minutes: 30
+#     timeout-minutes: 30
     runs-on: self-hosted
     strategy:
       matrix:
