@@ -561,6 +561,7 @@ $fontSizeLogo: 28px;
 
   .nav {
     width: 100%;
+    padding: 20px 112px 20px 115px;
   }
 
   .benefits {
@@ -593,6 +594,7 @@ $fontSizeLogo: 28px;
 
   .mainInfo {
     padding-top: 160px;
+    width: 800px;
   }
 
   .benefits {
@@ -780,6 +782,22 @@ $fontSizeLogo: 28px;
   .links {
     display: none;
   }
+  .linksMobile {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 59px;
+    left: 0;
+
+    padding: 0 30px 15px 30px;
+    background: $casal;
+    li a {
+      color: white !important;
+    }
+    .active {
+      color: white !important;
+    }
+  }
 
   .btn {
     display: none;
@@ -837,7 +855,6 @@ $fontSizeLogo: 28px;
       }
     }
   }
-
 
   .swiperMobile {
     width: 100vw;
@@ -950,23 +967,6 @@ $fontSizeLogo: 28px;
 }
 
 @media screen and(max-width: $sm) {
-  .linksMobile {
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: 59px;
-    left: 0;
-
-    padding: 0 30px 15px 30px;
-    background: $casal;
-    li a {
-      color: white !important;
-    }
-    .active {
-      color: white !important;
-    }
-  }
-
   .mainInfo {
     padding: 60px 0 200px 0 ;
 

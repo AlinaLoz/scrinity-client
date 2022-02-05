@@ -51,6 +51,7 @@ const LandingPage: React.FC = () => {
   useEffect(() => {
     forceVisible();
   }, []);
+
   return (
     <div className={styles.landing}>
       <div className={styles.headerBlock}>
