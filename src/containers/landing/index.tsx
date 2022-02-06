@@ -155,39 +155,39 @@ const LandingPage: React.FC = () => {
           ))}
         </div>
       </div>
-      {/* <div className={styles.feedbacks}> */}
-      {/*  {!isMobile ? ( */}
-      {/*    <> */}
-      {/*      <div className={styles.content}> */}
-      {/*        <h5 className={styles.blockTitle}>Отзывы</h5> */}
-      {/*        <p className={styles.text}>SCRINITY - новый крутой сервис по работе */}
-      {/*          с обратной связью ваших гостей. Простое решение, которое позволит */}
-      {/*          бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя, */}
-      {/*          вернуть и удержать, повысить лояльность и увеличить рост выручки. */}
-      {/*        </p> */}
-      {/*      </div> */}
-      {/*      <video width="592px" height="373px" className={styles.video} controls> */}
-      {/*        <source src={UrlHelper.getImageSrc('scrinity.mp4')} /> */}
-      {/*        <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" /> */}
-      {/*        Your browser does not support HTML video. */}
-      {/*      </video> */}
-      {/*    </> */}
-      {/*  ) : ( */}
-      {/*    <> */}
-      {/*      <h5 className={styles.blockTitle}>Отзывы</h5> */}
-      {/*      <video width="592px" height="373px" className={styles.video} controls> */}
-      {/*        <source src={UrlHelper.getImageSrc('scrinity.mp4')} /> */}
-      {/*        <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" /> */}
-      {/*        Your browser does not support HTML video. */}
-      {/*      </video> */}
-      {/*      <p className={styles.text}>SCRINITY - новый крутой сервис по работе */}
-      {/*        с обратной связью ваших гостей. Простое решение, которое позволит */}
-      {/*        бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя, */}
-      {/*        вернуть и удержать, повысить лояльность и увеличить рост выручки. */}
-      {/*      </p> */}
-      {/*    </> */}
-      {/*  )} */}
-      {/* </div> */}
+      <div className={styles.feedbacks}>
+        {!isMobile ? (
+          <>
+            <div className={styles.content}>
+              <h5 className={styles.blockTitle}>Отзывы</h5>
+              <p className={styles.text}>SCRINITY - новый крутой сервис по работе
+                с обратной связью ваших гостей. Простое решение, которое позволит
+                бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
+                вернуть и удержать, повысить лояльность и увеличить рост выручки.
+              </p>
+            </div>
+            <video width="592px" height="373px" className={styles.video} controls>
+              <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
+              <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+              Your browser does not support HTML video.
+            </video>
+          </>
+        ) : (
+          <>
+            <h5 className={styles.blockTitle}>Отзывы</h5>
+            <video width="592px" height="373px" className={styles.video} controls>
+              <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
+              <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+              Your browser does not support HTML video.
+            </video>
+            <p className={styles.text}>SCRINITY - новый крутой сервис по работе
+              с обратной связью ваших гостей. Простое решение, которое позволит
+              бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
+              вернуть и удержать, повысить лояльность и увеличить рост выручки.
+            </p>
+          </>
+        )}
+      </div>
       <a className={cn(styles.anchor, styles.teamAnchor)} id="contacts" />
       <footer className={styles.footer}>
         <div className={styles.titles}>
