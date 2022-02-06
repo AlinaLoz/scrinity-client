@@ -207,6 +207,24 @@ $fontSizeLogo: 28px;
   letter-spacing: 0.2px;
 }
 
+.details {
+  padding: 70px 285px;
+
+  .blockTitle {
+    margin-bottom: 40px;
+  }
+
+  .content {
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+      width: 45%;
+    }
+  }
+}
+
 .about {
   background: white;
   padding: 70px 285px;
@@ -455,8 +473,10 @@ $fontSizeLogo: 28px;
 
     .price {
       color: $codGray;
-      font-size: 48px;
-      line-height: 62px;
+      font-size: 28px;
+      line-height: 28px;
+      //font-size: 48px;
+      //line-height: 62px;
       letter-spacing: -0.938889px;
       @include montserrat-semibold();
       border-bottom: 2px solid $gallery;
@@ -497,6 +517,8 @@ $fontSizeLogo: 28px;
 }
 
 .feedbacks {
+  background: linear-gradient(180deg, rgba(248, 251, 255, 0.74) 0%, #F8FBFF 100%);
+
   display: flex;
   padding: 100px;
   justify-content: center;
@@ -582,6 +604,10 @@ $fontSizeLogo: 28px;
     padding: 20px 112px 20px 115px;
   }
 
+  .details {
+    padding: 100px 180px 40px 180px;
+  }
+
   .benefits {
     padding: 100px 180px 40px 180px;
 
@@ -608,6 +634,10 @@ $fontSizeLogo: 28px;
 
   .logoAndUl {
     margin-right: 243px;
+  }
+
+  .details {
+    padding: 100px 100px 40px 100px;
   }
 
   .mainInfo {
@@ -694,6 +724,14 @@ $fontSizeLogo: 28px;
 }
 
 @media screen and (max-width: $lg) {
+  .swiper {
+    width: 1024px;
+  }
+
+  .details {
+    padding: 100px 70px 40px 70px;
+  }
+
   .mainInfo {
     width: 600px;
     padding-bottom: 100px;
@@ -1017,8 +1055,19 @@ $fontSizeLogo: 28px;
     }
   }
 
+  .details {
+    padding: 330px 15px 50px 15px;
+    .content {
+      flex-direction: column;
+
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+
   .team {
-    padding-top: 330px;
+    padding-top: 50px;
     padding-bottom: 0;
     .members {
       flex-wrap: wrap;
@@ -1104,19 +1153,19 @@ $fontSizeLogo: 28px;
 }
 
 @media screen and(max-width: $iphone6s) {
-  .team {
+  .details {
     padding-top: 350px;
   }
 }
 
 @media screen and(max-width: $iphone6) {
-  .team {
+  .details {
     padding-top: 330px;
   }
 }
 
 @media screen and(max-width: $iphone5) {
-  .team {
+  .details {
     padding-top: 250px;
   }
 }

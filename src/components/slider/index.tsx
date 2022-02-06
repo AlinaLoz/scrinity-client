@@ -8,6 +8,7 @@ import styles from './slider.module.scss';
 const params = {
   slidesPerView: 3,
   spaceBetween: 67,
+  loop: true,
   pagination: { el: '.swiper-pagination', type: 'bullets', clickable: true },
   breakpoints: {
     768: { slidesPerView: 1, spaceBetween: 0 },

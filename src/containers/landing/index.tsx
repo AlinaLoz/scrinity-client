@@ -6,7 +6,6 @@ import useScrollPosition from '@react-hook/window-scroll';
 import { isMobile } from 'react-device-detect';
 
 import { ArrowIcon } from '@components/icons/arrow';
-import { FEATURES, TARIFFS, TEAM } from '@containers/landing/data';
 import { UrlHelper } from '@helpers/url.helper';
 import Button from '@components/button';
 import { InstagramIcon } from '@components/icons/fb';
@@ -15,6 +14,9 @@ import { LandingSlider } from '@containers/landing/slider';
 import dynamic from 'next/dynamic';
 import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
+import {
+  DETAIL_1, DETAIL_2, FEATURES, TARIFFS, TEAM,
+} from './data';
 import styles from './landing.module.scss';
 
 const ConnectButton = ({ type = 'blue', className = '' }: { type?: 'blue' | 'white', className?: string }) => {
@@ -121,18 +123,31 @@ const LandingPage: React.FC = () => {
           <img src="/images/iphone-mobile.png" alt="mac" className={styles.iphoneMobile} />
         </LazyLoad>
       </div>
-      <div className={styles.team}>
-        <h3 className={styles.blockTitle}>Наша команда</h3>
-        <div className={styles.members}>
-          {TEAM.map(({ IMAGE, NAME }) => (
-            <div className={styles.member} key={IMAGE}>
-              <LazyLoad><img src={IMAGE} alt={NAME} /></LazyLoad>
-              <p className={styles.name}>{NAME}</p>
-              {/* <ul> */}
-              {/*  {DESCRIPTIONS.map((item) => <li key={item}>{item}</li>)} */}
-              {/* </ul> */}
-            </div>
-          ))}
+      <div className={styles.details}>
+        <h3 className={styles.blockTitle}>Подробнее о проекте Scrinity.by:</h3>
+        <div className={styles.content}>
+          <div>
+            <p><b>Scrinity</b> – это независимый сервис, который собирает реальные отзывы о компаниях, заведениях, предприятиях.</p>
+            <p>Мы помогаем владельцам компаний посмотреть на бизнес глазами клиентов.</p>
+            <br />
+            <p><b>Как это работает?</b></p>
+            {isMobile ? (
+              <details>
+                <summary>Подробнее</summary>
+                <DETAIL_1 />
+              </details>
+            ) : <DETAIL_1 />}
+          </div>
+          <div>
+            {isMobile && <br />}
+            <p><b> Кому это будет полезно?</b></p>
+            {isMobile ? (
+              <details>
+                <summary>Подробнее</summary>
+                <DETAIL_2 />
+              </details>
+            ) : <DETAIL_2 />}
+          </div>
         </div>
       </div>
       <a className={cn(styles.anchor, styles.tariffsAnchor)} id="tariffs" />
@@ -145,12 +160,26 @@ const LandingPage: React.FC = () => {
           }) => (
             <div className={styles.tariff} key={NAME}>
               <p className={styles.name}>{NAME}</p>
-              <p className={styles.price}>{PRICE} BYN</p>
+              <p className={styles.price}>Индивидуально</p>
               <p className={styles.description}>{DESCRIPTION}</p>
               <ul className={styles.features}>
                 {tariffFeatures.map((item) => <li key={item}>{item}</li>)}
               </ul>
               <ConnectButton type="white" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={styles.team}>
+        <h3 className={styles.blockTitle}>Наша команда</h3>
+        <div className={styles.members}>
+          {TEAM.map(({ IMAGE, NAME }) => (
+            <div className={styles.member} key={IMAGE}>
+              <LazyLoad><img src={IMAGE} alt={NAME} /></LazyLoad>
+              <p className={styles.name}>{NAME}</p>
+              {/* <ul> */}
+              {/*  {DESCRIPTIONS.map((item) => <li key={item}>{item}</li>)} */}
+              {/* </ul> */}
             </div>
           ))}
         </div>
