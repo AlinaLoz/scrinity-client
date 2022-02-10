@@ -20,6 +20,16 @@
   color: $ming;
   border: 1px solid $ming;
 
+  &:active {
+    color: $white ;
+    border: 1px solid $white;
+    background: $ming;
+
+    & > div {
+      color: white;
+    }
+  }
+
   &:hover {
     border: 1px solid $casal;
     color: $casal;
