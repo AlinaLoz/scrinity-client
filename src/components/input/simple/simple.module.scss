@@ -4,6 +4,7 @@
 
 .input {
   @include input();
+  width: 100%;
 }
 
 .withIcon {

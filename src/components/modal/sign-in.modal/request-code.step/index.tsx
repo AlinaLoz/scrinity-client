@@ -10,6 +10,7 @@ import { MODAL } from '@constants/modal.constants';
 import { CompanyName } from '@components/company-name';
 import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
 import { BY_NUMBER_CODE_PLUS, NUMBER_LENGTH } from '@constants/auth.constants';
+import { POLICY } from '@constants/files.constants';
 import styles from './request-code.module.scss';
 
 interface IRequestCodeStep {
@@ -34,7 +35,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.companyImage}>
-        <img src={UrlHelper.getImageSrc(data.institution.company.image.filename)} alt={data.institution.id} />
+        <img src={UrlHelper.getStaticFile(data.institution.company.image.filename)} alt={data.institution.id} />
       </div>
       <p className={styles.description}>
         {t('SIGN_IN_REQUEST.DESCRIPTION')}
@@ -58,7 +59,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
         <a
           target="_blank"
           rel="noreferrer nofollow noopener"
-          href="https://project-z-images.s3.eu-west-1.amazonaws.com/policy.pdf"
+          href={UrlHelper.getStaticFile(POLICY)}
           className={styles.alink}
         >
           {t('SIGN_IN_REQUEST.POLICY')}

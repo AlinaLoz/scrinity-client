@@ -12,6 +12,7 @@ import { useConfig } from '@hooks/use-config.hooks';
 import { validateEmail } from '@constants/auth.constants';
 import { getFirstResponseError } from '@helpers/message.helper';
 
+import { POLICY } from '@constants/files.constants';
 import styles from './email.module.scss';
 
 export const EmailStep: React.FC = () => {
@@ -50,12 +51,14 @@ export const EmailStep: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.companyImage}>
-        <img src={UrlHelper.getImageSrc(data.institution.company.image.filename)} alt={data.institution.id} />
+        <img src={UrlHelper.getStaticFile(data.institution.company.image.filename)} alt={data.institution.id} />
       </div>
       <p className={styles.description}>
         {t(`${formType}_SIGN_IN_REQUEST.DESCRIPTION`)}
       </p>
       <Input
+        autoCapitalize="off"
+        autoComplete="on"
         placeholder="scrinity@gmail.com"
         value={email}
         onChangeValue={onChangeInput}
@@ -74,7 +77,7 @@ export const EmailStep: React.FC = () => {
         <a
           target="_blank"
           rel="noreferrer nofollow noopener"
-          href="https://project-z-images.s3.eu-west-1.amazonaws.com/policy.pdf"
+          href={UrlHelper.getStaticFile(POLICY)}
           className={styles.alink}
         >
           {t(`${formType}_SIGN_IN_REQUEST.POLICY`)}

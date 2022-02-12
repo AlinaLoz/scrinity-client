@@ -87,7 +87,7 @@ export const VerifyCodeStep: React.FC<IVerifyCodeStep> = ({
     <div className={requestCodeStyle.wrapper}>
       <BackIcon onClick={onBack} className={styles.backIcon} />
       <div className={requestCodeStyle.companyImage}>
-        <img src={UrlHelper.getImageSrc('puma.png')} alt={`company ${data.institution.id}`} />
+        <img src={UrlHelper.getStaticFile('puma.png')} alt={`company ${data.institution.id}`} />
       </div>
       <p className={requestCodeStyle.description}>
         {t('SIGN_IN_VERIFY.DESCRIPTION', { phone })}

@@ -30,7 +30,11 @@ export const Welcome: React.FC<IWelcomeProps> = ({ onNext, institution }) => {
             />
           </LazyLoad>
           <picture className={styles.companyInfo}>
-            <img className={styles.companyImage} src={UrlHelper.getImageSrc(institution?.company.image.filename)} alt={institution?.name} />
+            <img
+              className={styles.companyImage}
+              src={UrlHelper.getStaticFile(institution?.company.image.filename)}
+              alt={institution?.name}
+            />
             <div className={styles.companyTitles}>
               <p className={styles.name}>{institution?.name}</p>
               <p className={styles.managerTitle}>{institution?.manager.roleTitle}</p>

@@ -7,3 +7,4 @@ export * from './message.constants';
 export * from './modal.constants';
 export * from './ui.constants';
 export * from './routes.constants';
+export * from './files.constants';

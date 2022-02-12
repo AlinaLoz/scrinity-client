@@ -16,10 +16,10 @@ jobs:
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install # will run `yarn install` command
-      - name: stop pm2 all
-        run: ./node_modules/pm2/bin/pm2 stop all
+      - name: stop pm2 client
+        run: ./node_modules/pm2/bin/pm2 stop client
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: build # will run `yarn install` command
-      - name: stop pm2 all
-        run: ./node_modules/pm2/bin/pm2 start all
+      - name: start pm2 client
+        run: ./node_modules/pm2/bin/pm2 start client

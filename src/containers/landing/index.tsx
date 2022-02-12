@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import LazyLoad, { forceVisible } from 'react-lazyload';
 import useScrollPosition from '@react-hook/window-scroll';
 import { isMobile } from 'react-device-detect';
+import dynamic from 'next/dynamic';
 
 import { ArrowIcon } from '@components/icons/arrow';
 import { UrlHelper } from '@helpers/url.helper';
@@ -11,9 +12,9 @@ import Button from '@components/button';
 import { InstagramIcon } from '@components/icons/fb';
 import { Touchable } from '@components/touchable';
 import { LandingSlider } from '@containers/landing/slider';
-import dynamic from 'next/dynamic';
 import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
+import { INSTAGRAM_PATH, POLICY, TERMS_OF_USE } from '@constants/files.constants';
 import {
   DETAIL_1, DETAIL_2, FEATURES, TARIFFS, TEAM,
 } from './data';
@@ -98,7 +99,6 @@ const LandingPage: React.FC = () => {
           </LazyLoad>
         </div>
       </div>
-      <a className={styles.anchor} id="about" />
       <div className={styles.about}>
         <h3 className={styles.blockTitle}>Преимущества платформы Scrinity:</h3>
         <div className={styles.slider}>
@@ -123,6 +123,7 @@ const LandingPage: React.FC = () => {
           <img src="/images/iphone-mobile.png" alt="mac" className={styles.iphoneMobile} />
         </LazyLoad>
       </div>
+      <a className={styles.anchor} id="about" />
       <div className={styles.details}>
         <h3 className={styles.blockTitle}>Подробнее о проекте Scrinity.by:</h3>
         <div className={styles.content}>
@@ -177,9 +178,6 @@ const LandingPage: React.FC = () => {
             <div className={styles.member} key={IMAGE}>
               <LazyLoad><img src={IMAGE} alt={NAME} /></LazyLoad>
               <p className={styles.name}>{NAME}</p>
-              {/* <ul> */}
-              {/*  {DESCRIPTIONS.map((item) => <li key={item}>{item}</li>)} */}
-              {/* </ul> */}
             </div>
           ))}
         </div>
@@ -196,7 +194,7 @@ const LandingPage: React.FC = () => {
               </p>
             </div>
             <video width="592px" height="373px" className={styles.video} controls>
-              <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
+              <source src={UrlHelper.getStaticFile('scrinity.mp4')} />
               <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
               Your browser does not support HTML video.
             </video>
@@ -205,7 +203,7 @@ const LandingPage: React.FC = () => {
           <>
             <h5 className={styles.blockTitle}>Отзывы</h5>
             <video width="592px" height="373px" className={styles.video} controls>
-              <source src={UrlHelper.getImageSrc('scrinity.mp4')} />
+              <source src={UrlHelper.getStaticFile('scrinity.mp4')} />
               <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
               Your browser does not support HTML video.
             </video>
@@ -227,7 +225,7 @@ const LandingPage: React.FC = () => {
           <a
             target="_blank"
             rel="noreferrer nofollow noopener"
-            href="https://project-z-images.s3.eu-west-1.amazonaws.com/policy.pdf"
+            href={UrlHelper.getStaticFile(POLICY)}
             className={styles.alink}
           >
             Privacy Policy
@@ -235,7 +233,7 @@ const LandingPage: React.FC = () => {
           <a
             target="_blank"
             rel="noreferrer nofollow noopener"
-            href="https://project-z-images.s3.eu-west-1.amazonaws.com/policy.pdf"
+            href={UrlHelper.getStaticFile(TERMS_OF_USE)}
             className={styles.alink}
           >
             Terms of Conditions
@@ -246,7 +244,7 @@ const LandingPage: React.FC = () => {
             className={styles.socLink}
             target="_blank"
             rel="noreferrer nofollow noopener"
-            href="https://www.instagram.com/scrinity.official"
+            href={INSTAGRAM_PATH}
             aria-label="icon"
           >
             <InstagramIcon />

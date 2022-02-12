@@ -15,13 +15,15 @@ import { Input } from '@components/input/simple';
 import { PersonIcon } from '@components/icons/person';
 import { EmailIcon } from '@components/icons/email';
 import { FeedbackPhoneIcon } from '@components/icons/feedback-phone';
+import { UrlHelper } from '@helpers/url.helper';
+import { POLICY } from '@constants/files.constants';
 import styles from './feedback.module.scss';
 
 const Policy = () => (
   <a
     target="_blank"
     rel="noreferrer nofollow noopener"
-    href="https://project-z-images.s3.eu-west-1.amazonaws.com/policy.pdf"
+    href={UrlHelper.getStaticFile(POLICY)}
     className={styles.alink}
   >
     политикой конфиденциальности
