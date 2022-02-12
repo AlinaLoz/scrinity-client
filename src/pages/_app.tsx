@@ -46,11 +46,6 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
 
   return (
     <>
-      <Head>
-        <title>Scrinity</title>
-        <link rel="icon" href="/images/scrinity-icon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-      </Head>
       <ModalContext.Provider value={{
         data, setModalType, modalType, setData: setDataWrapper,
       }}

@@ -39,3 +39,4 @@ yarn-error.log*
 #local config
 /config/local.json
 .eslintcache
+tsconfig.tsbuildinfo
