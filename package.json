@@ -1,7 +1,7 @@
 {
   "name": "scrinity",
   "author": "alina.lozyuk.1999@gmail.com",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "publish:image": "sh scripts/docker/build-and-publish.sh",
     "dev": "next",
