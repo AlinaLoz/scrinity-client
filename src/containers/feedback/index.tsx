@@ -46,6 +46,7 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
         setReviewStep(REVIEW_STEP.SUCCESS);
       }
     };
+
     (async () => {
       if (!userId || config?.CHAT_LINK_CHANNEL === LINK_CHANNEL.EMAIL) {
         setData(MODAL.SIGN_IN, { institution, cb: onSendFeedback });

@@ -15,11 +15,12 @@ interface IInputProps {
   value: string;
   type?: 'white' | '',
   icon?: JSX.Element | null,
+  autoFocus?: boolean
 }
 
 export const PhoneNumberInput: React.FC<IInputProps> = ({
   className = '', onChange, placeholder = '29 000 000 00',
-  value, icon, type, wrapperClassName = '',
+  value, icon, type, wrapperClassName = '', autoFocus = false,
 }) => {
   const handleChange = (candidateValue: string) => {
     const newValue = formatMaskInput(value, candidateValue, BY_NUMBER_MASK, NUMBER_REGEXP);
@@ -44,6 +45,7 @@ export const PhoneNumberInput: React.FC<IInputProps> = ({
         value={value}
         className={cn(styles.phoneInput, className, { [styles.empty]: true }, simpleInputStyle[type || ''])}
         onChange={(e) => handleChange(e.target.value)}
+        autoFocus={autoFocus}
       />
     </div>
   );
