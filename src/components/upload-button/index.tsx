@@ -5,7 +5,6 @@ import styles from './upload-button.module.scss';
 
 export interface IUploadButton {
   className?: string;
-  accept?: string;
   onLoadPhoto: (event: { target: HTMLInputElement; }) => void;
 }
 

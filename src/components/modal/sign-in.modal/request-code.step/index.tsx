@@ -44,6 +44,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
         value={phone}
         onChange={setPhone}
         className={styles.input}
+        autoFocus
       />
       <Button
         disabled={!phone || phone?.length < NUMBER_LENGTH}

@@ -62,6 +62,7 @@ export const EmailStep: React.FC = () => {
         placeholder="scrinity@gmail.com"
         value={email}
         onChangeValue={onChangeInput}
+        autoFocus
       />
       <Button
         disabled={!email.length || isInvalidEmail}

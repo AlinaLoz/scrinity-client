@@ -31,6 +31,7 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "jsx-a11y/anchor-has-content": "off",
+    "jsx-a11y/no-autofocus": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "react/prop-types": 0,
@@ -87,7 +88,8 @@
     "@typescript-eslint/no-unsafe-call": 0,
     "@typescript-eslint/no-unsafe-member-access": 0,
     "@typescript-eslint/no-unsafe-assignment": 0,
-    "@typescript-eslint/unbound-method": 0
+    "@typescript-eslint/unbound-method": 0,
+    "linebreak-style": ["error", "windows"]
   },
   "settings": {
     "import/parsers": {

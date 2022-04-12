@@ -42,7 +42,6 @@ export default class MyDocument extends Document {
           <title>Scrinity</title>
           <link rel="icon" href="/images/scrinity-icon.png" />
           <meta name="yandex-verification" content="57c1eae10847e307" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
         </Head>
         {config.ENVIRONMENT !== ENVIRONMENT.LOCAL && this.getYandexMetrica()}
         <body>
