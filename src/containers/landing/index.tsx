@@ -228,7 +228,7 @@ const LandingPage: React.FC = () => {
             href={UrlHelper.getStaticFile(POLICY)}
             className={styles.alink}
           >
-            Privacy Policy
+            Политика конфиденциальности
           </a>
           <a
             target="_blank"
@@ -236,7 +236,7 @@ const LandingPage: React.FC = () => {
             href={UrlHelper.getStaticFile(TERMS_OF_USE)}
             className={styles.alink}
           >
-            Terms of Conditions
+            Пользовательское соглашение
           </a>
         </div>
         <div className={styles.networks}>

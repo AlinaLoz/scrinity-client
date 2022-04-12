@@ -10,7 +10,7 @@ import { MODAL } from '@constants/modal.constants';
 import { CompanyName } from '@components/company-name';
 import { useRequestNewCode } from '@components/modal/sign-in.modal/sign-in.hooks';
 import { BY_NUMBER_CODE_PLUS, NUMBER_LENGTH } from '@constants/auth.constants';
-import { POLICY } from '@constants/files.constants';
+import { TERMS_OF_USE } from '@constants/files.constants';
 import styles from './request-code.module.scss';
 
 interface IRequestCodeStep {
@@ -60,7 +60,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
         <a
           target="_blank"
           rel="noreferrer nofollow noopener"
-          href={UrlHelper.getStaticFile(POLICY)}
+          href={UrlHelper.getStaticFile(TERMS_OF_USE)}
           className={styles.alink}
         >
           {t('SIGN_IN_REQUEST.POLICY')}
