@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useState } from 'react';
 
 import { IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import { MESSAGE_MAP } from '@constants/message.constants';
 import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
@@ -41,9 +42,11 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
 
   const onNextFormPress = useCallback((data: ISendFeedbackRequest & { files: TFile[] }) => {
     const onSendFeedback = async (email?: string) => {
-      setData(MODAL.NONE, null);
       if (await sendFeedback({ ...data, email })) {
         setReviewStep(REVIEW_STEP.SUCCESS);
+        setData(MODAL.NONE, null);
+      } else {
+        throw MESSAGE_MAP.UNKNOWN_ERROR;
       }
     };
 

@@ -16,11 +16,14 @@ import { ModalContext } from '@contexts/modal.context';
 import { MODAL } from '@constants/modal.constants';
 import { INSTAGRAM_PATH, POLICY, TERMS_OF_USE } from '@constants/files.constants';
 import {
-  DETAIL_1, DETAIL_2, FEATURES, TARIFFS, TEAM,
+  DETAIL_1, DETAIL_2, FEATURES, TARIFFS, TEAM, TEST_MODE,
 } from './data';
 import styles from './landing.module.scss';
 
-const ConnectButton = ({ type = 'blue', className = '' }: { type?: 'blue' | 'white', className?: string }) => {
+const ConnectButton = (
+  { type = 'blue', className = '', text = 'Подключить' }:
+  { type?: 'blue' | 'white', className?: string, text?: string },
+) => {
   const { setModalType } = useContext(ModalContext);
 
   return (
@@ -29,7 +32,7 @@ const ConnectButton = ({ type = 'blue', className = '' }: { type?: 'blue' | 'whi
       className={cn(styles.btn, className)}
       type={type}
     >
-      <span>Подключить</span>
+      <span>{text}</span>
       <ArrowIcon color={type === 'white' ? '#40798C' : 'white'} />
     </Button>
   );
@@ -154,9 +157,15 @@ const LandingPage: React.FC = () => {
       <a className={cn(styles.anchor, styles.tariffsAnchor)} id="tariffs" />
       <div className={styles.tariffs}>
         <h3 className={styles.blockTitle}>Найдите свой тариф</h3>
-        <h5 className={styles.description}>Срок пробного <b>бесплатного</b> периода 7 дней</h5>
+        {TEST_MODE
+          ? (
+            <h5 className={styles.description}>
+              Сейчас идет тестирование, если хотите присоединиться оставьте вашу почту или номер телефон по кнопке ниже
+            </h5>
+          )
+          : (<h5 className={styles.description}>Срок пробного <b>бесплатного</b> периода 7 дней</h5>)}
         <div className={styles.tariffsList}>
-          {TARIFFS.map(({
+          {TEST_MODE ? (<ConnectButton type="blue" text="Попробовать" />) : TARIFFS.map(({
             DESCRIPTION, FEATURES: tariffFeatures, NAME, PRICE,
           }) => (
             <div className={styles.tariff} key={NAME}>
@@ -169,6 +178,7 @@ const LandingPage: React.FC = () => {
               <ConnectButton type="white" />
             </div>
           ))}
+
         </div>
       </div>
       <div className={styles.team}>
@@ -182,39 +192,41 @@ const LandingPage: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className={styles.feedbacks}>
-        {!isMobile ? (
-          <>
-            <div className={styles.content}>
+      {/*
+        <div className={styles.feedbacks}>
+          {!isMobile ? (
+            <>
+              <div className={styles.content}>
+                <h5 className={styles.blockTitle}>Отзывы</h5>
+                <p className={styles.text}>SCRINITY - новый крутой сервис по работе
+                  с обратной связью ваших гостей. Простое решение, которое позволит
+                  бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
+                  вернуть и удержать, повысить лояльность и увеличить рост выручки.
+                </p>
+              </div>
+              <video width="592px" height="373px" className={styles.video} controls>
+                <source src={UrlHelper.getStaticFile('scrinity.mp4')} />
+                <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+                Your browser does not support HTML video.
+              </video>
+            </>
+          ) : (
+            <>
               <h5 className={styles.blockTitle}>Отзывы</h5>
+              <video width="592px" height="373px" className={styles.video} controls>
+                <source src={UrlHelper.getStaticFile('scrinity.mp4')} />
+                <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+                Your browser does not support HTML video.
+              </video>
               <p className={styles.text}>SCRINITY - новый крутой сервис по работе
                 с обратной связью ваших гостей. Простое решение, которое позволит
                 бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
                 вернуть и удержать, повысить лояльность и увеличить рост выручки.
               </p>
-            </div>
-            <video width="592px" height="373px" className={styles.video} controls>
-              <source src={UrlHelper.getStaticFile('scrinity.mp4')} />
-              <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
-              Your browser does not support HTML video.
-            </video>
-          </>
-        ) : (
-          <>
-            <h5 className={styles.blockTitle}>Отзывы</h5>
-            <video width="592px" height="373px" className={styles.video} controls>
-              <source src={UrlHelper.getStaticFile('scrinity.mp4')} />
-              <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
-              Your browser does not support HTML video.
-            </video>
-            <p className={styles.text}>SCRINITY - новый крутой сервис по работе
-              с обратной связью ваших гостей. Простое решение, которое позволит
-              бизнесу решить сразу несколько проблем: узнать и решить проблему Гостя,
-              вернуть и удержать, повысить лояльность и увеличить рост выручки.
-            </p>
-          </>
-        )}
-      </div>
+            </>
+          )}
+        </div>
+      */}
       <a className={cn(styles.anchor, styles.teamAnchor)} id="contacts" />
       <footer className={styles.footer}>
         <div className={styles.titles}>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const TEST_MODE = true;
+
 export const FEATURES = [
   {
     ICON: '/images/icon_1.svg',
