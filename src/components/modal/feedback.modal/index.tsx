@@ -16,17 +16,17 @@ import { PersonIcon } from '@components/icons/person';
 import { EmailIcon } from '@components/icons/email';
 import { FeedbackPhoneIcon } from '@components/icons/feedback-phone';
 import { UrlHelper } from '@helpers/url.helper';
-import { POLICY } from '@constants/files.constants';
+import { TERMS_OF_USE } from '@constants/files.constants';
 import styles from './feedback.module.scss';
 
-const Policy = () => (
+const TermsOfUse = () => (
   <a
     target="_blank"
     rel="noreferrer nofollow noopener"
-    href={UrlHelper.getStaticFile(POLICY)}
+    href={UrlHelper.getStaticFile(TERMS_OF_USE)}
     className={styles.alink}
   >
-    политикой конфиденциальности
+    с пользовательским соглашением
   </a>
 );
 
@@ -109,7 +109,7 @@ export const FeedbackModal: React.FC = () => {
       </Button>
       {error && <div className={styles.error}>{error}</div>}
       <p className={styles.policy}>Нажимая кнопку, Вы даете согласие на
-        обработку персональных данных и соглашаетесь с <Policy />
+        обработку персональных данных и соглашаетесь с <TermsOfUse />
       </p>
     </Modal>
   );

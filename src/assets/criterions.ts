@@ -11,4 +11,12 @@ export const CRITERIONS: Record<string, string> = {
   menu_bad: 'Меню',
   kitchen_bad: 'Кухня',
   additional_bad: 'Дополнительные удобства',
+  service_bad_2: 'Сервис',
+  price_bad: 'Ценовая политика',
+  atmosphere_bad_2: 'Атмосфера',
+  location_bad: 'Расположение',
+  service_good_2: 'Сервис',
+  price_good: 'Ценовая политика',
+  atmosphere_good_2: 'Атмосфера',
+  location_good: 'Расположение',
 };

@@ -12,7 +12,7 @@ import { useConfig } from '@hooks/use-config.hooks';
 import { validateEmail } from '@constants/auth.constants';
 import { getFirstResponseError } from '@helpers/message.helper';
 
-import { POLICY } from '@constants/files.constants';
+import { TERMS_OF_USE } from '@constants/files.constants';
 import styles from './email.module.scss';
 
 export const EmailStep: React.FC = () => {
@@ -78,7 +78,7 @@ export const EmailStep: React.FC = () => {
         <a
           target="_blank"
           rel="noreferrer nofollow noopener"
-          href={UrlHelper.getStaticFile(POLICY)}
+          href={UrlHelper.getStaticFile(TERMS_OF_USE)}
           className={styles.alink}
         >
           {t(`${formType}_SIGN_IN_REQUEST.POLICY`)}
