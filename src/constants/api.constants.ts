@@ -14,3 +14,5 @@ export const CHATS_MESSAGE_API = '/chats/message';
 export const ME_API = '/user';
 
 export const CONFIG_API = '/config';
+
+export const CRITERIONS_API = '/config/criterions';
