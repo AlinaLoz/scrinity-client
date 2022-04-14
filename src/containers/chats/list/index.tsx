@@ -9,7 +9,7 @@ import { timeAgo } from '@utils/time-ago';
 
 import { Touchable } from '@components/touchable';
 import { useMe } from '@hooks/use-me.hooks';
-import { CRITERIONS } from '../../../assets/criterions';
+import { userCriterions } from '@hooks/use-criterions.hooks';
 import styles from './style.module.scss';
 
 interface IListMessagesProps {
@@ -23,6 +23,7 @@ export const ChatsList: React.FC<IListMessagesProps> = ({
   const [, institution] = useInstitution();
   const [isLoading,, items] = useChats();
   const [onOpenChat] = useOpenChat();
+  const [, criterions] = userCriterions();
 
   if (isLoading) {
     return <PageLoader />;
@@ -42,7 +43,7 @@ export const ChatsList: React.FC<IListMessagesProps> = ({
               <p className={styles.message}>{item.message}</p>
               <p className={styles.criterion}>
                 {item.criterion.map((criterion) => (
-                  <Badge key={criterion} pill bg={item.isGood ? 'success' : 'danger'}>{CRITERIONS[criterion]}</Badge>
+                  <Badge key={criterion} pill bg={item.isGood ? 'success' : 'danger'}>{criterions[criterion]}</Badge>
                 ))}
               </p>
             </div>

@@ -12,8 +12,8 @@ import { CloseIcon } from '@components/icons/close';
 import { TFile, useUploadFiles } from '@hooks/use-upload-files';
 
 import { IInstitution, ISendFeedbackRequest } from '@interfaces/companies.interfaces';
+import { userCriterions } from '@hooks/use-criterions.hooks';
 import styles from './form.module.scss';
-import { CRITERIONS } from '../../../assets/criterions';
 
 interface IFormProps {
   onSubmitFormPress: (data: ISendFeedbackRequest & { files: TFile[] }) => void;
@@ -37,6 +37,7 @@ export const Form: React.FC<IFormProps> = ({
     .map(({ key }) => key), [isGoodReview]);
   const [message, setMessage] = useState('');
   const [files, selectFiles, deleteFile] = useUploadFiles();
+  const [, criterions] = userCriterions();
 
   const handleOptionPress = (selectedOption: string) => {
     if (selectedOptions.includes(selectedOption)) {
@@ -70,7 +71,7 @@ export const Form: React.FC<IFormProps> = ({
                 onKeyPress={() => handleOptionPress(option)}
                 onClick={() => handleOptionPress(option)}
               >
-                {CRITERIONS[option]}
+                {criterions[option]}
               </div>
             ))}
             <div className={styles.message}>
