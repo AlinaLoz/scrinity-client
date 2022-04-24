@@ -21,7 +21,6 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
   const { data }: { data?: TModalData<MODAL.SIGN_IN> } = useContext(ModalContext);
   const { t } = useTranslation('common');
   const [phone, setPhone] = useState(BY_NUMBER_CODE_PLUS);
-
   const [isLoading, error,, requestConfirmCode] = useRequestNewCode();
 
   const onNextStepWrapper = useCallback(async () => {
@@ -38,7 +37,7 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
         <img src={UrlHelper.getStaticFile(data.institution.company.image.filename)} alt={data.institution.id} />
       </div>
       <p className={styles.description}>
-        {t('SIGN_IN_REQUEST.DESCRIPTION')}
+        {t('SMS_SIGN_IN_REQUEST.DESCRIPTION')}
       </p>
       <PhoneNumberInput
         value={phone}
@@ -52,22 +51,22 @@ export const RequestCodeStep: React.FC<IRequestCodeStep> = ({ onNext }) => {
         onClick={onNextStepWrapper}
         type="blue"
         isLoading={isLoading}
-      >{t('SIGN_IN_REQUEST.SUBMIT')}
+      >{t('SMS_SIGN_IN_REQUEST.SUBMIT')}
       </Button>
       {error && <p className={styles.error}>{t(`ERRORS.${error}`)}</p>}
       <p className={styles.warning}>
-        {t('SIGN_IN_REQUEST.WARNING')}
+        {t('SMS_SIGN_IN_REQUEST.WARNING')}
         <a
           target="_blank"
           rel="noreferrer nofollow noopener"
           href={UrlHelper.getStaticFile(TERMS_OF_USE)}
           className={styles.alink}
         >
-          {t('SIGN_IN_REQUEST.POLICY')}
+          {t('SMS_SIGN_IN_REQUEST.POLICY')}
         </a>
       </p>
       {data.cb && (
-        <Touchable className={styles.link} onClick={data.cb}>{t('SIGN_IN_REQUEST.LINK')}</Touchable>
+        <Touchable className={styles.link} onClick={data.cb}>{t('SMS_SIGN_IN_REQUEST.LINK')}</Touchable>
       )}
       <CompanyName classNames={styles.companyName} />
     </div>

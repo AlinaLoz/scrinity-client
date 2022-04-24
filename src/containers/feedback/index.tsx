@@ -8,8 +8,8 @@ import { useSendFeedback } from '@containers/feedback/use-feedback.hooks';
 import { TFile } from '@hooks/use-upload-files';
 
 import { useMe } from '@hooks/use-me.hooks';
-import { useConfig } from '@hooks/use-config.hooks';
 import { LINK_CHANNEL } from '@interfaces/config.interfaces';
+
 import { Welcome } from './welcome';
 import { REVIEW_STEP } from './review.constants';
 import { Form } from './form';
@@ -25,7 +25,6 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
   const [isLoading, error, setError, sendFeedback] = useSendFeedback();
   const { setData } = useContext(ModalContext);
   const [userId] = useMe();
-  const [, config] = useConfig();
 
   const onNext = useCallback(() => {
     setReviewStep((prev) => prev + 1);
@@ -51,13 +50,13 @@ export const Feedback: React.FC<IReviewProps> = ({ institution }) => {
     };
 
     (async () => {
-      if (!userId || config?.CHAT_LINK_CHANNEL === LINK_CHANNEL.EMAIL) {
+      if (!userId || institution.linkChannel === LINK_CHANNEL.EMAIL) {
         setData(MODAL.SIGN_IN, { institution, cb: onSendFeedback });
       } else {
         await onSendFeedback();
       }
     })();
-  }, [userId, config]);
+  }, [userId, institution]);
 
   switch (reviewStep) {
     case REVIEW_STEP.WELCOME:

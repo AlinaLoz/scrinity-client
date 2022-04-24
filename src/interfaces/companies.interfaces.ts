@@ -1,4 +1,5 @@
 import { IFile } from '@interfaces/base.interafaces';
+import { LINK_CHANNEL } from '@interfaces/config.interfaces';
 
 interface ICriterion {
   isGood: boolean;
@@ -20,6 +21,7 @@ export interface IInstitution {
   isActive: boolean;
   expiredTime: string;
   criterions: ICriterion[];
+  linkChannel: LINK_CHANNEL;
 }
 
 export type IGetInstitutionAPIResponse = IInstitution;
