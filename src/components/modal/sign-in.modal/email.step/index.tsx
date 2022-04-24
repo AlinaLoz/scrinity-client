@@ -8,20 +8,20 @@ import { Touchable } from '@components/touchable';
 import { MODAL } from '@constants/modal.constants';
 import { CompanyName } from '@components/company-name';
 import { Input } from '@components/input/simple';
-import { useConfig } from '@hooks/use-config.hooks';
 import { validateEmail } from '@constants/auth.constants';
 import { getFirstResponseError } from '@helpers/message.helper';
 
 import { TERMS_OF_USE } from '@constants/files.constants';
+import { LINK_CHANNEL } from '@interfaces/config.interfaces';
+
 import styles from './email.module.scss';
 
 export const EmailStep: React.FC = () => {
   const { data }: { data?: TModalData<MODAL.SIGN_IN> } = useContext(ModalContext);
   const { t } = useTranslation('common');
   const [email, setEmail] = useState('');
-  const [, config] = useConfig();
   const [isInvalidEmail, setIsInvalidEmail] = useState(false);
-  const formType = (config?.CHAT_LINK_CHANNEL || '').toUpperCase();
+  const formType = LINK_CHANNEL.EMAIL.toUpperCase();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const { setModalType } = useContext(ModalContext);
